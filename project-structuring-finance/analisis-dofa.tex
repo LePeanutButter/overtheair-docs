@@ -1,0 +1,352 @@
+\documentclass[12pt,a4paper]{article}
+
+% Paquetes esenciales para tipografía y formato académico
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern} % Tipografía Latin Modern - alta legibilidad
+\usepackage{microtype} % Mejoras tipográficas finas
+\usepackage{geometry} % Control de márgenes
+\usepackage{setspace} % Control de interlineado
+\usepackage{graphicx} % Para imágenes
+\usepackage{float} % Control de posición de figuras
+\usepackage{caption} % Mejoras en captions
+\usepackage{subcaption} % Subfiguras
+\usepackage{booktabs} % Tablas profesionales
+\usepackage{array} % Mejoras en tablas
+\usepackage{multirow} % Celdas múltiples en tablas
+\usepackage{tabularx} % Tablas con ancho ajustable
+\usepackage{longtable} % Tablas multipágina
+\usepackage{adjustbox} % Ajuste de cajas y tablas
+\usepackage{xcolor} % Colores
+\usepackage{hyperref} % Enlaces y PDF interactivo
+\usepackage{tikz} % Para diagramas
+\usepackage{fancyhdr} % Encabezados y pies de página
+\usepackage{enumitem} % Listas mejoradas
+\usepackage{titlesec} % Títulos personalizados
+\usetikzlibrary{matrix, positioning, arrows.meta}
+
+% Configuración de márgenes optimizada para formato académico
+\geometry{
+    a4paper,
+    left=2.5cm,      % Margen izquierdo estándar académico
+    right=2.5cm,     % Margen derecho
+    top=2.5cm,       % Margen superior
+    bottom=2.5cm,    % Margen inferior
+    headheight=15pt,
+    headsep=20pt,
+    footskip=30pt
+}
+
+% Configuración de interlineado para mejor legibilidad
+\renewcommand{\baselinestretch}{1.3} % 1.3 de interlineado (estándar académico)
+
+% Configuración de colores para alto contraste
+\definecolor{darkblue}{RGB}{0,51,102}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{fortaleza}{RGB}{76,175,80}
+\definecolor{oportunidad}{RGB}{33,150,243}
+\definecolor{debilidad}{RGB}{244,67,54}
+\definecolor{amenaza}{RGB}{255,152,0}
+
+% Configuración de hyperref para accesibilidad
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    filecolor=darkblue,
+    urlcolor=darkblue,
+    citecolor=darkblue,
+    bookmarks=true,
+    bookmarksopen=true,
+    bookmarksnumbered=true,
+    pdfstartview=FitH
+}
+
+% Configuración de fuentes y tamaños
+\setlength{\parindent}{0pt} % Sin sangría
+\setlength{\parskip}{8pt} % Espacio entre párrafos
+
+% Configuración de títulos estilo académico
+\titleformat{\section}{\Large\bfseries\scshape}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+% Espaciado entre secciones
+\titlespacing*{\section}{0pt}{20pt}{10pt}
+\titlespacing*{\subsection}{0pt}{15pt}{8pt}
+\titlespacing*{\subsubsection}{0pt}{12pt}{6pt}
+
+% Configuración de encabezado y pie de página
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textsc{EPRO Grupo 1}}
+\fancyhead[R]{\small\textsc{Universidad Escuela Colombiana de Ingeniería}}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Comandos personalizados para consistencia
+\newcommand{\sectiontitle}[1]{\section{#1}}
+\newcommand{\subsectiontitle}[1]{\subsection{#1}}
+\newcommand{\subsubsectiontitle}[1]{\subsubsection{#1}}
+\newcommand{\tablecaption}[1]{\caption{#1}}
+
+% Configuración para tablas
+\renewcommand{\arraystretch}{1.2} % Espacio en celdas de tabla
+\setlength{\tabcolsep}{8pt} % Espacio entre columnas
+
+% Configuración para figuras
+\captionsetup[figure]{font=small,labelfont=bf}
+\captionsetup[table]{font=small,labelfont=bf}
+
+% Configuración de listas
+\setlist[itemize]{leftmargin=*,itemsep=5pt,topsep=5pt}
+\setlist[enumerate]{leftmargin=*,itemsep=5pt,topsep=5pt}
+
+% Comando para tablas anchas
+\newcommand{\adjusttable}[1]{%
+  \begin{adjustbox}{width=\textwidth,center}
+    #1
+  \end{adjustbox}
+}
+
+% Información del documento
+\title{\textbf{MATRIZ DOFA DEL PROYECTO:}\\
+MONTAJE DE UNA EMPRESA DE RESERVAS CON PLANIFICACIÓN DE VIAJE, A\\
+TRAVÉS DE UNA APLICACIÓN EN COLOMBIA}
+\author{EPRO Grupo 1\\
+    \small Santiago Botero García\\
+    \small Juana Lozano Chaves\\
+    \small Juan Pablo Salamanca Mojica\\
+    \small Sofia Velandia Cifuentes\\
+    \small Laura Alejandra Venegas Piraban\\
+    \vspace{0.5cm}
+    \small Profesor: Daniel Salazar Ferro}
+\date{BOGOTÁ, COLOMBIA}
+
+\begin{document}
+
+% Página de título
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    
+    {\Large\textbf{UNIVERSIDAD ESCUELA COLOMBIANA DE INGENIERÍA JULIO GARAVITO}}\\[1cm]
+    
+    {\Large\textbf{MATRIZ DOFA DEL PROYECTO:}}\\[0.5cm]
+    {\Large MONTAJE DE UNA EMPRESA DE RESERVAS CON PLANIFICACIÓN DE VIAJE, A}\\[0.3cm]
+    {\Large TRAVÉS DE UNA APLICACIÓN EN COLOMBIA}\\[2cm]
+    
+    {\large\textbf{EPRO GRUPO 1}}\\[1.5cm]
+    
+    \textbf{Estudiantes:}\\[0.5cm]
+    JUAN PABLO SALAMANCA MOJICA\\
+    JUANA LOZANO CHAVES\\
+    LAURA ALEJANDRA VENEGAS\\
+    SANTIAGO BOTERO GARCÍA\\
+    SOFÍA VELANDIA CIFUENTES\\[1.5cm]
+    
+    \textbf{Profesor:}\\[0.5cm]
+    Daniel Salazar Ferro\\[2cm]
+    
+    \textbf{BOGOTÁ, COLOMBIA}
+    
+    \vfill
+\end{titlepage}
+
+% Tabla de contenidos
+\tableofcontents
+\newpage
+
+% Contenido principal
+\sectiontitle{MATRIZ DOFA}
+
+\begin{table}[H]
+\centering
+\tiny
+\begin{tabular}{|p{2.8cm}|p{4.2cm}|p{4.2cm}|}
+\hline
+\textbf{Factores Internos/Externos} & \textbf{OPORTUNIDADES (O)} & \textbf{AMENAZAS (A)} \\
+\hline
+\textbf{FORTALEZAS (F)} & 
+\textbf{Estrategias FO} & 
+\textbf{Estrategias FA} \\
+1. App única (reservas + planificación + red social) & 
+\textbf{P1 (F1O1,2,8):} Montaje de una empresa de reservas con planificación de viaje y conexión entre viajeros mediante app & 
+\textbf{P1 (A7,9):} Montaje de la app como alternativa a OTA's y plataformas informales \\
+2. Seguridad y protección de datos & 
+\textbf{P2 (F1O6):} Implementación de un portafolio de destinos top en Colombia & 
+\textbf{P2 (F3A2,7):} Fortalecer cumplimiento normativo y formalidad para generar confianza \\
+3. Enfoque en destinos emergentes & 
+\textbf{P3 (F2O3):} Implementación de sistema de pagos digitales optimizado & 
+\textbf{P3 (F2A7,9):} Ofrecer acompañamiento local como valor diferencial frente a plataformas globales \\
+& 
+\textbf{P1 adicional:} Uso de incentivos del MinCIT para el desarrollo del producto & 
+\\
+\hline
+\textbf{DEBILIDADES (D)} & 
+\textbf{Estrategias DO} & 
+\textbf{Estrategias DA} \\
+1. Recursos limitados & 
+\textbf{P1:} Uso de incentivos gubernamentales para compensar recursos limitados & 
+\textbf{P1 (A2,7,9D2,4,5):} Estrategias para posicionamiento de marca y generación de confianza \\
+2. Marca sin reconocimiento & 
+\textbf{P2 (D2O4):} Campaña publicitaria en aeropuertos con destinos top & 
+\textbf{P2 (A1,5,6D1,5):} Implementación de trabajo remoto, software en la nube y contratación por servicios para reducir costos \\
+3. Alto mantenimiento & 
+\textbf{P3:} Aprovechar la digitalización del turismo para posicionar la marca & 
+\textbf{P3 (A3,4,10D3,5):} Desarrollo de app funcional sin conexión (mapas, tiquetes, datos) \\
+4. Poca experiencia & 
+ & 
+\\
+\hline
+\end{tabular}
+\caption{Matriz DOFA del proyecto de turismo digital}
+\end{table}
+
+\sectiontitle{ANÁLISIS DETALLADO DE FACTORES}
+
+\subsectiontitle{Fortalezas (Internas)}
+
+\begin{enumerate}
+    \item \textbf{Única aplicación en el mercado local que:}
+    \begin{itemize}
+        \item Integra reservas, planificación algorítmica y red social de viajeros.
+        \item Reduce dependencia de intermediarios y fortalece el turismo nacional.
+        \item Integra de múltiples actores (hoteles, guías, transporte).
+    \end{itemize}
+    \item \textbf{Protección de datos y seguridad ya integrados.}
+    \item \textbf{Desarrollo en destinos emergentes.}
+\end{enumerate}
+
+\subsectiontitle{Debilidades}
+
+\begin{enumerate}
+    \item \textbf{Baja disponibilidad de recursos}
+    \item \textbf{Marca nueva sin reconocimiento.}
+    \item \textbf{Necesidad de mantenimiento constante.}
+    \item \textbf{Poca experiencia en el sector empresarial y turismo.}
+\end{enumerate}
+
+\subsectiontitle{Oportunidades}
+
+\textbf{Entorno PESTA (Cifras a 2026)}
+
+\begin{enumerate}
+    \item \textbf{(P) Político:} El Gobierno Nacional proyecta un cierre de 2025 con 21,7 millones de viajeros (MinCIT) (Eje de transición económica)
+    \item \textbf{(E) Económico:} Crecimiento de un 6,4\% en reservas aéreas internacionales a Colombia en 2026.
+    \item \textbf{(S) Social:} El comercio electrónico en Colombia registró 684 millones de transacciones en 2025 (crecimiento del 19,9\%).
+    \item \textbf{(T) Tecnológico:} Mayor conectividad aérea en aeropuertos secundarios: Santa Marta (+11,9\%) y Medellín (+5,6\%), facilitando el acceso a destinos emergentes.
+    \item \textbf{(A) Ambiental:} La demanda de destinos con baja huella de carbono aumentó al 11,5\% en zonas rurales.
+\end{enumerate}
+
+\textbf{Sector PORTER}
+
+\begin{enumerate}
+    \setcounter{enumi}{5}
+    \item \textbf{(RC) Rivalidad Competitiva:} Chocó, La Guajira y Vichada son los destinos con mayor crecimiento de visitantes extranjeros (+4,3\%).
+    \item \textbf{(NP) Nuevos Participantes:} El 30,5\% de la población está en situación de vulnerabilidad, lo que permite integrar a pequeños prestadores locales a la cadena de valor digital.
+    \item \textbf{Digitalización de la cadena turística tradicional.}
+\end{enumerate}
+
+\subsectiontitle{Amenazas}
+
+\textbf{Entorno PESTA:}
+
+\begin{enumerate}
+    \item \textbf{(E) Económico:} El mayor gasto diario en Bogotá y Antioquia, más aranceles e impuestos, encarece el destino y limita a la clase media.
+    \item \textbf{(S) Social:} Persiste desconfianza en pagos digitales; violencia y orden público afectan la intención de viaje.
+    \item \textbf{(T) Tecnológico:} Limitada tecnología en el ``último kilómetro'' dificulta reservas, pagos y gestión en destinos de naturaleza.
+    \item \textbf{(A) Ambiental:} Cambio climático y frentes de frío afectan vías al Pacífico y Amazonía, generando cierres y cancelaciones.
+    \item \textbf{(E) Económico:} La volatilidad del dólar eleva costos operativos y reduce márgenes del sector turístico.
+    \item \textbf{(P) Político:} Incertidumbre política y elecciones frenan inversión y consumo en turismo.
+\end{enumerate}
+
+\textbf{Sector PORTER:}
+
+\begin{enumerate}
+    \setcounter{enumi}{6}
+    \item \textbf{(RC) Rivalidad Competitiva:} OTA's como Booking.com y Airbnb dominan el mercado y presionan comisiones.
+    \item \textbf{(NC) Negociación con Clientes:} Usuarios comparan precios en tiempo real, aumentando sensibilidad y presión sobre tarifas.
+    \item \textbf{(APS) Amenaza de Productos Sustitutos:} Instagram y TikTok facilitan reservas directas, elevando competencia informal.
+    \item \textbf{(T) Tecnológico:} Infraestructura deficiente en vías y servicios limita competitividad y experiencia turística.
+\end{enumerate}
+
+\sectiontitle{ESTRATEGIAS DEFINIDAS}
+
+\subsectiontitle{Estrategias de Desarrollo del Producto}
+
+\begin{enumerate}
+    \item \textbf{P1: Montaje de una empresa de reservas con planificación de viaje y conexión entre viajeros a través de una app en Colombia.}
+    \begin{itemize}
+        \item Aprovecha fortalezas únicas de integración (F1O1,2,8)
+        \item Responde a amenazas de competencia global (A7;9)
+        \item Mitiga debilidades de experiencia mediante tecnología (A2;7;9D2;4;5)
+    \end{itemize}
+    
+    \item \textbf{P2: Fortalecer el cumplimiento normativo y formalidad para aumentar la confianza del consumidor (23,8\%) y diferenciarse de plataformas globales.}
+    \begin{itemize}
+        \item Capitaliza fortaleza de seguridad integrada (F3A2;7)
+        \item Responde a desconfianza en pagos digitales (A2;7)
+    \end{itemize}
+    
+    \item \textbf{P3: Ofrecer conexión humana y acompañamiento local como valor diferencial frente a OTA's y reservas informales en redes sociales.}
+    \begin{itemize}
+        \item Aprovecha fortaleza de seguridad (F2A7;9)
+        \item Diferencia de competencia informal (A7;9)
+    \end{itemize}
+\end{enumerate}
+
+\subsectiontitle{Estrategias de Desarrollo de Mercado}
+
+\begin{enumerate}
+    \setcounter{enumi}{3}
+    \item \textbf{P2: Implementación de un portafolio de destinos top en Colombia.}
+    \begin{itemize}
+        \item Aprovecha fortaleza de integración múltiple (F1O6)
+        \item Responde a crecimiento en destinos emergentes
+    \end{itemize}
+\end{enumerate}
+
+\subsectiontitle{Estrategias de Penetración de Mercado}
+
+\begin{enumerate}
+    \setcounter{enumi}{4}
+    \item \textbf{P2: Montaje de una campaña publicitaria a través de vallas electrónicas de destino top en aeropuertos de Colombia.}
+    \begin{itemize}
+        \item Mitiga debilidad de marca nueva (D2O4)
+        \item Aprovecha mayor conectividad aérea (O4)
+    \end{itemize}
+    
+    \item \textbf{P2: Implementación de una empresa de turismo digital con trabajo remoto, uso de software en la nube y contratación por servicio en Colombia.}
+    \begin{itemize}
+        \item Mitiga debilidad de recursos limitados (A1;5;6D1;5)
+        \item Responde a volatilidad económica y política
+    \end{itemize}
+    
+    \item \textbf{P3: Desarrollo de una aplicación de reservas que permita guardar tiquetes, mapas y datos del viaje sin conexión a internet en Colombia.}
+    \begin{itemize}
+        \item Mitiga debilidad de experiencia (A3;4;10D3;5)
+        \item Responde a limitaciones tecnológicas en último kilómetro
+    \end{itemize}
+\end{enumerate}
+
+\sectiontitle{HOJA DE RUTA}
+
+Primero se implementará una \textbf{Estrategia de desarrollo del Producto}, con el proyecto: Montaje de una empresa de reservas con planificación de viaje y conexión entre viajeros a través de una app en Colombia. 
+
+Posteriormente se implementará una \textbf{Estrategia de Desarrollo del Mercado}, con el proyecto: Implementación de un portafolio de destinos top en Colombia. 
+
+Finalmente, se implementará una \textbf{Estrategia de Penetración del Mercado}, con el proyecto: Montaje de una campaña publicitaria a través de vallas electrónicas de destino top en aeropuertos de Colombia.
+
+\sectiontitle{REFERENCIAS}
+
+\begin{itemize}
+    \item MinCIT (Ministerio de Comercio, Industria y Turismo) - Informes de comportamiento turístico y Plan Sectorial de Turismo.
+    \item ANATO (Asociación Colombiana de Agencias de Viajes y Turismo) y ForwardKeys (analítica de datos aéreos).
+    \item Cámara Colombiana de Comercio Electrónico (CCCE) - Informe Anual 2025.
+    \item DANE (Departamento Administrativo Nacional de Estadística) - Encuesta Nacional de Calidad de Vida.
+    \item Fedesarrollo - Encuesta de Opinión del Consumidor (Enero 2026).
+    \item Aeronáutica Civil de Colombia (Aerocivil) - Estadísticas de transporte aéreo.
+\end{itemize}
+
+\end{document}

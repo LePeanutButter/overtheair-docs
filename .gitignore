@@ -1,0 +1,91 @@
+# === Archivos auxiliares comunes ===
+
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+*.lb
+
+# === Bibliografía ===
+
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+
+# === Índices y glosarios ===
+
+*.idx
+*.ilg
+*.ind
+*.ist
+*.glg
+*.glo
+*.gls
+*.glsdefs
+
+# === Referencias cruzadas ===
+
+*.acn
+*.acr
+*.alg
+
+# === Compilación y caché ===
+
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.nav
+*.snm
+*.vrb
+
+# === Archivos temporales ===
+
+*.tmp
+*.bak
+*.swp
+*~
+
+# === PDF generado (opcional) ===
+
+# *.pdf
+
+# === Directorios comunes ===
+
+_build/
+build/
+dist/
+out/
+
+# === Archivos específicos de editores ===
+
+# TeXstudio
+
+*.txsprofile
+
+# TeXworks
+
+*.texpadtmp
+
+# VS Code
+
+.vscode/
+
+# Overleaf sync
+
+*.synctex.gz(busy)
+
+# macOS
+
+.DS_Store
+
+# Windows
+
+Thumbs.db

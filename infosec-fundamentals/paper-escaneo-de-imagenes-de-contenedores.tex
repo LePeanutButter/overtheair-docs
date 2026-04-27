@@ -1,0 +1,200 @@
+\documentclass[journal]{IEEEtran}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{url}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\markboth{Escuela Colombiana de Ingeniería Julio Garavito. Botero, Perilla Rodríguez. Escaneo de Contenedores en CI/CD.}{}
+\pagestyle{headings}
+
+\begin{document}
+
+\title{Escaneo de imágenes de contenedores en el pipeline}
+
+\author{
+\IEEEauthorblockN{Botero, Santiago. Perilla, Laura Natalia. Rodríguez, Daniel Esteban}
+
+\IEEEauthorblockA{Escuela Colombiana de Ingeniería Julio Garavito\\
+\{santiago.botero-g,laura.perilla-q,daniel.rsuarez\}@mail.escuelaing.edu.co}
+}
+
+\maketitle
+
+\begin{abstract}
+Este documento analiza la evolución reciente del escaneo de imágenes de contenedores como control de seguridad dentro del pipeline CI/CD en entornos DevSecOps. Se examinan las metodologías de detección de vulnerabilidades aplicadas a capas de contenedor, las herramientas especializadas más relevantes del ecosistema industrial, y su integración en flujos de entrega continua. Asimismo, se discuten los principales retos técnicos que enfrenta esta práctica y las mejores estrategias para maximizar su efectividad. El estudio propone un enfoque integral que combina automatización, priorización contextual de riesgos y validación continua dentro de una arquitectura DevSecOps resiliente.
+\end{abstract}
+
+\begin{IEEEkeywords}
+DevSecOps, Arquitectura de Software Segura, Seguridad en Contenedores, Container Image Scanning, SBOM, CI/CD, Kubernetes, Red Team, Blue Team, NIST SSDF, OWASP, ISO/IEC 27001, MITRE ATT\&CK, SLSA, Vulnerability Management
+\end{IEEEkeywords}
+
+\section{Introducción}
+
+El escaneo de imágenes de contenedores constituye un componente crítico dentro del pipeline de desarrollo DevSecOps, ya que permite identificar vulnerabilidades conocidas, paquetes desactualizados y configuraciones de capas inseguras antes del despliegue en entornos productivos. En arquitecturas cloud-native, donde Docker y Kubernetes se emplean ampliamente para la orquestación de microservicios, las imágenes de contenedores representan un vector significativo de riesgo si no son analizadas sistemáticamente en cada etapa del ciclo de vida del software \cite{ref4}.
+
+La evolución del enfoque DevSecOps ha impulsado la integración de controles automáticos de escaneo en los pipelines CI/CD \cite{ref2}. Sin embargo, estudios recientes evidencian brechas en los mecanismos de correlación de vulnerabilidades que pueden afectar la precisión y confiabilidad de la gestión de riesgos en contenedores \cite{ref1,ref3}. En este contexto, el escaneo de imágenes no solo cumple una función técnica, sino también estratégica, dentro de una postura de seguridad continua.
+
+\section{Metodologías de Escaneo en el Pipeline DevSecOps}
+
+El escaneo de imágenes de contenedores dentro del pipeline CI/CD se basa en metodologías automatizadas que analizan las capas del contenedor, las dependencias del sistema operativo base y los paquetes incluidos en tiempo de construcción (build time). Estas metodologías pueden clasificarse en tres categorías principales:
+
+\begin{enumerate}
+    \item \textbf{Escaneo estático de vulnerabilidades (Vulnerability Scanning):} analiza bases de datos CVE y compara versiones de paquetes con vulnerabilidades conocidas.
+
+    \item \textbf{Análisis basado en SBOM:} genera un inventario detallado de componentes y lo correlaciona con fuentes de inteligencia de amenazas \cite{ref1,ref3}
+
+    \item \textbf{Evaluación de políticas y cumplimiento:} valida configuraciones inseguras y prácticas de hardening antes de permitir el despliegue en registros o clústeres.
+\end{enumerate}
+
+La integración típica en un pipeline DevSecOps implica la ejecución del escaneo tras la construcción de la imagen (\textit{build}) y antes de su publicación en el registry. Si se detectan vulnerabilidades críticas, el pipeline puede bloquear automáticamente la entrega (\textit{fail build}), aplicando el principio de seguridad como código \cite{ref2}. Esta ubicación estratégica en el pipeline garantiza que ninguna imagen con vulnerabilidades conocidas de alta severidad alcance entornos de staging o producción sin revisión explícita.
+
+\section{Herramientas de Escaneo en el Pipeline DevSecOps}
+
+El ecosistema industrial ha desarrollado múltiples herramientas especializadas en el escaneo de imágenes de contenedores, tanto de código abierto como comerciales. Entre las más relevantes se encuentran Trivy, Grype, Clair, Anchore, Snyk, Prisma Cloud y Aqua Security, destacadas en análisis comparativos recientes \cite{ref4,ref5}.
+
+Estas herramientas ofrecen capacidades como:
+
+\begin{itemize}
+    \item Detección de vulnerabilidades en capas base (Alpine, Debian, Ubuntu).
+
+    \item Escaneo de dependencias de aplicaciones (Node.js, Python, Java, Go).
+
+    \item Generación automática de SBOM en formatos estandarizados, como subproducto del escaneo.
+
+    \item Integración nativa con GitHub Actions, GitLab CI, Azure DevOps y Jenkins.
+
+\end{itemize}
+
+Por ejemplo, plataformas comerciales como Snyk integran análisis de vulnerabilidades de contenedores y cargas de trabajo Kubernetes dentro de un enfoque unificado de gestión de riesgo \cite{ref6}. Asimismo, reportes industriales de 2025 resaltan la importancia de herramientas capaces de correlacionar vulnerabilidades con el contexto de ejecución, reduciendo falsos positivos y priorizando riesgos reales \cite{ref5}.
+
+La tendencia actual apunta hacia la consolidación de plataformas CNAPP (Cloud-Native Application Protection Platforms), que combinan escaneo de imágenes y monitoreo en runtime \cite{ref4,ref5}.
+
+\section{Mejores Prácticas en el Escaneo de Imágenes}
+
+Para maximizar la efectividad del escaneo de imágenes en el pipeline DevSecOps, se recomiendan las siguientes prácticas:
+
+\begin{enumerate}
+    \item Integrar el escaneo en cada commit o pull request, evitando análisis únicamente previos al despliegue.
+
+    \item Aplicar políticas de bloqueo automático ante vulnerabilidades críticas.
+
+    \item Utilizar imágenes base mínimas y actualizadas para reducir superficie de ataque.
+
+    \item Correlacionar resultados del escaneo con estándares de seguridad y controles normativos \cite{ref1}.
+\end{enumerate}
+
+La literatura reciente enfatiza que la gestión efectiva de vulnerabilidades requiere no solo detectar fallos, sino también priorizarlos según contexto operativo y criticidad del activo \cite{ref3}. 
+
+\section{Ejemplo Práctico: Implementación de Pipeline CI/CD con Análisis de Vulnerabilidades}
+
+Como parte de un ejercicio práctico de integración de controles de seguridad en el pipeline DevSecOps, se seleccionó un proyecto de desarrollo de software concurrente para implementar análisis y escaneo de vulnerabilidades de imágenes de contenedores en sus pipelines de CI/CD. El proyecto en cuestión, denominado SmarTrip, consiste en una plataforma social de turismo inteligente con arquitectura microservicios basada en contenedores.
+
+Para este ejercicio, se configuraron pipelines automatizados en GitHub Actions para los cuatro repositorios principales del proyecto, incorporando análisis de vulnerabilidades como puerta de calidad (quality gate) obligatoria antes del despliegue. La implementación se estructuró de la siguiente manera:
+
+\subsection{Configuración de Pipelines de Seguridad}
+
+Se establecieron pipelines específicos en cada repositorio que ejecutan múltiples herramientas de escaneo en paralelo:
+
+\begin{itemize}
+    \item \textbf{Trivy:} Escaneo completo de vulnerabilidades en imágenes de contenedor
+    \item \textbf{Grype:} Análisis de vulnerabilidades en capas del sistema operativo
+    \item \textbf{CodeQL:} Análisis estático de código fuente para detección de vulnerabilidades
+    \item \textbf{SBOM Generation:} Generación automática de Software Bill of Materials
+\end{itemize}
+
+\subsection{Umbrales de Seguridad y Políticas de Bloqueo}
+
+Los pipelines implementaron políticas de seguridad basadas en umbrales de severidad según el estándar CVSS (Common Vulnerability Scoring System):
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Severidad} & \textbf{Puntuación CVSS} & \textbf{Acción en Pipeline} \\
+\hline
+Crítica & 9.0-10.0 & Bloqueo inmediato del pipeline \\
+\hline
+Alta & 7.0-8.9 & Bloqueo con excepción documentada \\
+\hline
+Media & 4.0-6.9 & Advertencia y registro en dashboard \\
+\hline
+Baja & 0.1-3.9 & Registro informativo únicamente \\
+\hline
+\end{tabular}
+\caption{Umbrales de seguridad implementados en el pipeline CI/CD}
+\label{tab:umbrales}
+\end{table}
+
+\subsection{Integración con GitHub Actions}
+
+La configuración del pipeline en GitHub Actions sigue el siguiente flujo:
+
+\begin{enumerate}
+    \item \textbf{Trigger:} Se activa en cada push a ramas principales y pull requests
+    \item \textbf{Build Phase:} Construcción de imágenes Docker para cada microservicio
+    \item \textbf{Security Scan:} Ejecución paralela de herramientas de análisis
+    \item \textbf{Policy Evaluation:} Evaluación de resultados contra umbrales configurados
+    \item \textbf{Quality Gate:} Aprobación o bloqueo basado en políticas de seguridad
+    \item \textbf{Registry Push:} Publicación de imágenes solo si pasan los controles de seguridad
+\end{enumerate}
+
+\section{Retos Actuales}
+
+A pesar de la madurez creciente de las herramientas, el escaneo de imágenes enfrenta desafíos significativos. Entre los más relevantes se encuentran:
+
+\begin{itemize}
+    \item Falsos positivos y discrepancias entre bases de datos de vulnerabilidades \cite{ref1, ref3}.
+
+    \item Dificultad para correlacionar vulnerabilidades con exposición real en tiempo de ejecución.
+\end{itemize}
+
+Estos retos evidencian que el escaneo de imágenes debe integrarse dentro de un enfoque más amplio de seguridad continua, combinando análisis estático con monitoreo dinámico y control de políticas.
+
+\section{Conclusiones}
+
+El escaneo de imágenes de contenedores es un pilar fundamental del pipeline DevSecOps moderno, ya que permite prevenir la propagación de vulnerabilidades en entornos cloud-native antes de su despliegue. Su posición estratégica al final del proceso de construcción lo convierte en una barrera de verificación sobre el artefacto real que será ejecutado, complementando los controles aplicados en etapas anteriores del ciclo de vida del software.
+
+Las herramientas actuales ofrecen integración avanzada con CI/CD y capacidades de análisis contextual, pero su efectividad depende de una estrategia integral que combine automatización, políticas de seguridad como código y validación continua \cite{ref2, ref5, ref6}. En consecuencia, el escaneo de imágenes no debe considerarse una actividad aislada, sino un mecanismo estratégico dentro de una arquitectura DevSecOps segura y resiliente.
+
+\begin{thebibliography}{00}
+
+\bibitem{ref1}
+C. Wang et al., “A Large Scale Empirical Analysis on the Adherence Gap between Standards and Tools in SBOM,” ACM Transactions on Software Engineering and Methodology, Jan. 2026, doi: 10.1145/3788692.
+
+\bibitem{ref2}
+J. Perez, “DevSecOps Empresarial: del SDLC Seguro a la Seguridad de la Cadena de Suministro (SLSA, SBOM, IaC),” Quantum Secure Labs, Nov. 10, 2025. https://qsecure.es/devsecops-empresas-sdlc-slsa-sbom-iac-soc-xdr/
+
+\bibitem{ref3}
+L. Zhou, M. Dacier, and C. Konstantinou, “A reality check on SBOM-based vulnerability management: an empirical study and a path forward,” arXiv.org, Nov. 25, 2025. https://arxiv.org/abs/2511.20313
+
+\bibitem{ref4}
+R. Camerlynck, “Top 13 container scanning tools in 2026,” Aikido Security, Jul. 18, 2025. https://es.aikido.dev/blog/top-container-scanning-tools
+
+\bibitem{ref5}
+SentinelOne, “10 herramientas de análisis de vulnerabilidades de contenedores en 2025,” SentinelOne, Oct. 23, 2025. https://www.sentinelone.com/es/cybersecurity-101/cybersecurity/container-vulnerability-scanning-tools/
+
+\bibitem{ref6}
+Snyk, “Gestión de vulnerabilidades de contenedores y seguridad para cargas de trabajo en Kubernetes | Snyk,” Snyk. https://snyk.io/es/product/container-vulnerability-management/
+
+\end{thebibliography}
+
+\section*{Autores}
+
+Santiago Botero es estudiante de Ingeniería de Sistemas en la Escuela Colombiana de Ingeniería Julio Garavito. Sus áreas de interés incluyen arquitectura de software, sistemas distribuidos, DevSecOps y el desarrollo de soluciones tecnológicas orientadas a la optimización y seguridad de procesos empresariales.
+
+Natalia Perilla es estudiante de octavo semestre de Ingeniería de Sistemas. Sus intereses se enfocan en el desarrollo de software, la ciberseguridad y la computación en la nube, con conocimientos en plataformas como Microsoft Azure y AWS. Actualmente fortalece competencias en diseño e implementación de soluciones tecnológicas orientadas a necesidades reales.
+
+Daniel Rodrigues estudiante de octavo semestre de Ingeniería de Sistemas en la Escuela Colombiana de Ingeniería Julio Garavito. Tiene interés en el área de ciberseguridad, especialmente en la protección de la información y el análisis de vulnerabilidades. Se destaca por su enfoque analítico y su capacidad para la resolución estructurada de problemas, aplicando pensamiento lógico y buenas prácticas en el desarrollo de soluciones tecnológicas.
+
+\end{document}

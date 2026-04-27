@@ -1,0 +1,327 @@
+\documentclass[12pt,a4paper]{article}
+
+% Paquetes esenciales para tipografía y formato académico
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern} % Tipografía Latin Modern - alta legibilidad
+\usepackage{microtype} % Mejoras tipográficas finas
+\usepackage{geometry} % Control de márgenes
+\usepackage{setspace} % Control de interlineado
+\usepackage{graphicx} % Para imágenes
+\usepackage{float} % Control de posición de figuras
+\usepackage{caption} % Mejoras en captions
+\usepackage{subcaption} % Subfiguras
+\usepackage{booktabs} % Tablas profesionales
+\usepackage{array} % Mejoras en tablas
+\usepackage{multirow} % Celdas múltiples en tablas
+\usepackage{tabularx} % Tablas con ancho ajustable
+\usepackage{longtable} % Tablas multipágina
+\usepackage{adjustbox} % Ajuste de cajas y tablas
+\usepackage{xcolor} % Colores
+\usepackage{hyperref} % Enlaces y PDF interactivo
+\usepackage{fancyhdr} % Encabezados y pies de página
+\usepackage{enumitem} % Listas mejoradas
+\usepackage{titlesec} % Títulos personalizados
+
+% Configuración de márgenes optimizada para formato académico
+\geometry{
+    a4paper,
+    left=2.5cm,      % Margen izquierdo estándar académico
+    right=2.5cm,     % Margen derecho
+    top=2.5cm,       % Margen superior
+    bottom=2.5cm,    % Margen inferior
+    headheight=15pt,
+    headsep=20pt,
+    footskip=30pt
+}
+
+% Configuración de interlineado para mejor legibilidad
+\renewcommand{\baselinestretch}{1.3} % 1.3 de interlineado (estándar académico)
+
+% Configuración de colores para alto contraste
+\definecolor{darkblue}{RGB}{0,51,102}
+\definecolor{lightgray}{RGB}{245,245,245}
+
+% Configuración de hyperref para accesibilidad
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    filecolor=darkblue,
+    urlcolor=darkblue,
+    citecolor=darkblue,
+    bookmarks=true,
+    bookmarksopen=true,
+    bookmarksnumbered=true,
+    pdfstartview=FitH
+}
+
+% Configuración de fuentes y tamaños
+\setlength{\parindent}{0pt} % Sin sangría
+\setlength{\parskip}{8pt} % Espacio entre párrafos
+
+% Configuración de títulos estilo académico
+\titleformat{\section}{\Large\bfseries\scshape}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+% Espaciado entre secciones
+\titlespacing*{\section}{0pt}{20pt}{10pt}
+\titlespacing*{\subsection}{0pt}{15pt}{8pt}
+\titlespacing*{\subsubsection}{0pt}{12pt}{6pt}
+
+% Configuración de encabezado y pie de página
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textsc{EPRO Grupo 1}}
+\fancyhead[R]{\small\textsc{Universidad Escuela Colombiana de Ingeniería}}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Comandos personalizados para consistencia
+\newcommand{\sectiontitle}[1]{\section{#1}}
+\newcommand{\subsectiontitle}[1]{\subsection{#1}}
+\newcommand{\subsubsectiontitle}[1]{\subsubsection{#1}}
+\newcommand{\tablecaption}[1]{\caption{#1}}
+
+% Configuración para tablas
+\renewcommand{\arraystretch}{1.2} % Espacio en celdas de tabla
+\setlength{\tabcolsep}{8pt} % Espacio entre columnas
+
+% Configuración para figuras
+\captionsetup[figure]{font=small,labelfont=bf}
+\captionsetup[table]{font=small,labelfont=bf}
+
+% Configuración de listas
+\setlist[itemize]{leftmargin=*,itemsep=5pt,topsep=5pt}
+\setlist[enumerate]{leftmargin=*,itemsep=5pt,topsep=5pt}
+
+% Comando para tablas anchas
+\newcommand{\adjusttable}[1]{%
+  \begin{adjustbox}{width=\textwidth,center}
+    #1
+  \end{adjustbox}
+}
+
+% Información del documento
+\title{\textbf{ESTUDIOS DE MERCADOS:}\\
+MONTAJE DE UNA EMPRESA DE RESERVAS CON PLANIFICACIÓN DE VIAJE, A\\
+TRAVÉS DE UNA APLICACIÓN EN COLOMBIA}
+\author{EPRO Grupo 1\\
+    \small Santiago Botero García\\
+    \small Juana Lozano Chaves\\
+    \small Juan Pablo Salamanca Mojica\\
+    \small Sofia Velandia Cifuentes\\
+    \small Laura Alejandra Venegas Piraban\\
+    \vspace{0.5cm}
+    \small Profesor: Daniel Salazar Ferro}
+\date{BOGOTÁ, COLOMBIA}
+
+\begin{document}
+
+% Página de título
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    
+    {\Large\textbf{UNIVERSIDAD ESCUELA COLOMBIANA DE INGENIERÍA JULIO GARAVITO}}\\[1cm]
+    
+    {\Large\textbf{ESTUDIOS DE MERCADOS:}}\\[0.5cm]
+    {\Large MONTAJE DE UNA EMPRESA DE RESERVAS CON PLANIFICACIÓN DE VIAJE, A}\\[0.3cm]
+    {\Large TRAVÉS DE UNA APLICACIÓN EN COLOMBIA}\\[2cm]
+    
+    {\large\textbf{EPRO GRUPO 1}}\\[1.5cm]
+    
+    \textbf{Estudiantes:}\\[0.5cm]
+    Juan Pablo Salamanca Mojica\\
+    Juana Lozano Chaves\\
+    Laura Alejandra Venegas Piraban\\
+    Santiago Botero García\\
+    Sofia Velandia Cifuentes\\[1.5cm]
+    
+    \textbf{Profesor:}\\[0.5cm]
+    Daniel Salazar Ferro\\[2cm]
+    
+    \textbf{BOGOTÁ, COLOMBIA}
+    
+    \vfill
+\end{titlepage}
+
+% Tabla de contenidos
+\tableofcontents
+\newpage
+
+% Contenido principal
+\sectiontitle{1. Oferta}
+
+\subsectiontitle{Estructura del mercado}
+
+El mercado de aplicaciones de reservas y planificación de viajes en Colombia es un oligopolio dominado por pocas plataformas globales como Booking.com, Airbnb, Despegar y Tripadvisor. (8-12 millones en Colombia).
+
+\subsectiontitle{Tipo de bien}
+
+Es un servicio digital de consumo, es decir un bien superior.
+
+\subsectiontitle{Tipo de demanda}
+
+Demanda elástica (Más del 60\% de los viajeros usan internet para planificar)
+
+\subsectiontitle{Productos sustitutos}
+
+\begin{itemize}
+    \item \textbf{Agencias de viajes tradicionales (físicas):} Ofrecen asesoría personalizada, pero con menor flexibilidad y mayor costo.
+    \item \textbf{Compra directa con proveedores:} Reservas en páginas de aerolíneas, hoteles o transporte sin intermediarios.
+    \item \textbf{Redes sociales y buscadores:} Uso de plataformas como Instagram o Google Maps para descubrir destinos y contactar servicios.
+    \item \textbf{Recomendación informal:} Grupos, foros o conocidos (ej: viajeros que comparten experiencias sin una plataforma estructurada).
+\end{itemize}
+
+\subsectiontitle{Oferta y estrategia de comercialización (6P)}
+
+\begin{itemize}
+    \item \textbf{Producto:} Plataformas integrales de reservas (alojamiento, vuelos, experiencias).
+    \item \textbf{Precio:} Modelo de comisiones (10\%).
+    \item \textbf{Plaza:} Canales digitales (aplicaciones y páginas web).
+    \item \textbf{Promoción:} Marketing digital, reseñas y programas de fidelización.
+    \item \textbf{Personas:} Enfoque en experiencia del usuario y soporte continuo.
+    \item \textbf{Procesos:} Automatización de reservas, pagos digitales y recomendaciones.
+\end{itemize}
+
+\sectiontitle{2. Análisis de Competencia}
+
+\subsectiontitle{Competidor 1: Booking.com}
+
+\begin{itemize}
+    \item \textbf{Localización geográfica:} Global, según el informe de conectividad de MinCIT (2025), es la plataforma con mayor integración de hoteles en ciudades intermedias como Armenia y Pereira.
+    \item \textbf{Volumen ofrecido:} El reporte anual de Hotelagio en el 2025 indicó que superan los 28 millones de listados, con un crecimiento del 12\% en ``alojamientos no hoteleros'' en Latam.
+    \item \textbf{Estrategia de comercialización:} Utiliza el programa ``Genius''. Según Booking News (2025), su algoritmo IA ajusta descuentos en tiempo real según el historial de clics del usuario.
+    \item \textbf{Personas:} Viajero Pragmático. El estudio de Travel Predictions 2026 identifica a su cliente como un usuario que busca ``confirmación inmediata'' (85\% de sus usuarios corporativos).
+\end{itemize}
+
+\subsectiontitle{Competidor 2: Airbnb}
+
+\begin{itemize}
+    \item \textbf{Localización geográfica:} Global y rural. Datos de Inside Airbnb (2026) muestran que en Colombia su oferta se ha desplazado un 22\% hacia zonas no urbanas como Guatapé y el eje cafetero.
+    \item \textbf{Volumen ofrecido:} Según el reporte de AirROI del 2026, Airbnb gestiona más de 7.7 millones de anuncios activos, con una tasa de ocupación promedio del 58\% en el mercado colombiano.
+    \item \textbf{Estrategia de comercialización:} Se centra en categorías para diferenciar su inventario del hotelero tradicional.
+    \item \textbf{Personas:} Gen Z y Nómadas. Según el Informe de Tendencias Latam 2026, el 45\% de sus huéspedes en Colombia son nómadas digitales que buscan estancias de más de 28 días.
+\end{itemize}
+
+\subsectiontitle{Competidor 3: Despegar}
+
+\begin{itemize}
+    \item \textbf{Localización geográfica:} Según Forbes Colombia (2025), es un líder latinoamericano, operando desde su sede en Argentina con oficinas físicas en Bogotá y Medellín.
+    \item \textbf{Volumen ofrecido:} Despegar en su reporte de resultados de 2025, ofrecen +300 aerolíneas y 500,000 hoteles, consolidándose como la mayor OTA (Online travel agency).
+    \item \textbf{Estrategia de comercialización:} Valora Analitik (2025) nos dice que captan al cliente que busca seguridad mediante la mezcla de App e interacción humana en puntos físicos.
+    \item \textbf{Personas:} Planificadores Familiares. Según Boletín Turístico (2025), su segmento principal son familias que financian viajes completos (vuelo + hotel) a cuotas.
+\end{itemize}
+
+\sectiontitle{3. Demanda}
+
+\subsectiontitle{Segmentación del mercado}
+
+\begin{itemize}
+    \item \textbf{Viajeros corporativos:} Buscan eficiencia, confirmación inmediata y programas de lealtad.
+    \item \textbf{Turistas nacionales:} Buscan precios competitivos y destinos emergentes.
+    \item \textbf{Turistas internacionales:} Buscan experiencias auténticas y seguridad en transacciones.
+    \item \textbf{Nómadas digitales:} Buscan estancias largas y conectividad.
+    \item \textbf{Familias:} Buscan paquetes completos y opciones de financiamiento.
+\end{itemize}
+
+\subsectiontitle{Comportamiento del consumidor}
+
+\begin{itemize}
+    \item Más del 60\% de los viajeros usan internet para planificar sus viajes.
+    \item Crecimiento del 19,9\% en comercio electrónico en Colombia durante 2025.
+    \item Mayor sensibilidad al precio debido a factores económicos.
+    Importancia creciente de reseñas y recomendaciones.
+    \item Preferencia por plataformas integradas que simplifiquen el proceso.
+\end{itemize}
+
+\subsectiontitle{Tendencias del mercado}
+
+\begin{itemize}
+    \item \textbf{Digitalización:} Creciente adopción de plataformas digitales para reservas.
+    \item \textbf{Sostenibilidad:} Aumento del 11,5\% en demanda de destinos con baja huella de carbono.
+    \item \textbf{Experiencias locales:} Mayor interés en actividades auténticas y locales.
+    \item \textbf{Flexibilidad:} Demandas de políticas de cancelación flexibles.
+    \item \textbf{Personalización:} Expectativa de recomendaciones basadas en preferencias individuales.
+\end{itemize}
+
+\sectiontitle{4. Análisis FODA del Mercado}
+
+\subsectiontitle{Fortalezas del mercado}
+
+\begin{itemize}
+    \item Crecimiento sostenido del sector turístico en Colombia.
+    \item Mayor conectividad aérea en aeropuertos secundarios.
+    \item Aumento en el uso de plataformas digitales para reservas.
+    \item Interés creciente en destinos emergentes y experiencias auténticas.
+\end{itemize}
+
+\subsectiontitle{Oportunidades del mercado}
+
+\begin{itemize}
+    \item Proyección de 21,7 millones de viajeros para cierre de 2025.
+    \item Crecimiento del 6,4\% en reservas aéreas internacionales.
+    \item 684 millones de transacciones en comercio electrónico durante 2025.
+    \item Digitalización de la cadena turística tradicional.
+    \item Mayor demanda de destinos con baja huella de carbono.
+\end{itemize}
+
+\subsectiontitle{Debilidades del mercado}
+
+\begin{itemize}
+    \item Dependencia de plataformas internacionales.
+    \item Baja penetración de soluciones locales integradas.
+    \item Fragmentación de proveedores turísticos pequeños.
+    \item Limitaciones tecnológicas en zonas rurales.
+\end{itemize}
+
+\subsectiontitle{Amenazas del mercado}
+
+\begin{itemize}
+    \item Dominio de OTAs globales con grandes presupuestos.
+    \item Volatilidad económica que afecta el poder adquisitivo.
+    \item Cambios regulatorios en el sector turístico.
+    \item Competencia informal a través de redes sociales.
+\end{itemize}
+
+\sectiontitle{5. Estrategias de Mercado}
+
+\subsectiontitle{Estrategia de diferenciación}
+
+\begin{itemize}
+    \item Integración única de reservas, planificación y red social.
+    \item Enfoque en destinos emergentes y proveedores locales.
+    \item Tecnología de IA para personalización de experiencias.
+    \item Sistema de pagos optimizado para el mercado colombiano.
+\end{itemize}
+
+\subsectiontitle{Estrategia de precios}
+
+\begin{itemize}
+    \item Modelo de comisiones competitivo (8-10\%).
+    \item Precios dinámicos basados en demanda y temporada.
+    \item Descuentos por volumen y lealtad.
+    \item Paquetes integrados con mejores tarifas.
+\end{itemize}
+
+\subsectiontitle{Estrategia de distribución}
+
+\begin{itemize}
+    \item Aplicación móvil nativa para iOS y Android.
+    \item Plataforma web responsiva.
+    \item Integración con redes sociales.
+    \item Alianzas estratégicas con proveedores locales.
+\end{itemize}
+
+\subsectiontitle{Estrategia de promoción}
+
+\begin{itemize}
+    \item Marketing digital enfocado en segmentos específicos.
+    \item Programa de referidos y recompensas.
+    \item Contenido sobre destinos emergentes.
+    \item Colaboraciones con influencers de viajes.
+\end{itemize}
+
+\end{document}
