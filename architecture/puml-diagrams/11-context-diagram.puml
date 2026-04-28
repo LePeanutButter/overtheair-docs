@@ -1,0 +1,28 @@
+@startuml Diagrama de Contexto UML
+title Diagrama de Contexto — Plataforma SmartTrip
+
+left to right direction
+skinparam shadowing false
+
+' ===== ENTIDADES EXTERNAS =====
+rectangle "Viajero\n(Active)" as V
+rectangle "Operador turístico\n(Passive)" as O
+
+rectangle "Proveedores de Identidad\n(Cooperative)" as IDP
+rectangle "Servicios de Pagos\n(Cooperative)" as PAY
+rectangle "Proveedores de Datos Turísticos\n(Cooperative)" as DATA
+rectangle "Entorno Regulatorio\n(Autonomous)" as REG
+
+' ===== SISTEMA (CÍRCULO CON TEXTO DENTRO) =====
+usecase "SmartTrip\nSistema de Gestión de Viajes" as SYS
+
+' ===== RELACIONES =====
+V --> SYS : planifica viajes\nrecibe recomendaciones\ncomparte experiencias
+O --> SYS : publica ofertas\ngestiona contenido turístico
+
+SYS --> IDP : autenticación federada
+SYS --> PAY : pagos y reservas
+SYS --> DATA : información turística
+SYS ..> REG : cumplimiento normativo
+
+@enduml

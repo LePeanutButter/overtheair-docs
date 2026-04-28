@@ -1,0 +1,40 @@
+@startuml Diagrama de Componentes - Backend Core Domain
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+title Componentes — Backend API: Dominio Core (C4 Level 3)\nGestión de usuarios, planes y colaboración social
+
+Container_Boundary(api, "Backend API (Spring Boot)") {
+  Component(ctrl_u, "UserController", "REST", "Gestiona registro, autenticación y perfiles de usuarios.")
+  Component(ctrl_tp, "TravelPlanController", "REST", "Administra planes de viaje y actividades colaborativas.")
+  Component(ctrl_soc, "SocialController", "REST", "Orquesta conexiones sociales y mensajería entre viajeros.")
+  
+  Component(svc_user, "UserService", "Spring", "Valida credenciales y gestiona reglas de negocio de usuarios.")
+  Component(svc_tp, "TravelPlanService", "Spring", "Coordina creación y modificación de itinerarios.")
+  Component(svc_soc, "SocialService", "Spring", "Procesa solicitudes de conexión y compatibilidad.")
+  
+  Component(repo_jpa, "UserRepository", "Spring Data", "Persiste y recupera datos de usuarios.")
+  Component(repo_tp, "TravelPlanRepository", "Spring Data", "Almacena planes y actividades de viaje.")
+  Component(repo_soc, "SocialRepository", "Spring Data", "Gestiona conexiones y mensajes sociales.")
+  
+  Component(sec, "SecurityModule", "Spring Security", "Protege endpoints y gestiona tokens JWT.")
+}
+
+Container_Ext(database, "Base de Datos", "PostgreSQL")
+
+Rel(ctrl_u, svc_user, "delegates authentication")
+Rel(ctrl_tp, svc_tp, "orchestrates planning")
+Rel(ctrl_soc, svc_soc, "manages social interactions")
+
+Rel(svc_user, repo_jpa, "persists user data")
+Rel(svc_tp, repo_tp, "stores travel plans")
+Rel(svc_soc, repo_soc, "manages social data")
+
+Rel(svc_user, sec, "validates security")
+Rel(svc_tp, sec, "enforces authorization")
+Rel(svc_soc, sec, "applies permissions")
+
+Rel(repo_jpa, database, "executes queries")
+Rel(repo_tp, database, "executes queries")
+Rel(repo_soc, database, "executes queries")
+
+@enduml

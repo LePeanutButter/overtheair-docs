@@ -1,0 +1,28 @@
+@startuml Diagrama de Componentes - Cliente Web
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+title Componentes — Cliente Web (C4 Level 3)\nArquitectura de presentación y servicios
+
+Container_Boundary(web, "Aplicación Web (React)") {
+  Component(app, "ApplicationComponent", "React", "Orquesta enrutamiento y proveedores globales.")
+  Component(layout, "LayoutComponent", "React", "Renderiza estructura UI y navegación principal.")
+  Component(pages, "PageComponents", "React", "Maneja vistas específicas: Home, Auth, Dashboard, TravelPlanning, Social, Profile.")
+  Component(context, "ContextProviders", "React Context", "Gestiona estado global: autenticación, viajes activos, tema.")
+  Component(hooks, "CustomHooks", "JavaScript", "Encapsula lógica reutilizable: autenticación, API calls, debounce.")
+  Component(services, "ServiceLayer", "Axios", "Abstrae comunicación HTTP con backend y maneja tokens.")
+}
+
+Container_Ext(api_gateway, "API Gateway", "Punto de entrada externo")
+
+Rel(app, layout, "composes layout")
+Rel(app, pages, "routes to pages")
+Rel(pages, context, "consumes state")
+Rel(pages, hooks, "utilizes hooks")
+Rel(hooks, services, "invokes services")
+Rel(pages, services, "requests data")
+Rel(services, api_gateway, "authenticates and communicates")
+
+Rel(context, pages, "provides state")
+Rel(context, hooks, "exposes context")
+
+@enduml

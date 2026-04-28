@@ -1,0 +1,54 @@
+@startuml Diagrama CI/CD
+title CI/CD — flujo por repositorio
+
+package "voyager-backend-core" {
+    [checkout] as bc1
+    [Trivy FS] as bc2
+    [SonarCloud + mvn verify] as bc3
+    [mvn test / package] as bc4
+    [Artifact backend-jar] as bc5
+    [Manual deploy handoff\nLearner Lab] as bc6
+    bc1 -> bc2
+    bc2 -> bc3
+    bc3 -> bc4
+    bc4 -> bc5
+    bc5 -> bc6
+}
+
+package "voyager-ai-service" {
+    [checkout] as ai1
+    [Trivy FS] as ai2
+    [SonarCloud] as ai3
+    [pip install + tests/build] as ai4
+    [Artifact deploy handoff] as ai5
+    ai1 -> ai2
+    ai2 -> ai3
+    ai3 -> ai4
+    ai4 -> ai5
+}
+
+package "voyager-web-client" {
+    [checkout] as wc1
+    [npm ci + tests] as wc2
+    [Trivy FS] as wc3
+    [SonarCloud] as wc4
+    [Vite build] as wc5
+    [Artifact static deploy] as wc6
+    wc1 -> wc2
+    wc2 -> wc3
+    wc3 -> wc4
+    wc4 -> wc5
+    wc5 -> wc6
+}
+
+package "voyager-android" {
+    [checkout] as an1
+    [Trivy FS] as an2
+    [SonarCloud + Gradle assemble] as an3
+    [APK / bundle] as an4
+    an1 -> an2
+    an2 -> an3
+    an3 -> an4
+}
+
+@enduml

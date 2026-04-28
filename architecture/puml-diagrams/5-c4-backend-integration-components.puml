@@ -1,0 +1,41 @@
+@startuml Diagrama de Componentes - Backend Integration Layer
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+title Componentes — Backend API: Capa de Integración (C4 Level 3)\nConexión con sistemas externos
+
+Container_Boundary(api, "Backend API (Spring Boot)") {
+  Component(int_pay, "PaymentIntegrationService", "Spring", "Orquesta transacciones con sistemas de pago.")
+  Component(int_auth, "AuthenticationIntegrationService", "Spring", "Gestiona federación de identidad con proveedores externos.")
+  Component(int_content, "ContentIntegrationService", "Spring", "Consulta y enriquece contenido turístico de proveedores.")
+  Component(int_ai, "AIIntegrationService", "Spring", "Invoca microservicio de IA para recomendaciones avanzadas.")
+  
+  Component(client_nequi, "NequiClient", "HTTP Client", "Comunica con API de pagos Nequi.")
+  Component(client_pse, "PSEClient", "HTTP Client", "Integra con pasarela de pagos bancarios.")
+  Component(client_google, "GoogleOAuthClient", "OAuth2 Client", "Valida tokens con Google Identity.")
+  Component(client_facebook, "FacebookOAuthClient", "OAuth2 Client", "Procesa autenticación con Facebook.")
+  Component(client_gds, "GDSClient", "REST Client", "Consulta catálogo turístico de Amadeus.")
+  Component(client_ai, "AIServiceClient", "HTTP Client", "Invoca microservicio FastAPI.")
+}
+
+System_Ext(nequi, "Nequi", "Sistema de pagos móviles")
+System_Ext(pse, "PSE", "Pasarela de pagos bancarios")
+System_Ext(google, "Google Identity", "Proveedor de identidad")
+System_Ext(facebook, "Facebook Login", "Proveedor de identidad social")
+System_Ext(amadeus, "Amadeus GDS", "Sistema de distribución turística")
+System_Ext(ai_service, "Microservicio IA", "Servicio de recomendaciones")
+
+Rel(int_pay, client_nequi, "processes mobile payments")
+Rel(int_pay, client_pse, "handles bank transfers")
+Rel(int_auth, client_google, "validates google identity")
+Rel(int_auth, client_facebook, "validates facebook identity")
+Rel(int_content, client_gds, "retrieves tourism content")
+Rel(int_ai, client_ai, "requests AI recommendations")
+
+Rel(client_nequi, nequi, "HTTPS API calls")
+Rel(client_pse, pse, "HTTPS API calls")
+Rel(client_google, google, "OAuth2 flow")
+Rel(client_facebook, facebook, "OAuth2 flow")
+Rel(client_gds, amadeus, "REST API queries")
+Rel(client_ai, ai_service, "HTTP requests")
+
+@enduml

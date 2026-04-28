@@ -1,0 +1,29 @@
+@startuml Diagrama de Contexto C4
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+LAYOUT_TOP_DOWN()
+title Contexto del sistema (C4 Level 1)\nPlataforma de turismo digital colaborativa
+
+Person(viajero, "Viajero", "Planifica viajes colaborativos, descubre viajeros compatibles y coordina experiencias compartidas.")
+Person(operador, "Operador turístico", "Gestiona ofertas turísticas y analiza tendencias del mercado.")
+
+System_Boundary(sys, "Plataforma de Turismo Digital") {
+  System(platform, "Sistema de Gestión de Viajes", "Conecta viajeros, gestiona planes colaborativos y procesa recomendaciones personalizadas.")
+}
+
+System_Ext(pagos, "Sistema de Pagos", "Procesa transacciones financieras y gestiona métodos de pago.")
+System_Ext(identidad, "Proveedores de Identidad", "Valida y autentica identidad de usuarios.")
+System_Ext(contenido, "Proveedores Turísticos", "Ofrece contenido, disponibilidad y servicios turísticos.")
+
+Rel(viajero, platform, "Planifica viajes colaborativos")
+Rel(viajero, platform, "Descubre viajeros compatibles")
+Rel(viajero, platform, "Gestiona itinerarios compartidos")
+Rel(operador, platform, "Publica ofertas turísticas")
+Rel(operador, platform, "Analiza métricas de negocio")
+
+Rel(platform, pagos, "Procesa pagos")
+Rel(platform, identidad, "Valida identidad")
+Rel(platform, contenido, "Consulta disponibilidad")
+
+SHOW_LEGEND()
+@enduml

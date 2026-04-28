@@ -1,0 +1,53 @@
+@startuml Diagrama de Componentes - Microservicio IA Corregido
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+title Componentes — Microservicio IA (C4 Level 3)\nArquitectura por capas funcionales
+
+Container_Boundary(ai, "Microservicio IA (FastAPI)") {
+  Component(api_layer, "APILayer", "FastAPI", "Expone endpoints REST y maneja CORS.")
+  Component(route_handlers, "RouteHandlers", "APIRouter", "Procesa peticiones de recomendaciones, perfiles y matching.")
+  
+  Component(business_logic, "BusinessLogicLayer", "Python", "Implementa reglas de negocio y orquestación de servicios.")
+  Component(recommendation_service, "RecommendationService", "Python", "Genera sugerencias personalizadas basadas en contexto.")
+  Component(profile_service, "UserProfileService", "Python", "Gestiona perfiles de usuario y preferencias.")
+  Component(matching_service, "MatchingService", "Python", "Calcula compatibilidad entre viajeros.")
+  
+  Component(data_access, "DataAccessLayer", "SQLAlchemy", "Abstrae acceso a base de datos y caché.")
+  Component(external_integrations, "ExternalIntegrationLayer", "Python", "Conecta con APIs externas para enriquecimiento.")
+  Component(ml_engine, "MLEngine", "Python", "Ejecuta modelos de machine learning y scoring.")
+  
+  Component(configuration, "ConfigurationManager", "Pydantic", "Centraliza configuración y parámetros del sistema.")
+}
+
+Container_Ext(database, "Base de Datos", "PostgreSQL")
+Container_Ext(file_storage, "Almacenamiento", "Amazon S3")
+Container_Ext(message_bus, "Bus de Eventos", "SNS/SQS")
+
+System_Ext(weather_api, "API de Clima", "Servicio de información meteorológica")
+System_Ext(maps_api, "API de Mapas", "Servicio de geolocalización")
+System_Ext(content_api, "API de Contenido", "Proveedor de información turística")
+
+Rel(api_layer, route_handlers, "routes requests")
+Rel(route_handlers, business_logic, "delegates processing")
+
+Rel(business_logic, recommendation_service, "orchestrates recommendations")
+Rel(business_logic, profile_service, "manages user profiles")
+Rel(business_logic, matching_service, "calculates compatibility")
+
+Rel(recommendation_service, data_access, "retrieves user data")
+Rel(profile_service, data_access, "persists preferences")
+Rel(matching_service, ml_engine, "executes scoring models")
+
+Rel(recommendation_service, external_integrations, "enriches context")
+Rel(external_integrations, weather_api, "fetches weather data")
+Rel(external_integrations, maps_api, "gets location info")
+Rel(external_integrations, content_api, "retrieves tourism content")
+
+Rel(data_access, database, "executes queries")
+Rel(ml_engine, file_storage, "loads models")
+Rel(business_logic, message_bus, "publishes events")
+
+Rel(configuration, business_logic, "provides settings")
+Rel(configuration, external_integrations, "supplies api keys")
+
+@enduml

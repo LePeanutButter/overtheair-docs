@@ -1,0 +1,85 @@
+@startuml Diagrama de Despliegue UML
+title Despliegue UML — Arquitectura Cloud AWS
+
+node "Región us-east-1" as region {
+  node "Amazon CloudFront\nCDN para frontend estático" as cloudfront
+  node "Amazon S3\nBuckets: frontend, media, logs" as s3
+  
+  node "Amazon API Gateway\nREST API + stage prod" as api_gateway
+  
+  node "VPC 10.0.0.0/16" as vpc {
+    node "Subred pública 10.0.1.0/24\n(us-east-1e)" as subnet1
+    node "Subred pública 10.0.2.0/24\n(us-east-1a)" as subnet2
+    node "Internet Gateway\n+ route 0.0.0.0/0" as internet_gateway
+    node "Application Load Balancer" as alb
+    
+    node "ASG Backend\nEC2 t3.micro :8080" as asg_backend {
+      artifact "backend-service.jar\nv1.2.3" as backend_jar
+    }
+    
+    node "ASG IA\nEC2 t3.micro :8000" as asg_ai {
+      artifact "ai-service-container\nv2.1.0" as ai_container
+    }
+    
+    node "RDS PostgreSQL\ndb.t3.micro backend" as rds_backend {
+      artifact "schema-v1.0.sql" as backend_schema
+    }
+    
+    node "RDS PostgreSQL\ndb.t3.micro IA" as rds_ai {
+      artifact "ml-schema-v1.0.sql" as ai_schema
+    }
+  }
+  
+  node "Amazon SNS\nTópicos: user, recommendation, system" as sns
+  node "Amazon SQS\nColas: user, recommendation, analytics" as sqs
+  node "Amazon CloudWatch\nLogs y alarmas CPU/cola" as cloudwatch
+}
+
+node "Web Browser Device\nCliente externo" as browser_device
+node "Android Device\nCliente móvil externo" as android_device
+
+node "Nequi Payment Service\nAPI de pagos móviles" as nequi_service
+node "PSE Payment Service\nPasarela bancaria" as pse_service
+node "Google OAuth Service\nAutenticación federada" as google_oauth
+node "Facebook Auth Service\nLogin social" as facebook_auth
+node "Amadeus GDS Service\nContenido turístico" as amadeus_service
+node "Weather API Service\nDatos meteorológicos" as weather_service
+node "Maps API Service\nGeolocalización" as maps_service
+
+browser_device --> cloudfront : HTTPS
+cloudfront --> s3 : HTTPS (origen estático)
+browser_device --> api_gateway : HTTPS API
+android_device --> api_gateway : HTTPS API
+
+api_gateway --> alb : HTTP (integración)
+alb --> asg_backend : HTTP :8080
+alb --> asg_ai : HTTP :8000
+
+asg_backend --> rds_backend : TCP 5432
+asg_ai --> rds_ai : TCP 5432
+asg_backend --> s3 : HTTPS (SDK)
+asg_ai --> s3 : HTTPS (artefactos ML)
+
+asg_backend --> sns : HTTPS (publicación)
+asg_ai --> sns : HTTPS (publicación)
+sns --> sqs : HTTPS (suscripciones)
+asg_backend --> sqs : HTTPS (consumo)
+asg_ai --> sqs : HTTPS (publicación)
+
+asg_ai --> cloudwatch : HTTPS (métricas)
+asg_backend --> cloudwatch : HTTPS (logs)
+api_gateway --> cloudwatch : HTTPS (métricas)
+alb --> cloudwatch : HTTPS (métricas)
+
+asg_backend ..> nequi_service : HTTPS (pagos)
+asg_backend ..> pse_service : HTTPS (pagos)
+asg_backend ..> google_oauth : HTTPS (OAuth)
+asg_backend ..> facebook_auth : HTTPS (OAuth)
+asg_ai ..> amadeus_service : HTTPS (contenido)
+asg_ai ..> weather_service : HTTPS (clima)
+asg_ai ..> maps_service : HTTPS (geolocalización)
+
+subnet1 .. internet_gateway
+subnet2 .. internet_gateway
+
+@enduml

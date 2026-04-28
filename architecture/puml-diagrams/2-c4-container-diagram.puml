@@ -1,0 +1,63 @@
+@startuml Diagrama de Contenedores C4
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+LAYOUT_TOP_DOWN()
+title Contenedores (C4 Level 2)\nArquitectura de plataforma de turismo digital
+
+Person(viajero, "Viajero")
+
+System_Boundary(platform, "Plataforma de Turismo Digital") {
+  Container(web, "Aplicación Web", "JavaScript, React", "Interfaz de usuario para planificación y colaboración.")
+  Container(mobile, "Aplicación Móvil", "Kotlin, Jetpack Compose", "Experiencia nativa con sincronización offline.")
+  Container(api, "API Backend", "Java 17, Spring Boot", "Lógica de negocio y orquestación de servicios.")
+  Container(ai, "Servicio de IA", "Python 3.11, FastAPI", "Recomendaciones personalizadas y matching social.")
+}
+
+System_Ext(edge, "Perímetro de Red", "API Gateway + Load Balancer")
+
+System_Boundary(data, "Capa de Datos") {
+  Container(db_main, "Base de Datos Principal", "PostgreSQL", "Almacena dominio transaccional.")
+  Container(db_ai, "Base de Datos IA", "PostgreSQL", "Persiste perfiles y modelos ML.")
+  Container(storage, "Almacenamiento", "Amazon S3", "Archivos, medios y artefactos.")
+}
+
+System_Boundary(messaging, "Mensajería") {
+  Container(events, "Bus de Eventos", "SNS/SQS", "Comunicación asíncrona entre servicios.")
+}
+
+System_Boundary(monitoring, "Observabilidad") {
+  Container(logs, "Sistema de Logs", "CloudWatch", "Registros centralizados y métricas.")
+}
+
+System_Boundary(external, "Sistemas Externos") {
+  System_Ext(payments, "Proveedores de Pagos", "Nequi, PSE")
+  System_Ext(identity, "Proveedores de Identidad", "Google, Facebook")
+  System_Ext(content, "Proveedores de Contenido", "Amadeus, APIs de clima/mapas")
+}
+
+Rel(viajero, web, "accede a plataforma")
+Rel(viajero, mobile, "usa aplicación móvil")
+
+Rel(web, edge, "invoca servicios")
+Rel(mobile, edge, "sincroniza datos")
+
+Rel(edge, api, "enruta peticiones")
+Rel(edge, ai, "enruta análisis")
+
+Rel(api, db_main, "persiste datos")
+Rel(ai, db_ai, "almacena perfiles")
+Rel(api, storage, "gestiona archivos")
+Rel(ai, storage, "almacena modelos")
+
+Rel(api, events, "publica eventos")
+Rel(ai, events, "consume eventos")
+
+Rel(api, logs, "registra actividad")
+Rel(ai, logs, "reporta métricas")
+
+Rel(api, payments, "procesa pagos")
+Rel(api, identity, "valida identidad")
+Rel(ai, content, "consulta contenido")
+
+SHOW_LEGEND()
+@enduml

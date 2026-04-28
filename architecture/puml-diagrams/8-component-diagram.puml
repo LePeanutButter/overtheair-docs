@@ -1,0 +1,128 @@
+@startuml Diagrama de Componentes UML - Corregido
+title Componentes UML — Arquitectura Modular por Dominios\n(Principios DDD y Clean Architecture)
+
+package "Authentication Domain" {
+  interface "IAuthService" as i_auth
+  component "AuthService" as auth_service
+  interface "IAuthRepository" as i_auth_repo
+  component "AuthRepository" as auth_repo
+  
+  auth_service ..|> i_auth
+  auth_repo ..|> i_auth_repo
+  auth_service --> i_auth_repo : "validates credentials"
+}
+
+package "Payment Domain" {
+  interface "IPaymentService" as i_payment
+  component "PaymentService" as payment_service
+  interface "IPaymentGateway" as i_payment_gateway
+  component "NequiGateway" as nequi_gateway
+  component "PSEGateway" as pse_gateway
+  
+  payment_service ..|> i_payment
+  nequi_gateway ..|> i_payment_gateway
+  pse_gateway ..|> i_payment_gateway
+  payment_service --> i_payment_gateway : "processes payment"
+}
+
+package "User Management Domain" {
+  interface "IUserService" as i_user
+  component "UserService" as user_service
+  interface "IUserRepository" as i_user_repo
+  component "UserRepository" as user_repo
+  
+  user_service ..|> i_user
+  user_repo ..|> i_user_repo
+  user_service --> i_user_repo : "manages user data"
+}
+
+package "Travel Planning Domain" {
+  interface "ITravelService" as i_travel
+  component "TravelService" as travel_service
+  interface "ITravelRepository" as i_travel_repo
+  component "TravelRepository" as travel_repo
+  
+  travel_service ..|> i_travel
+  travel_repo ..|> i_travel_repo
+  travel_service --> i_travel_repo : "coordinates trips"
+}
+
+package "Social Domain" {
+  interface "ISocialService" as i_social
+  component "SocialService" as social_service
+  interface "ISocialRepository" as i_social_repo
+  component "SocialRepository" as social_repo
+  
+  social_service ..|> i_social
+  social_repo ..|> i_social_repo
+  social_service --> i_social_repo : "manages connections"
+}
+
+package "AI Recommendation Domain" {
+  interface "IRecommendationService" as i_recommendation
+  component "RecommendationService" as recommendation_service
+  interface "IExternalContentService" as i_content
+  component "ExternalContentService" as content_service
+  
+  recommendation_service ..|> i_recommendation
+  content_service ..|> i_content
+  recommendation_service --> i_content : "enriches recommendations"
+}
+
+' === DEPENDENCIAS ENTRE DOMINIOS ===
+
+auth_service --> user_service : "authenticates users"
+payment_service --> user_service : "validates user payments"
+social_service --> user_service : "manages user profiles"
+travel_service --> user_service : "coordinates user trips"
+recommendation_service --> travel_service : "suggests destinations"
+recommendation_service --> social_service : "matches travelers"
+
+' === INTERFACES EXTERNAS ===
+
+interface "IOAuthProvider" as i_oauth
+interface "IContentProvider" as i_content_provider
+interface "IMessagingService" as i_messaging
+interface "IStorageService" as i_storage
+
+' === IMPLEMENTACIONES EXTERNAS ===
+
+component "GoogleOAuthProvider" as google_oauth
+component "FacebookOAuthProvider" as facebook_oauth
+component "AmadeusContentProvider" as amadeus_content
+component "WeatherContentProvider" as weather_content
+component "MapsContentProvider" as maps_content
+component "SQSMessagingService" as sqs_messaging
+component "S3StorageService" as s3_storage
+
+google_oauth ..|> i_oauth
+facebook_oauth ..|> i_oauth
+amadeus_content ..|> i_content_provider
+weather_content ..|> i_content_provider
+maps_content ..|> i_content_provider
+sqs_messaging ..|> i_messaging
+s3_storage ..|> i_storage
+
+' === CONEXIONES CON SERVICIOS EXTERNOS ===
+
+auth_service --> i_oauth : "federates identity"
+content_service --> i_content_provider : "retrieves content"
+social_service --> i_messaging : "publishes events"
+travel_service --> i_storage : "stores media"
+
+' === LAYOUT Y ORGANIZACIÓN ===
+
+note as TopNote
+  **Arquitectura de Componentes UML Corregida**
+  
+  Principios aplicados:
+  • Domain-Driven Design (DDD)
+  • Dependency Inversion Principle
+  • Interfaces como contratos
+  • Alta cohesión, bajo acoplamiento
+  
+  Packages por bounded contexts,
+  no por tecnología.
+end note
+
+@enduml

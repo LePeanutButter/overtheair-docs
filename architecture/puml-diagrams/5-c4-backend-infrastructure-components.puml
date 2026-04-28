@@ -1,0 +1,35 @@
+@startuml Diagrama de Componentes - Backend Infrastructure
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+title Componentes — Backend API: Infraestructura (C4 Level 3)\nMonitoreo, almacenamiento y observabilidad
+
+Container_Boundary(api, "Backend API (Spring Boot)") {
+  Component(storage, "StorageService", "Spring", "Gestiona almacenamiento de archivos y medios.")
+  Component(messaging, "MessagingService", "Spring", "Publica y consume eventos de negocio.")
+  Component(monitoring, "MonitoringService", "Spring Boot Actuator", "Proporciona métricas y health checks.")
+  Component(logging, "LoggingService", "Spring", "Centraliza registros y auditoría.")
+  
+  Component(s3_client, "S3Client", "AWS SDK", "Interactúa con almacenamiento de objetos.")
+  Component(sns_publisher, "SNSPublisher", "AWS SDK", "Publica eventos en tópicos.")
+  Component(sqs_consumer, "SQSConsumer", "AWS SDK", "Procesa mensajes de colas.")
+  Component(cw_metrics, "CloudWatchMetrics", "AWS SDK", "Envía métricas de aplicación.")
+}
+
+Container_Ext(s3, "Amazon S3", "Almacenamiento de objetos")
+Container_Ext(sns, "Amazon SNS", "Servicio de mensajería")
+Container_Ext(sqs, "Amazon SQS", "Colas de mensajes")
+Container_Ext(cw, "CloudWatch", "Monitoreo y logs")
+
+Rel(storage, s3_client, "uploads files")
+Rel(storage, s3_client, "retrieves media")
+Rel(messaging, sns_publisher, "publishes events")
+Rel(messaging, sqs_consumer, "processes messages")
+Rel(monitoring, cw_metrics, "reports metrics")
+Rel(logging, cw_metrics, "sends logs")
+
+Rel(s3_client, s3, "stores objects")
+Rel(sns_publisher, sns, "publishes topics")
+Rel(sqs_consumer, sqs, "consumes queues")
+Rel(cw_metrics, cw, "sends metrics")
+
+@enduml

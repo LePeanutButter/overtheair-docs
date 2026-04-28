@@ -1,0 +1,85 @@
+@startuml Diagrama AWS
+title Arquitectura AWS — Turismo Digital (Well-Architected Framework)
+
+' AWS Icons Import
+!define AWSPuml https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/main/dist
+!include AWSPuml/AWSCommon.puml
+!include AWSPuml/General/Users.puml
+!include AWSPuml/Groups/all.puml
+!include AWSPuml/InternetOfThings/InternetOfThings.puml
+!include AWSPuml/Compute/EC2.puml
+!include AWSPuml/Database/RDS.puml
+!include AWSPuml/Storage/SimpleStorageServiceS3Standard.puml
+!include AWSPuml/NetworkingContentDelivery/CloudFront.puml
+!include AWSPuml/NetworkingContentDelivery/APIGateway.puml
+!include AWSPuml/NetworkingContentDelivery/ElasticLoadBalancing.puml
+!include AWSPuml/ApplicationIntegration/SimpleNotificationService.puml
+!include AWSPuml/ApplicationIntegration/SimpleQueueService.puml
+!include AWSPuml/ManagementGovernance/CloudWatch.puml
+
+' === CLIENT DEVICES ===
+Users(users, "Usuarios", "Browser/Mobile")
+
+' === EDGE LAYER ===
+AWSCloudGroup(edge_layer, "Edge Layer") {
+    CloudFront(cloudfront, "CloudFront", "CDN & Static Content")
+}
+
+' === INFRASTRUCTURE ===
+VPCGroup(vpc_group, "VPC: 10.0.0.0/16") {
+    
+    PublicSubnetGroup(public_subnet, "Public Subnet (10.0.1.0/24)") {
+        APIGateway(api_gateway, "API Gateway", "REST Prod")
+        ElasticLoadBalancing(alb, "ALB", "Multi-AZ")
+    }
+
+    PrivateSubnetGroup(private_subnet, "Private Subnet (10.0.2.0/24)") {
+        rectangle "Compute Layer" <<group>> {
+            EC2(backend_ec2, "Backend ASG", "Spring Boot :8080")
+            EC2(ai_ec2, "AI Service ASG", "FastAPI :8000")
+        }
+        
+        rectangle "Data Layer" <<group>> {
+            RDS(rds_backend, "RDS PostgreSQL", "Primary")
+            RDS(rds_ai, "RDS AI", "ML Data")
+            SimpleStorageServiceS3Standard(s3_storage, "S3 Buckets", "Media/Logs/Static")
+        }
+    }
+}
+
+' === ASYNC LAYER ===
+rectangle "Async Layer" as async_layer {
+    SimpleNotificationService(sns, "SNS", "Events Topic")
+    SimpleQueueService(sqs, "SQS", "Processing Queues")
+}
+
+' === OBSERVABILITY ===
+CloudWatch(cloudwatch, "CloudWatch", "Logs & Metrics")
+
+' =========================
+' FLOW RELATIONSHIPS
+' =========================
+
+users --> cloudfront : HTTPS
+users --> api_gateway : HTTPS API
+cloudfront --> s3_storage : Origin Access
+
+api_gateway --> alb : Forward
+alb --> backend_ec2 : :8080
+alb --> ai_ec2 : :8000
+
+backend_ec2 --> rds_backend : TCP 5432
+ai_ec2 --> rds_ai : TCP 5432
+backend_ec2 --> s3_storage : SDK
+ai_ec2 --> s3_storage : Models
+
+backend_ec2 --> sns : Publish
+sns --> sqs : Fan-out
+sqs --> backend_ec2 : Consume
+
+' Observability logic
+vpc_group --[hidden]-- cloudwatch
+backend_ec2 ..> cloudwatch : Logs
+ai_ec2 ..> cloudwatch : Logs
+
+@enduml

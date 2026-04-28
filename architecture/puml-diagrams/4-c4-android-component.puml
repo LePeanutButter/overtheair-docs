@@ -1,0 +1,30 @@
+@startuml Diagrama de Componentes - App Android
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+title Componentes — App Android (C4 Level 3)\nArquitectura Clean Architecture
+
+Container_Boundary(mobile, "Aplicación Android") {
+  Component(ui, "PresentationLayer", "Jetpack Compose", "Renderiza UI y maneja interacciones del usuario.")
+  Component(viewmodels, "ViewModelLayer", "ViewModel", "Gestiona estado observable y lógica de presentación.")
+  Component(usecases, "UseCaseLayer", "Kotlin", "Orquesta casos de uso y reglas de negocio.")
+  Component(repositories, "RepositoryLayer", "Interfaces", "Abstrae acceso a datos locales y remotos.")
+  Component(datasource, "DataSourceLayer", "Kotlin", "Implementa acceso a red y base de datos local.")
+  Component(database, "LocalDatabase", "Room", "Proporciona persistencia offline y caché.")
+  Component(network, "NetworkClient", "Retrofit", "Maneja comunicación HTTP con APIs externas.")
+  Component(di, "DependencyInjection", "Hilt", "Inyecta dependencias y configura módulos.")
+}
+
+Container_Ext(api_gateway, "API Gateway", "Punto de entrada de servicios")
+
+Rel(ui, viewmodels, "observes state changes")
+Rel(viewmodels, usecases, "orchestrates business logic")
+Rel(usecases, repositories, "executes domain operations")
+Rel(repositories, datasource, "retrieves data")
+Rel(datasource, database, "persists locally")
+Rel(datasource, network, "fetches remotely")
+Rel(di, viewmodels, "injects dependencies")
+Rel(di, repositories, "provides implementations")
+Rel(di, datasource, "configures data sources")
+Rel(network, api_gateway, "communicates via HTTPS")
+
+@enduml

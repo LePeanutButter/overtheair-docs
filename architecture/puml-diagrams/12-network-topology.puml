@@ -1,0 +1,42 @@
+@startuml Topología de red
+title Topología de red
+
+!define CiscoPuml https://raw.githubusercontent.com/Julien-cpsn/plantuml-cisco-icons/master
+!include CiscoPuml/Icons/all.puml
+!define CISCO_COLOR #006d99
+
+skinparam defaultTextAlignment center
+skinparam rectangle {
+  BackgroundColor transparent
+  BorderColor transparent
+}
+
+rectangle "VPC 10.0.0.0/16" {
+
+  rectangle "Internet\n<$cloud,color=CISCO_COLOR>" as inet
+
+  rectangle "Internet Gateway\n<$router,color=CISCO_COLOR>" as igw
+
+  rectangle "Route table\n0.0.0.0/0 → IGW\n<$router,color=CISCO_COLOR>" as rt
+
+  rectangle "Public Subnets" {
+
+    rectangle "public-subnet-1\n10.0.1.0/24\n(us-east-1e)\n<$multilayer_switch,color=CISCO_COLOR>" as sn1
+
+    rectangle "public-subnet-2\n10.0.2.0/24\n(us-east-1a)\n<$multilayer_switch,color=CISCO_COLOR>" as sn2
+  }
+
+  rectangle "ALB + ASG EC2\nBackend :8080\nIA :8000\n<$server_pc_router,color=CISCO_COLOR>" as comp
+
+  rectangle "PostgreSQL\n(acceso 5432 desde SG app)\n<$relational_database,color=CISCO_COLOR>" as db
+}
+
+inet --> igw
+igw --> rt
+rt --> sn1
+rt --> sn2
+sn1 --> comp
+sn2 --> comp
+comp --> db
+
+@enduml
