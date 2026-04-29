@@ -1,0 +1,18 @@
+@startuml Planificacion Viaje
+
+|Interfaz de Usuario|
+start
+:Recibir datos de planificación (Viajero);
+
+|Plataforma SmarTrip|
+:Procesar y generar opciones;
+
+|Interfaz de Usuario|
+:Presentar resultados;
+:Esperar solicitud de conexión (Viajero);
+
+|Plataforma SmarTrip|
+:Gestionar invitación;
+
+stop
+@enduml

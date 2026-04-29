@@ -1,0 +1,279 @@
+@startuml Diagrama Entidad-Relación - OverTheAir (SmarTrip)
+!define RECTANGLE class
+
+' Módulo Core - Gestión de Usuarios
+package "Módulo Core" {
+  
+  entity "USER" {
+    *id: BIGINT <<PK>>
+    --
+    *username: VARCHAR
+    *email: VARCHAR
+    *password_hash: VARCHAR
+    *role_id: BIGINT <<FK>>
+    first_name: VARCHAR
+    last_name: VARCHAR
+    bio: TEXT
+    avatar_url: VARCHAR
+    is_verified: BOOLEAN
+    created_at: TIMESTAMP
+    updated_at: TIMESTAMP
+  }
+  
+  entity "ROLE" {
+    *id: BIGINT <<PK>>
+    --
+    *name: VARCHAR
+    description: TEXT
+    permissions: JSON
+  }
+  
+  entity "USER_PROFILE" {
+    *id: BIGINT <<PK>>
+    --
+    *user_id: BIGINT <<FK>>
+    travel_style: VARCHAR
+    budget_range: VARCHAR
+    interests: JSON
+    language_preferences: JSON
+    location_preference: VARCHAR
+    is_public: BOOLEAN
+    completion_score: INTEGER
+  }
+  
+  entity "USER_PREFERENCE" {
+    *id: BIGINT <<PK>>
+    --
+    *user_id: BIGINT <<FK>>
+    *preference_type: VARCHAR
+    *preference_value: VARCHAR
+    weight: DECIMAL
+    created_at: TIMESTAMP
+  }
+}
+
+' Módulo Social - Conexiones y Chat
+package "Módulo Social" {
+  
+  entity "CONNECTION" {
+    *id: BIGINT <<PK>>
+    --
+    *requester_id: BIGINT <<FK>>
+    *receiver_id: BIGINT <<FK>>
+    *travel_plan_id: BIGINT <<FK>>
+    status: VARCHAR
+    compatibility_score: DECIMAL
+    requested_at: TIMESTAMP
+    responded_at: TIMESTAMP
+    expires_at: TIMESTAMP
+  }
+  
+  entity "CONVERSATION" {
+    *id: BIGINT <<PK>>
+    --
+    *connection_id: BIGINT <<FK>>
+    title: VARCHAR
+    is_active: BOOLEAN
+    last_message_at: TIMESTAMP
+    created_at: TIMESTAMP
+  }
+  
+  entity "MESSAGE" {
+    *id: BIGINT <<PK>>
+    --
+    *conversation_id: BIGINT <<FK>>
+    *sender_id: BIGINT <<FK>>
+    *content: TEXT
+    message_type: VARCHAR
+    is_read: BOOLEAN
+    sent_at: TIMESTAMP
+    read_at: TIMESTAMP
+  }
+  
+  entity "CONNECTION_RATING" {
+    *id: BIGINT <<PK>>
+    --
+    *connection_id: BIGINT <<FK>>
+    *rater_id: BIGINT <<FK>>
+    *rating: INTEGER
+    review: TEXT
+    is_public: BOOLEAN
+    created_at: TIMESTAMP
+  }
+}
+
+' Módulo Planificación - Viajes y Actividades
+package "Módulo Planificación" {
+  
+  entity "TRAVEL_PLAN" {
+    *id: BIGINT <<PK>>
+    --
+    *user_id: BIGINT <<FK>>
+    *title: VARCHAR
+    destination_location: VARCHAR
+    destination_coordinates: POINT
+    start_date: DATE
+    end_date: DATE
+    budget: DECIMAL
+    travel_style: VARCHAR
+    is_public: BOOLEAN
+    status: VARCHAR
+    created_at: TIMESTAMP
+    updated_at: TIMESTAMP
+  }
+  
+  entity "ACTIVITY" {
+    *id: BIGINT <<PK>>
+    --
+    *travel_plan_id: BIGINT <<FK>>
+    *name: VARCHAR
+    description: TEXT
+    location: VARCHAR
+    coordinates: POINT
+    start_time: TIMESTAMP
+    end_time: TIMESTAMP
+    cost: DECIMAL
+    capacity: INTEGER
+    category: VARCHAR
+    is_shared: BOOLEAN
+    created_at: TIMESTAMP
+  }
+  
+  entity "ACTIVITY_PARTICIPANT" {
+    *id: BIGINT <<PK>>
+    --
+    *activity_id: BIGINT <<FK>>
+    *user_id: BIGINT <<FK>>
+    *status: VARCHAR
+    invited_at: TIMESTAMP
+    responded_at: TIMESTAMP
+    notes: TEXT
+  }
+  
+  entity "RESERVATION" {
+    *id: BIGINT <<PK>>
+    --
+    *travel_plan_id: BIGINT <<FK>>
+    *user_id: BIGINT <<FK>>
+    *provider: VARCHAR
+    *reservation_code: VARCHAR
+    total_amount: DECIMAL
+    payment_status: VARCHAR
+    payment_method: VARCHAR
+    reserved_at: TIMESTAMP
+    cancelled_at: TIMESTAMP
+  }
+}
+
+' Módulo IA - Recomendaciones y Matching
+package "Módulo IA" {
+  
+  entity "AI_RECOMMENDATION" {
+    *id: BIGINT <<PK>>
+    --
+    *user_id: BIGINT <<FK>>
+    *recommendation_type: VARCHAR
+    *target_id: BIGINT
+    *score: DECIMAL
+    *reasoning: TEXT
+    context_data: JSON
+    is_accepted: BOOLEAN
+    created_at: TIMESTAMP
+    responded_at: TIMESTAMP
+  }
+  
+  entity "MATCHING_PROFILE" {
+    *id: BIGINT <<PK>>
+    --
+    *user_id: BIGINT <<FK>>
+    *compatibility_vector: JSON
+    *last_updated: TIMESTAMP
+    *accuracy_score: DECIMAL
+    training_data_points: INTEGER
+  }
+  
+  entity "AI_INTERACTION" {
+    *id: BIGINT <<PK>>
+    --
+    *user_id: BIGINT <<FK>>
+    *session_id: VARCHAR
+    *query: TEXT
+    *response: TEXT
+    *intent: VARCHAR
+    *satisfaction_score: INTEGER
+    interaction_time: TIMESTAMP
+  }
+}
+
+' Relaciones con cardinalidad Crow's Foot
+
+' User relationships
+USER ||--o{ USER_PROFILE : "has"
+USER ||--o{ USER_PREFERENCE : "has"
+USER }o--|| ROLE : "belongs to"
+USER ||--o{ TRAVEL_PLAN : "creates"
+USER ||--o{ CONNECTION : "requests (as requester)"
+USER ||--o{ CONNECTION : "receives (as receiver)"
+USER ||--o{ MESSAGE : "sends"
+USER ||--o{ AI_RECOMMENDATION : "receives"
+USER ||--o{ MATCHING_PROFILE : "has"
+USER ||--o{ AI_INTERACTION : "has"
+
+' Travel Plan relationships
+TRAVEL_PLAN ||--o{ ACTIVITY : "contains"
+TRAVEL_PLAN ||--o{ RESERVATION : "has"
+TRAVEL_PLAN ||--o{ CONNECTION : "enables"
+
+' Activity relationships
+ACTIVITY ||--o{ ACTIVITY_PARTICIPANT : "has participants"
+USER ||--o{ ACTIVITY_PARTICIPANT : "participates in"
+
+' Connection relationships
+CONNECTION ||--|| CONVERSATION : "creates"
+CONVERSATION ||--o{ MESSAGE : "contains"
+CONNECTION ||--o{ CONNECTION_RATING : "receives"
+USER ||--o{ CONNECTION_RATING : "gives"
+
+@enduml
+
+/*
+RESUMEN DE CAMBIOS APLICADOS - ARQUITECTURA BASE DE DATOS OVERTHEAIR
+
+ESTÁNDARES PROFESIONALES APLICADOS:
+1. Naming: Entidades en SINGULAR_MAYUSCULAS, atributos en snake_case
+2. Claves: PK claras con <<PK>>, FK explícitas con <<FK>>
+3. Cardinalidad: Notación Crow's Foot (||--o{, }o--||, etc.)
+
+NUEVAS ENTIDADES AÑADIDAS:
+
+Módulo Core:
+- ROLE: Gestión de roles y permisos del sistema
+- USER_PROFILE: Perfil detallado con preferencias de viaje
+- USER_PREFERENCE: Preferencias granulares con pesos
+
+Módulo Social:
+- CONVERSATION: Salas de chat entre conexiones
+- MESSAGE: Mensajes con timestamps y estado de lectura
+- CONNECTION_RATING: Sistema de reputación y reviews
+
+Módulo Planificación:
+- ACTIVITY_PARTICIPANT: Tabla N:M para participantes en actividades
+- RESERVATION: Gestión de reservas con pagos
+
+Módulo IA:
+- AI_RECOMMENDATION: Recomendaciones personalizadas con tracking
+- MATCHING_PROFILE: Perfil de compatibilidad para algoritmos IA
+- AI_INTERACTION: Historial de interacciones con asistente IA
+
+RELACIONES CLAVE IMPLEMENTADAS:
+- User 1:N Travel Plans (creación)
+- User N:M Connections (solicitudes)
+- Connection 1:1 Conversation (chat)
+- Activity N:M Participants (inscripciones)
+- User 1:N AI Recommendations (personalización)
+
+OPTIMIZACIÓN VISUAL:
+- Organización por módulos funcionales
+- Minimización de cruces de líneas
+- Separación clara de responsabilidades
+*/

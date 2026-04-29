@@ -1,0 +1,60 @@
+@startuml Diagrama de Casos de Uso - Gestión de Turismo Digital
+left to right direction
+
+actor "Usuario Base" as UB
+actor "Viajero" as V
+V --|> UB
+
+rectangle "Módulo de Gestión de Usuario" {
+  usecase "Gestionar cuenta de usuario" as UC_ACCOUNT
+}
+
+rectangle "Módulo de Planificación" {
+  usecase "Planificar viajes" as UC_PLAN
+  usecase "Gestionar reservas" as UC_RES
+}
+
+rectangle "Módulo Social" {
+  usecase "Conectar con viajeros" as UC_SOCIAL
+  usecase "Compartir experiencias" as UC_SHARE
+}
+
+rectangle "Módulo de IA" {
+  usecase "Obtener asistencia inteligente" as UC_AI
+}
+
+' Conexiones principales - Actor Base
+UB --> UC_ACCOUNT
+
+' Conexiones principales - Viajero
+V --> UC_PLAN
+V --> UC_RES
+V --> UC_SOCIAL
+V --> UC_SHARE
+V --> UC_AI
+
+' Dependencias internas simplificadas
+UC_PLAN ..> UC_ACCOUNT : <<include>>
+UC_SOCIAL ..> UC_ACCOUNT : <<include>>
+UC_AI ..> UC_ACCOUNT : <<include>>
+UC_AI ..> UC_PLAN : <<extend>>
+UC_SHARE ..> UC_PLAN : <<extend>>
+
+@enduml
+
+/*
+OPTIMIZACIÓN ARQUITECTÓNICA APLICADA:
+1. CONSOLIDACIÓN: 18 casos de uso reducidos a 5 casos de uso de alto nivel
+2. JERARQUÍA: Actor base "Usuario Base" con generalización a "Viajero"
+3. MODULARIZACIÓN: 4 módulos funcionales para reducir cruces de líneas
+4. DEPENDENCIAS: Mínimas relaciones <<include>>/<<extend>> para evitar telaraña
+5. LAYOUT: Organización por módulos con flujo vertical implícito
+6. LEGIBILIDAD: Nombres de negocio claros y terminología consistente
+
+CASOS DE USO CONSOLIDADOS:
+- "Gestionar cuenta de usuario" = Registrarse + Autenticarse + Gestionar perfil
+- "Planificar viajes" = Crear/Editar planes + Gestionar actividades
+- "Conectar con viajeros" = Establecer conexiones + Enviar/Recibir mensajes
+- "Compartir experiencias" = Compartir planes + Publicar reseñas + Consultar feed
+- "Obtener asistencia inteligente" = Recomendaciones + Matching + Asistente conversacional
+*/

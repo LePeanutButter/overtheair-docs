@@ -1,0 +1,18 @@
+@startuml Cierre SmarTrip
+
+|Plataforma SmarTrip|
+start
+:Sincronizar y actualizar estado;
+
+|Interfaz de Usuario|
+:Reflejar coordinación;
+:Capturar confirmación de actividades;
+
+|Plataforma SmarTrip|
+:Guardar datos de interacción;
+
+|Interfaz de Usuario|
+:Cerrar sesión de usuario;
+
+stop
+@enduml

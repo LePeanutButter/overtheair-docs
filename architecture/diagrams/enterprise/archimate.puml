@@ -1,0 +1,49 @@
+@startuml Arquitectura Empresarial
+!include <archimate/Archimate>
+
+title Arquitectura Empresarial - Vista ArchiMate
+
+' =========================
+' BUSINESS LAYER
+' =========================
+archimate #Business "Stakeholder" as stakeholder <<stakeholder>>
+archimate #Business "Objetivo Estratégico" as goal <<goal>>
+
+archimate #Business "Proceso de Negocio" as process <<business-process>>
+archimate #Business "Servicio de Negocio" as bservice <<business-service>>
+
+' =========================
+' APPLICATION LAYER
+' =========================
+archimate #Application "Plataforma de Aplicación" as app <<application-component>>
+archimate #Application "Servicios de Aplicación" as appservice <<application-service>>
+archimate #Application "Datos" as data <<data-object>>
+
+' =========================
+' TECHNOLOGY LAYER
+' =========================
+archimate #Technology "Infraestructura Cloud" as infra <<node>>
+
+' =========================
+' RELACIONES SIMPLIFICADAS
+' =========================
+
+' Estrategia
+stakeholder --> goal : influence
+
+' Negocio
+goal --> process : realization
+process --> bservice : realization
+
+' Negocio → Aplicación
+process --> appservice : used-by
+bservice --> appservice : serving
+
+' Aplicación interna
+app --> appservice : realization
+appservice --> data : access
+
+' Aplicación → Tecnología
+app --> infra : deployment
+
+@enduml

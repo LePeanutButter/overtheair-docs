@@ -1,0 +1,25 @@
+@startuml Autenticacion SmarTrip
+
+|Plataforma SmarTrip|
+
+|Interfaz de Usuario|
+start
+:Acceso a la Aplicación;
+
+|Plataforma SmarTrip|
+repeat
+  if (¿Autenticación Exitosa?) then (sí)
+    :Cargar Perfil y Preferencias;
+    stop
+  else (no)
+    |Interfaz de Usuario|
+    :Notificar Error;
+    if (¿Solicitar Reintento?) then (sí)
+      |Plataforma SmarTrip|
+    else (no)
+      stop
+    endif
+  endif
+repeat while ( )
+
+@enduml

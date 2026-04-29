@@ -1,0 +1,19 @@
+@startuml Sugerencias SmarTrip
+
+|Interfaz de Usuario|
+start
+:Recibir petición de exploración;
+
+|Plataforma SmarTrip|
+:Analizar comportamiento y generar recomendaciones;
+
+|Interfaz de Usuario|
+:Mostrar sugerencias;
+if (Selección del Viajero) then (Aceptar)
+  :Procesar aceptación;
+else (Descartar)
+  :Omitir sugerencia;
+endif
+
+stop
+@enduml
