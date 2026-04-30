@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="342pt" height="278pt" viewBox="0.00 0.00 342.00 278.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 273.53)">
+<title>CLD_Loop_1</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-273.53 338,-273.53 338,4 -4,4"/>
+<g id="clust1" class="cluster">
+<title>cluster_R1</title>
+<path fill="none" stroke="#ef4444" d="M12,0C12,0 322,0 322,0 328,0 334,-6 334,-12 334,-12 334,-257.53 334,-257.53 334,-263.53 328,-269.53 322,-269.53 322,-269.53 12,-269.53 12,-269.53 6,-269.53 0,-263.53 0,-257.53 0,-257.53 0,-12 0,-12 0,-6 6,0 12,0"/>
+<text xml:space="preserve" text-anchor="middle" x="167" y="-252.93" font-family="Times,serif" font-size="14.00" fill="#ef4444">R1 - Espiral de Soledad del Viajero (Refuerzo Negativo)</text>
+</g>
+<!-- ViajerosAislados -->
+<g id="node1" class="node">
+<title>ViajerosAislados</title>
+<path fill="#f9fafb" stroke="#d1d5db" d="M288.13,-156.16C288.13,-156.16 257.63,-156.16 257.63,-156.16 251.63,-156.16 245.63,-150.16 245.63,-144.16 245.63,-144.16 245.63,-132.16 245.63,-132.16 245.63,-126.16 251.63,-120.16 257.63,-120.16 257.63,-120.16 288.13,-120.16 288.13,-120.16 294.13,-120.16 300.13,-126.16 300.13,-132.16 300.13,-132.16 300.13,-144.16 300.13,-144.16 300.13,-150.16 294.13,-156.16 288.13,-156.16"/>
+<text xml:space="preserve" text-anchor="middle" x="272.88" y="-141.46" font-family="Segoe UI" font-size="11.00">Viajeros</text>
+<text xml:space="preserve" text-anchor="middle" x="272.88" y="-128.26" font-family="Segoe UI" font-size="11.00">Aislados</text>
+</g>
+<!-- BajaSatisfaccion -->
+<g id="node2" class="node">
+<title>BajaSatisfaccion</title>
+<path fill="#f9fafb" stroke="#d1d5db" d="M245.77,-44C245.77,-44 200.01,-44 200.01,-44 194.01,-44 188.01,-38 188.01,-32 188.01,-32 188.01,-20 188.01,-20 188.01,-14 194.01,-8 200.01,-8 200.01,-8 245.77,-8 245.77,-8 251.77,-8 257.77,-14 257.77,-20 257.77,-20 257.77,-32 257.77,-32 257.77,-38 251.77,-44 245.77,-44"/>
+<text xml:space="preserve" text-anchor="middle" x="222.89" y="-29.3" font-family="Segoe UI" font-size="11.00">Baja</text>
+<text xml:space="preserve" text-anchor="middle" x="222.89" y="-16.1" font-family="Segoe UI" font-size="11.00">Satisfacción</text>
+</g>
+<!-- ViajerosAislados&#45;&gt;BajaSatisfaccion -->
+<g id="edge1" class="edge">
+<title>ViajerosAislados-&gt;BajaSatisfaccion</title>
+<path fill="none" stroke="#dc2626" stroke-width="1.2" d="M272.12,-119.96C270.44,-84.61 267.68,-72.86 249.66,-52.91"/>
+<polygon fill="#dc2626" stroke="#dc2626" stroke-width="1.2" points="252.32,-50.63 242.9,-45.78 247.24,-55.45 252.32,-50.63"/>
+<text xml:space="preserve" text-anchor="middle" x="263.58" y="-81.83" font-family="Segoe UI" font-size="10.00">+</text>
+</g>
+<!-- MenorUso -->
+<g id="node3" class="node">
+<title>MenorUso</title>
+<path fill="#f9fafb" stroke="#d1d5db" d="M127.63,-60C127.63,-60 72.7,-60 72.7,-60 66.7,-60 60.7,-54 60.7,-48 60.7,-48 60.7,-36 60.7,-36 60.7,-30 66.7,-24 72.7,-24 72.7,-24 127.63,-24 127.63,-24 133.63,-24 139.63,-30 139.63,-36 139.63,-36 139.63,-48 139.63,-48 139.63,-54 133.63,-60 127.63,-60"/>
+<text xml:space="preserve" text-anchor="middle" x="100.16" y="-45.3" font-family="Segoe UI" font-size="11.00">Menor Uso de</text>
+<text xml:space="preserve" text-anchor="middle" x="100.16" y="-32.1" font-family="Segoe UI" font-size="11.00">Plataforma</text>
+</g>
+<!-- BajaSatisfaccion&#45;&gt;MenorUso -->
+<g id="edge2" class="edge">
+<title>BajaSatisfaccion-&gt;MenorUso</title>
+<path fill="none" stroke="#dc2626" stroke-width="1.2" d="M187.56,-17.33C170.4,-13.91 159.48,-14.1 145.67,-19.07"/>
+<polygon fill="#dc2626" stroke="#dc2626" stroke-width="1.2" points="144.51,-15.77 136.64,-22.86 147.21,-22.22 144.51,-15.77"/>
+<text xml:space="preserve" text-anchor="middle" x="158.26" y="-18.36" font-family="Segoe UI" font-size="10.00">+</text>
+</g>
+<!-- DatosInsuficientes -->
+<g id="node4" class="node">
+<title>DatosInsuficientes</title>
+<path fill="#f9fafb" stroke="#d1d5db" d="M94.08,-179.37C94.08,-179.37 45.87,-179.37 45.87,-179.37 39.87,-179.37 33.87,-173.37 33.87,-167.37 33.87,-167.37 33.87,-155.37 33.87,-155.37 33.87,-149.37 39.87,-143.37 45.87,-143.37 45.87,-143.37 94.08,-143.37 94.08,-143.37 100.08,-143.37 106.08,-149.37 106.08,-155.37 106.08,-155.37 106.08,-167.37 106.08,-167.37 106.08,-173.37 100.08,-179.37 94.08,-179.37"/>
+<text xml:space="preserve" text-anchor="middle" x="69.97" y="-164.67" font-family="Segoe UI" font-size="11.00">Datos</text>
+<text xml:space="preserve" text-anchor="middle" x="69.97" y="-151.47" font-family="Segoe UI" font-size="11.00">Insuficientes</text>
+</g>
+<!-- MenorUso&#45;&gt;DatosInsuficientes -->
+<g id="edge3" class="edge">
+<title>MenorUso-&gt;DatosInsuficientes</title>
+<path fill="none" stroke="#dc2626" stroke-width="1.2" d="M87.21,-60.34C66.6,-90.1 62.81,-100.8 66.01,-131.31"/>
+<polygon fill="#dc2626" stroke="#dc2626" stroke-width="1.2" points="62.53,-131.68 67.2,-141.19 69.48,-130.84 62.53,-131.68"/>
+<text xml:space="preserve" text-anchor="middle" x="63.94" y="-101.91" font-family="Segoe UI" font-size="10.00">+</text>
+</g>
+<!-- PeorPersonalizacion -->
+<g id="node5" class="node">
+<title>PeorPersonalizacion</title>
+<path fill="#f9fafb" stroke="#d1d5db" d="M209.75,-236.73C209.75,-236.73 148.11,-236.73 148.11,-236.73 142.11,-236.73 136.11,-230.73 136.11,-224.73 136.11,-224.73 136.11,-212.73 136.11,-212.73 136.11,-206.73 142.11,-200.73 148.11,-200.73 148.11,-200.73 209.75,-200.73 209.75,-200.73 215.75,-200.73 221.75,-206.73 221.75,-212.73 221.75,-212.73 221.75,-224.73 221.75,-224.73 221.75,-230.73 215.75,-236.73 209.75,-236.73"/>
+<text xml:space="preserve" text-anchor="middle" x="178.93" y="-222.03" font-family="Segoe UI" font-size="11.00">Peor</text>
+<text xml:space="preserve" text-anchor="middle" x="178.93" y="-208.83" font-family="Segoe UI" font-size="11.00">Personalización</text>
+</g>
+<!-- DatosInsuficientes&#45;&gt;PeorPersonalizacion -->
+<g id="edge4" class="edge">
+<title>DatosInsuficientes-&gt;PeorPersonalizacion</title>
+<path fill="none" stroke="#dc2626" stroke-width="1.2" d="M85.37,-179.55C100.51,-196.94 109.79,-205.06 124.65,-209.93"/>
+<polygon fill="#dc2626" stroke="#dc2626" stroke-width="1.2" points="123.66,-213.29 134.22,-212.41 125.42,-206.52 123.66,-213.29"/>
+<text xml:space="preserve" text-anchor="middle" x="104.29" y="-203.96" font-family="Segoe UI" font-size="10.00">+</text>
+</g>
+<!-- PeorPersonalizacion&#45;&gt;ViajerosAislados -->
+<g id="edge5" class="edge">
+<title>PeorPersonalizacion-&gt;ViajerosAislados</title>
+<path fill="none" stroke="#dc2626" stroke-width="1.2" d="M222.16,-202.37C238.89,-194.34 246.92,-185.73 257.79,-166.63"/>
+<polygon fill="#dc2626" stroke="#dc2626" stroke-width="1.2" points="260.81,-168.41 262.54,-157.96 254.67,-165.05 260.81,-168.41"/>
+<text xml:space="preserve" text-anchor="middle" x="244.54" y="-185.7" font-family="Segoe UI" font-size="10.00">+</text>
+</g>
+</g>
+</svg>

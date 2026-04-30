@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="328pt" height="278pt" viewBox="0.00 0.00 328.00 278.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 273.53)">
+<title>CLD_Loop_5</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-273.53 324,-273.53 324,4 -4,4"/>
+<g id="clust1" class="cluster">
+<title>cluster_R4</title>
+<path fill="none" stroke="#10b981" d="M12,0C12,0 308,0 308,0 314,0 320,-6 320,-12 320,-12 320,-257.53 320,-257.53 320,-263.53 314,-269.53 308,-269.53 308,-269.53 12,-269.53 12,-269.53 6,-269.53 0,-263.53 0,-257.53 0,-257.53 0,-12 0,-12 0,-6 6,0 12,0"/>
+<text xml:space="preserve" text-anchor="middle" x="160" y="-252.93" font-family="Times,serif" font-size="14.00" fill="#10b981">R4 - Validación Social Post-Viaje (Refuerzo Positivo)</text>
+</g>
+<!-- ExperienciasCompartidas -->
+<g id="node1" class="node">
+<title>ExperienciasCompartidas</title>
+<path fill="#f9fafb" stroke="#d1d5db" d="M282.19,-156.16C282.19,-156.16 233.39,-156.16 233.39,-156.16 227.39,-156.16 221.39,-150.16 221.39,-144.16 221.39,-144.16 221.39,-132.16 221.39,-132.16 221.39,-126.16 227.39,-120.16 233.39,-120.16 233.39,-120.16 282.19,-120.16 282.19,-120.16 288.19,-120.16 294.19,-126.16 294.19,-132.16 294.19,-132.16 294.19,-144.16 294.19,-144.16 294.19,-150.16 288.19,-156.16 282.19,-156.16"/>
+<text xml:space="preserve" text-anchor="middle" x="257.79" y="-141.46" font-family="Segoe UI" font-size="11.00">Experiencias</text>
+<text xml:space="preserve" text-anchor="middle" x="257.79" y="-128.26" font-family="Segoe UI" font-size="11.00">Compartidas</text>
+</g>
+<!-- DatosValidacion -->
+<g id="node2" class="node">
+<title>DatosValidacion</title>
+<path fill="#f9fafb" stroke="#d1d5db" d="M227.93,-44C227.93,-44 187.67,-44 187.67,-44 181.67,-44 175.67,-38 175.67,-32 175.67,-32 175.67,-20 175.67,-20 175.67,-14 181.67,-8 187.67,-8 187.67,-8 227.93,-8 227.93,-8 233.93,-8 239.93,-14 239.93,-20 239.93,-20 239.93,-32 239.93,-32 239.93,-38 233.93,-44 227.93,-44"/>
+<text xml:space="preserve" text-anchor="middle" x="207.8" y="-29.3" font-family="Segoe UI" font-size="11.00">Datos de</text>
+<text xml:space="preserve" text-anchor="middle" x="207.8" y="-16.1" font-family="Segoe UI" font-size="11.00">Validación</text>
+</g>
+<!-- ExperienciasCompartidas&#45;&gt;DatosValidacion -->
+<g id="edge1" class="edge">
+<title>ExperienciasCompartidas-&gt;DatosValidacion</title>
+<path fill="none" stroke="#059669" stroke-width="1.2" d="M257.04,-119.96C255.36,-84.61 252.59,-72.86 234.58,-52.91"/>
+<polygon fill="#059669" stroke="#059669" stroke-width="1.2" points="237.23,-50.63 227.81,-45.78 232.15,-55.45 237.23,-50.63"/>
+<text xml:space="preserve" text-anchor="middle" x="248.5" y="-81.83" font-family="Segoe UI" font-size="10.00">+</text>
+</g>
+<!-- MejoraAlgoritmos -->
+<g id="node3" class="node">
+<title>MejoraAlgoritmos</title>
+<path fill="#f9fafb" stroke="#d1d5db" d="M106.13,-60C106.13,-60 64.02,-60 64.02,-60 58.02,-60 52.02,-54 52.02,-48 52.02,-48 52.02,-36 52.02,-36 52.02,-30 58.02,-24 64.02,-24 64.02,-24 106.13,-24 106.13,-24 112.13,-24 118.13,-30 118.13,-36 118.13,-36 118.13,-48 118.13,-48 118.13,-54 112.13,-60 106.13,-60"/>
+<text xml:space="preserve" text-anchor="middle" x="85.08" y="-45.3" font-family="Segoe UI" font-size="11.00">Mejora de</text>
+<text xml:space="preserve" text-anchor="middle" x="85.08" y="-32.1" font-family="Segoe UI" font-size="11.00">Algoritmos</text>
+</g>
+<!-- DatosValidacion&#45;&gt;MejoraAlgoritmos -->
+<g id="edge2" class="edge">
+<title>DatosValidacion-&gt;MejoraAlgoritmos</title>
+<path fill="none" stroke="#059669" stroke-width="1.2" d="M175.4,-17.94C155.96,-13.79 144.5,-13.82 129.29,-19.55"/>
+<polygon fill="#059669" stroke="#059669" stroke-width="1.2" points="128.08,-16.26 120.29,-23.44 130.86,-22.68 128.08,-16.26"/>
+<text xml:space="preserve" text-anchor="middle" x="143.28" y="-18.35" font-family="Segoe UI" font-size="10.00">+</text>
+</g>
+<!-- MejorMatching -->
+<g id="node4" class="node">
+<title>MejorMatching</title>
+<path fill="#f9fafb" stroke="#d1d5db" d="M71.97,-179.37C71.97,-179.37 37.81,-179.37 37.81,-179.37 31.81,-179.37 25.81,-173.37 25.81,-167.37 25.81,-167.37 25.81,-155.37 25.81,-155.37 25.81,-149.37 31.81,-143.37 37.81,-143.37 37.81,-143.37 71.97,-143.37 71.97,-143.37 77.97,-143.37 83.97,-149.37 83.97,-155.37 83.97,-155.37 83.97,-167.37 83.97,-167.37 83.97,-173.37 77.97,-179.37 71.97,-179.37"/>
+<text xml:space="preserve" text-anchor="middle" x="54.89" y="-164.67" font-family="Segoe UI" font-size="11.00">Mejor</text>
+<text xml:space="preserve" text-anchor="middle" x="54.89" y="-151.47" font-family="Segoe UI" font-size="11.00">Matching</text>
+</g>
+<!-- MejoraAlgoritmos&#45;&gt;MejorMatching -->
+<g id="edge3" class="edge">
+<title>MejoraAlgoritmos-&gt;MejorMatching</title>
+<path fill="none" stroke="#059669" stroke-width="1.2" d="M72.12,-60.34C51.51,-90.1 47.72,-100.8 50.92,-131.31"/>
+<polygon fill="#059669" stroke="#059669" stroke-width="1.2" points="47.44,-131.68 52.11,-141.19 54.39,-130.84 47.44,-131.68"/>
+<text xml:space="preserve" text-anchor="middle" x="48.86" y="-101.91" font-family="Segoe UI" font-size="10.00">+</text>
+</g>
+<!-- MasExperienciasExitosas -->
+<g id="node5" class="node">
+<title>MasExperienciasExitosas</title>
+<path fill="#f9fafb" stroke="#d1d5db" d="M199.4,-236.73C199.4,-236.73 128.29,-236.73 128.29,-236.73 122.29,-236.73 116.29,-230.73 116.29,-224.73 116.29,-224.73 116.29,-212.73 116.29,-212.73 116.29,-206.73 122.29,-200.73 128.29,-200.73 128.29,-200.73 199.4,-200.73 199.4,-200.73 205.4,-200.73 211.4,-206.73 211.4,-212.73 211.4,-212.73 211.4,-224.73 211.4,-224.73 211.4,-230.73 205.4,-236.73 199.4,-236.73"/>
+<text xml:space="preserve" text-anchor="middle" x="163.85" y="-222.03" font-family="Segoe UI" font-size="11.00">Más Experiencias</text>
+<text xml:space="preserve" text-anchor="middle" x="163.85" y="-208.83" font-family="Segoe UI" font-size="11.00">Exitosas</text>
+</g>
+<!-- MejorMatching&#45;&gt;MasExperienciasExitosas -->
+<g id="edge4" class="edge">
+<title>MejorMatching-&gt;MasExperienciasExitosas</title>
+<path fill="none" stroke="#059669" stroke-width="1.2" d="M70.28,-179.55C83.88,-195.16 92.75,-203.31 105.19,-208.34"/>
+<polygon fill="#059669" stroke="#059669" stroke-width="1.2" points="103.76,-211.56 114.35,-211.24 105.88,-204.88 103.76,-211.56"/>
+<text xml:space="preserve" text-anchor="middle" x="87.4" y="-202.58" font-family="Segoe UI" font-size="10.00">+</text>
+</g>
+<!-- MasExperienciasExitosas&#45;&gt;ExperienciasCompartidas -->
+<g id="edge5" class="edge">
+<title>MasExperienciasExitosas-&gt;ExperienciasCompartidas</title>
+<path fill="none" stroke="#059669" stroke-width="1.2" d="M211.22,-200.27C225.26,-192.75 232.82,-184.02 242.8,-166.46"/>
+<polygon fill="#059669" stroke="#059669" stroke-width="1.2" points="245.69,-168.47 247.42,-158.02 239.55,-165.11 245.69,-168.47"/>
+<text xml:space="preserve" text-anchor="middle" x="230.63" y="-184.16" font-family="Segoe UI" font-size="10.00">+</text>
+</g>
+</g>
+</svg>

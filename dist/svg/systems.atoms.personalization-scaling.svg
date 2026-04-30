@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="304pt" height="278pt" viewBox="0.00 0.00 304.00 278.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 273.53)">
+<title>CLD_Loop_4</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-273.53 300.14,-273.53 300.14,4 -4,4"/>
+<g id="clust1" class="cluster">
+<title>cluster_B1</title>
+<path fill="none" stroke="#3b82f6" d="M12,0C12,0 284.14,0 284.14,0 290.14,0 296.14,-6 296.14,-12 296.14,-12 296.14,-257.53 296.14,-257.53 296.14,-263.53 290.14,-269.53 284.14,-269.53 284.14,-269.53 12,-269.53 12,-269.53 6,-269.53 0,-263.53 0,-257.53 0,-257.53 0,-12 0,-12 0,-6 6,0 12,0"/>
+<text xml:space="preserve" text-anchor="middle" x="148.07" y="-252.93" font-family="Times,serif" font-size="14.00" fill="#3b82f6">B1 - Escalabilidad de Personalización (Balanceo)</text>
+</g>
+<!-- ComplejidadMatching -->
+<g id="node1" class="node">
+<title>ComplejidadMatching</title>
+<path fill="#f9fafb" stroke="#d1d5db" d="M276.14,-156.16C276.14,-156.16 214.18,-156.16 214.18,-156.16 208.18,-156.16 202.18,-150.16 202.18,-144.16 202.18,-144.16 202.18,-132.16 202.18,-132.16 202.18,-126.16 208.18,-120.16 214.18,-120.16 214.18,-120.16 276.14,-120.16 276.14,-120.16 282.14,-120.16 288.14,-126.16 288.14,-132.16 288.14,-132.16 288.14,-144.16 288.14,-144.16 288.14,-150.16 282.14,-156.16 276.14,-156.16"/>
+<text xml:space="preserve" text-anchor="middle" x="245.16" y="-141.46" font-family="Segoe UI" font-size="11.00">Complejidad de</text>
+<text xml:space="preserve" text-anchor="middle" x="245.16" y="-128.26" font-family="Segoe UI" font-size="11.00">Matching</text>
+</g>
+<!-- RecursosComputacionales -->
+<g id="node2" class="node">
+<title>RecursosComputacionales</title>
+<path fill="#f9fafb" stroke="#d1d5db" d="M229.36,-44C229.36,-44 160.99,-44 160.99,-44 154.99,-44 148.99,-38 148.99,-32 148.99,-32 148.99,-20 148.99,-20 148.99,-14 154.99,-8 160.99,-8 160.99,-8 229.36,-8 229.36,-8 235.36,-8 241.36,-14 241.36,-20 241.36,-20 241.36,-32 241.36,-32 241.36,-38 235.36,-44 229.36,-44"/>
+<text xml:space="preserve" text-anchor="middle" x="195.17" y="-29.3" font-family="Segoe UI" font-size="11.00">Recursos</text>
+<text xml:space="preserve" text-anchor="middle" x="195.17" y="-16.1" font-family="Segoe UI" font-size="11.00">Computacionales</text>
+</g>
+<!-- ComplejidadMatching&#45;&gt;RecursosComputacionales -->
+<g id="edge1" class="edge">
+<title>ComplejidadMatching-&gt;RecursosComputacionales</title>
+<path fill="none" stroke="#2563eb" stroke-width="1.2" d="M244.41,-119.96C242.73,-84.61 239.97,-72.86 221.95,-52.91"/>
+<polygon fill="#2563eb" stroke="#2563eb" stroke-width="1.2" points="224.61,-50.63 215.19,-45.78 219.53,-55.45 224.61,-50.63"/>
+<text xml:space="preserve" text-anchor="middle" x="235.87" y="-81.83" font-family="Segoe UI" font-size="10.00">+</text>
+</g>
+<!-- TiempoRespuesta -->
+<g id="node3" class="node">
+<title>TiempoRespuesta</title>
+<path fill="#f9fafb" stroke="#d1d5db" d="M92.12,-60C92.12,-60 52.78,-60 52.78,-60 46.78,-60 40.78,-54 40.78,-48 40.78,-48 40.78,-36 40.78,-36 40.78,-30 46.78,-24 52.78,-24 52.78,-24 92.12,-24 92.12,-24 98.12,-24 104.12,-30 104.12,-36 104.12,-36 104.12,-48 104.12,-48 104.12,-54 98.12,-60 92.12,-60"/>
+<text xml:space="preserve" text-anchor="middle" x="72.45" y="-45.3" font-family="Segoe UI" font-size="11.00">Tiempo de</text>
+<text xml:space="preserve" text-anchor="middle" x="72.45" y="-32.1" font-family="Segoe UI" font-size="11.00">Respuesta</text>
+</g>
+<!-- RecursosComputacionales&#45;&gt;TiempoRespuesta -->
+<g id="edge2" class="edge">
+<title>RecursosComputacionales-&gt;TiempoRespuesta</title>
+<path fill="none" stroke="#2563eb" stroke-width="1.2" d="M148.8,-15.55C136.5,-14.15 127.07,-15.44 115.22,-20.11"/>
+<polygon fill="#2563eb" stroke="#2563eb" stroke-width="1.2" points="113.95,-16.84 106.23,-24.1 116.79,-23.24 113.95,-16.84"/>
+<text xml:space="preserve" text-anchor="middle" x="122.96" y="-19.7" font-family="Segoe UI" font-size="10.00">+</text>
+</g>
+<!-- ExperienciaUsuario -->
+<g id="node4" class="node">
+<title>ExperienciaUsuario</title>
+<path fill="#f9fafb" stroke="#d1d5db" d="M64.52,-179.37C64.52,-179.37 20,-179.37 20,-179.37 14,-179.37 8,-173.37 8,-167.37 8,-167.37 8,-155.37 8,-155.37 8,-149.37 14,-143.37 20,-143.37 20,-143.37 64.52,-143.37 64.52,-143.37 70.52,-143.37 76.52,-149.37 76.52,-155.37 76.52,-155.37 76.52,-167.37 76.52,-167.37 76.52,-173.37 70.52,-179.37 64.52,-179.37"/>
+<text xml:space="preserve" text-anchor="middle" x="42.26" y="-164.67" font-family="Segoe UI" font-size="11.00">Experiencia</text>
+<text xml:space="preserve" text-anchor="middle" x="42.26" y="-151.47" font-family="Segoe UI" font-size="11.00">Usuario</text>
+</g>
+<!-- TiempoRespuesta&#45;&gt;ExperienciaUsuario -->
+<g id="edge3" class="edge">
+<title>TiempoRespuesta-&gt;ExperienciaUsuario</title>
+<path fill="none" stroke="#2563eb" stroke-width="1.2" d="M59.49,-60.34C38.89,-90.1 35.1,-100.8 38.3,-131.31"/>
+<polygon fill="#2563eb" stroke="#2563eb" stroke-width="1.2" points="34.82,-131.68 39.49,-141.19 41.77,-130.84 34.82,-131.68"/>
+<text xml:space="preserve" text-anchor="middle" x="37.38" y="-101.91" font-family="Segoe UI" font-size="10.00" fill="#2563eb">-</text>
+</g>
+<!-- Adopcion -->
+<g id="node5" class="node">
+<title>Adopcion</title>
+<path fill="#f9fafb" stroke="#d1d5db" d="M168.91,-236.73C168.91,-236.73 133.53,-236.73 133.53,-236.73 127.53,-236.73 121.53,-230.73 121.53,-224.73 121.53,-224.73 121.53,-212.73 121.53,-212.73 121.53,-206.73 127.53,-200.73 133.53,-200.73 133.53,-200.73 168.91,-200.73 168.91,-200.73 174.91,-200.73 180.91,-206.73 180.91,-212.73 180.91,-212.73 180.91,-224.73 180.91,-224.73 180.91,-230.73 174.91,-236.73 168.91,-236.73"/>
+<text xml:space="preserve" text-anchor="middle" x="151.22" y="-215.43" font-family="Segoe UI" font-size="11.00">Adopción</text>
+</g>
+<!-- ExperienciaUsuario&#45;&gt;Adopcion -->
+<g id="edge4" class="edge">
+<title>ExperienciaUsuario-&gt;Adopcion</title>
+<path fill="none" stroke="#2563eb" stroke-width="1.2" d="M57.66,-179.55C76.62,-201.32 86.38,-208.56 109.45,-213.11"/>
+<polygon fill="#2563eb" stroke="#2563eb" stroke-width="1.2" points="108.83,-216.55 119.27,-214.75 109.99,-209.65 108.83,-216.55"/>
+<text xml:space="preserve" text-anchor="middle" x="82.48" y="-207.82" font-family="Segoe UI" font-size="10.00">+</text>
+</g>
+<!-- Adopcion&#45;&gt;ComplejidadMatching -->
+<g id="edge5" class="edge">
+<title>Adopcion-&gt;ComplejidadMatching</title>
+<path fill="none" stroke="#2563eb" stroke-width="1.2" d="M181.01,-208.07C207.52,-197.83 216.63,-190.25 230.03,-166.71"/>
+<polygon fill="#2563eb" stroke="#2563eb" stroke-width="1.2" points="233.05,-168.5 234.78,-158.04 226.91,-165.14 233.05,-168.5"/>
+<text xml:space="preserve" text-anchor="middle" x="213.02" y="-191.43" font-family="Segoe UI" font-size="10.00" fill="#2563eb">-</text>
+</g>
+</g>
+</svg>
