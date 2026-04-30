@@ -1,0 +1,45 @@
+digraph CLD_Loop_2 {
+
+    // --- CONFIGURACIÓN GENERAL ---
+    layout=fdp;
+    splines=curved;
+    overlap=false;
+    compound=true;
+    K=1.0;
+    repulsiveforce=1;
+
+    node [
+        shape=box,
+        style="rounded,filled",
+        fillcolor="#F9FAFB",
+        color="#D1D5DB",
+        fontname="Segoe UI",
+        fontsize=11
+    ];
+
+    edge [
+        fontname="Segoe UI",
+        fontsize=10,
+        penwidth=1.2
+    ];
+
+    // --- BUCLE #2: FRAGMENTACIÓN DE EXPERIENCIA (R2) ---
+    subgraph cluster_R2 {
+        label="R2 - Fragmentación de Experiencia (Refuerzo Negativo)";
+        color="#EF4444";
+        fontcolor="#EF4444";
+        style="rounded";
+
+        ExperienciasFragmentadas [label="Experiencias\nFragmentadas"];
+        PerdidaContexto [label="Pérdida de\nContexto"];
+        IneficienciaPlanificacion [label="Ineficiencia en\nPlanificación"];
+        MenorEngagement [label="Menor\nEngagement"];
+        ReducidaColaboracion [label="Reducida\nColaboración"];
+
+        ExperienciasFragmentadas -> PerdidaContexto [label="+", color="#DC2626"];
+        PerdidaContexto -> IneficienciaPlanificacion [label="+", color="#DC2626"];
+        IneficienciaPlanificacion -> MenorEngagement [label="+", color="#DC2626"];
+        MenorEngagement -> ReducidaColaboracion [label="+", color="#DC2626"];
+        ReducidaColaboracion -> ExperienciasFragmentadas [label="+", color="#DC2626"];
+    }
+}

@@ -1,0 +1,46 @@
+digraph CLD_Loop_5 {
+
+    // --- CONFIGURACIÓN GENERAL ---
+    layout=fdp;
+    splines=curved;
+    overlap=false;
+    compound=true;
+    K=1.0;
+    repulsiveforce=1;
+    overlap=false;
+
+    node [
+        shape=box,
+        style="rounded,filled",
+        fillcolor="#F9FAFB",
+        color="#D1D5DB",
+        fontname="Segoe UI",
+        fontsize=11
+    ];
+
+    edge [
+        fontname="Segoe UI",
+        fontsize=10,
+        penwidth=1.2
+    ];
+
+    // --- BUCLE #5: VALIDACIÓN SOCIAL POST-VIAJE (R4) ---
+    subgraph cluster_R4 {
+        label="R4 - Validación Social Post-Viaje (Refuerzo Positivo)";
+        color="#10B981";
+        fontcolor="#10B981";
+        style="rounded";
+
+        ExperienciasCompartidas [label="Experiencias\nCompartidas"];
+        DatosValidacion [label="Datos de\nValidación"];
+        MejoraAlgoritmos [label="Mejora de\nAlgoritmos"];
+        MejorMatching [label="Mejor\nMatching"];
+        MasExperienciasExitosas [label="Más Experiencias\nExitosas"];
+
+        ExperienciasCompartidas -> DatosValidacion [label="+", color="#059669"];
+        DatosValidacion -> MejoraAlgoritmos [label="+", color="#059669"];
+        MejoraAlgoritmos -> MejorMatching [label="+", color="#059669"];
+        MejorMatching -> MasExperienciasExitosas [label="+", color="#059669"];
+        MasExperienciasExitosas -> ExperienciasCompartidas [label="+", color="#059669"];
+    }
+}

@@ -1,0 +1,152 @@
+digraph ModeloSistemicoIntegrado {
+
+    // --- CONFIGURACIÓN GENERAL ---
+    layout=fdp;
+    splines=curved;
+    overlap=false;
+    compound=true;
+    K=1.0;
+    repulsiveforce=1;
+
+    node [
+        shape=box,
+        style="rounded,filled",
+        fillcolor="#F9FAFB",
+        color="#D1D5DB",
+        fontname="Segoe UI",
+        fontsize=11
+    ];
+
+    edge [
+        fontname="Segoe UI",
+        fontsize=10,
+        penwidth=1.2
+    ];
+
+    // --- BUCLE #1: ESPIRAL DE SOLEDAD DEL VIAJERO (R1) ---
+    subgraph cluster_R1 {
+        label="R1 - Espiral de Soledad del Viajero (Refuerzo Negativo)";
+        color="#EF4444";
+        fontcolor="#EF4444";
+        style="rounded";
+
+        ViajerosAislados [label="Viajeros\nAislados"];
+        BajaSatisfaccion [label="Baja\nSatisfacción"];
+        MenorUso [label="Menor Uso de\nPlataforma"];
+        DatosInsuficientes [label="Datos\nInsuficientes"];
+        PeorPersonalizacion [label="Peor\nPersonalización"];
+
+        ViajerosAislados -> BajaSatisfaccion [label="+", color="#DC2626"];
+        BajaSatisfaccion -> MenorUso [label="+", color="#DC2626"];
+        MenorUso -> DatosInsuficientes [label="+", color="#DC2626"];
+        DatosInsuficientes -> PeorPersonalizacion [label="+", color="#DC2626"];
+        PeorPersonalizacion -> ViajerosAislados [label="+", color="#DC2626"];
+    }
+
+    // --- BUCLE #2: FRAGMENTACIÓN DE EXPERIENCIA (R2) ---
+    subgraph cluster_R2 {
+        label="R2 - Fragmentación de Experiencia (Refuerzo Negativo)";
+        color="#EF4444";
+        fontcolor="#EF4444";
+        style="rounded";
+
+        ExperienciasFragmentadas [label="Experiencias\nFragmentadas"];
+        PerdidaContexto [label="Pérdida de\nContexto"];
+        IneficienciaPlanificacion [label="Ineficiencia en\nPlanificación"];
+        MenorEngagement [label="Menor\nEngagement"];
+        ReducidaColaboracion [label="Reducida\nColaboración"];
+
+        ExperienciasFragmentadas -> PerdidaContexto [label="+", color="#DC2626"];
+        PerdidaContexto -> IneficienciaPlanificacion [label="+", color="#DC2626"];
+        IneficienciaPlanificacion -> MenorEngagement [label="+", color="#DC2626"];
+        MenorEngagement -> ReducidaColaboracion [label="+", color="#DC2626"];
+        ReducidaColaboracion -> ExperienciasFragmentadas [label="+", color="#DC2626"];
+    }
+
+    // --- BUCLE #3: LIMITACIÓN DE DATOS DE MATCHING (R3) ---
+    subgraph cluster_R3 {
+        label="R3 - Limitación de Datos de Matching (Refuerzo Negativo)";
+        color="#EF4444";
+        fontcolor="#EF4444";
+        style="rounded";
+
+        DatosLimitados [label="Datos\nLimitados"];
+        AlgoritmosPobres [label="Algoritmos\nPobres"];
+        BajaPrecision [label="Baja\nPrecisión"];
+        MenorConfianza [label="Menor\nConfianza"];
+        MenorParticipacion [label="Menor\nParticipación"];
+
+        DatosLimitados -> AlgoritmosPobres [label="+", color="#DC2626"];
+        AlgoritmosPobres -> BajaPrecision [label="+", color="#DC2626"];
+        BajaPrecision -> MenorConfianza [label="+", color="#DC2626"];
+        MenorConfianza -> MenorParticipacion [label="+", color="#DC2626"];
+        MenorParticipacion -> DatosLimitados [label="+", color="#DC2626"];
+    }
+
+    // --- BUCLE #4: ESCALABILIDAD DE PERSONALIZACIÓN (B1) ---
+    subgraph cluster_B1 {
+        label="B1 - Escalabilidad de Personalización (Balanceo)";
+        color="#3B82F6";
+        fontcolor="#3B82F6";
+        style="rounded";
+
+        ComplejidadMatching [label="Complejidad de\nMatching"];
+        RecursosComputacionales [label="Recursos\nComputacionales"];
+        TiempoRespuesta [label="Tiempo de\nRespuesta"];
+        ExperienciaUsuario [label="Experiencia\nUsuario"];
+        Adopcion [label="Adopción"];
+
+        ComplejidadMatching -> RecursosComputacionales [label="+", color="#2563EB"];
+        RecursosComputacionales -> TiempoRespuesta [label="+", color="#2563EB"];
+        TiempoRespuesta -> ExperienciaUsuario [label="-", color="#2563EB", fontcolor="#2563EB"];
+        ExperienciaUsuario -> Adopcion [label="+", color="#2563EB"];
+        Adopcion -> ComplejidadMatching [label="-", color="#2563EB", fontcolor="#2563EB"];
+    }
+
+    // --- BUCLE #5: VALIDACIÓN SOCIAL POST-VIAJE (R4) ---
+    subgraph cluster_R4 {
+        label="R4 - Validación Social Post-Viaje (Refuerzo Positivo)";
+        color="#10B981";
+        fontcolor="#10B981";
+        style="rounded";
+
+        ExperienciasCompartidas [label="Experiencias\nCompartidas"];
+        DatosValidacion [label="Datos de\nValidación"];
+        MejoraAlgoritmos [label="Mejora de\nAlgoritmos"];
+        MejorMatching [label="Mejor\nMatching"];
+        MasExperienciasExitosas [label="Más Experiencias\nExitosas"];
+
+        ExperienciasCompartidas -> DatosValidacion [label="+", color="#059669"];
+        DatosValidacion -> MejoraAlgoritmos [label="+", color="#059669"];
+        MejoraAlgoritmos -> MejorMatching [label="+", color="#059669"];
+        MejorMatching -> MasExperienciasExitosas [label="+", color="#059669"];
+        MasExperienciasExitosas -> ExperienciasCompartidas [label="+", color="#059669"];
+    }
+
+    // --- CONEXIONES INTER-BUCLES ---
+    
+    // Conexiones entre R1 y R3 (Datos y Personalización)
+    DatosInsuficientes -> DatosLimitados [label="+", color="#DC2626", style=dashed];
+    PeorPersonalizacion -> BajaPrecision [label="+", color="#DC2626", style=dashed];
+    MenorUso -> MenorParticipacion [label="+", color="#DC2626", style=dashed];
+
+    // Conexiones entre R1 y B1 (Satisfacción y Experiencia)
+    BajaSatisfaccion -> ExperienciaUsuario [label="-", color="#2563EB", style=dashed];
+    MenorUso -> Adopcion [label="-", color="#2563EB", style=dashed];
+
+    // Conexiones entre R3 y R4 (Algoritmos y Datos)
+    AlgoritmosPobres -> MejoraAlgoritmos [label="-", color="#059669", style=dashed];
+    DatosLimitados -> DatosValidacion [label="-", color="#059669", style=dashed];
+    BajaPrecision -> MejorMatching [label="-", color="#059669", style=dashed];
+
+    // Conexiones entre R4 y B1 (Matching y Adopción)
+    MejorMatching -> ComplejidadMatching [label="-", color="#2563EB", style=dashed];
+    MasExperienciasExitosas -> Adopcion [label="+", color="#2563EB", style=dashed];
+
+    // Conexiones entre R2 y R1 (Colaboración y Aislamiento)
+    ReducidaColaboracion -> ViajerosAislados [label="+", color="#DC2626", style=dashed];
+    MenorEngagement -> BajaSatisfaccion [label="+", color="#DC2626", style=dashed];
+
+    // Conexiones entre R4 y R2 (Experiencias Exitosas y Fragmentación)
+    MasExperienciasExitosas -> ExperienciasFragmentadas [label="-", color="#059669", style=dashed];
+}

@@ -99,18 +99,10 @@ done
 project-structuring-finance/
 ├── README.md                    # Este archivo
 ├── img/                         # Directorio de imágenes
-│   ├── Planteamiento_Proyecto_img-005.png
-│   ├── Planteamiento_Proyecto_img-006.png
-│   ├── Planteamiento_Proyecto_img-007.png
-│   ├── Planteamiento_Proyecto_img-008.png
-│   ├── Planteamiento_Proyecto_img-009.png
-│   ├── Estudio_Tecnico_img-014.png
-│   └── Estudio_Tecnico_img-019.png
 ├── planteamiento-proyecto.tex    # Documento principal del proyecto
 ├── estudio-tecnico.tex          # Análisis técnico y tecnológico
 ├── estudio-mercado.tex          # Estudio de mercado y competitividad
-├── analisis-dofa.tex            # Matriz DOFA y análisis estratégico
-└── *.pdf                        # Documentos compilados
+└── analisis-dofa.tex            # Matriz DOFA y análisis estratégico
 ```
 
 ## Documentos Generados

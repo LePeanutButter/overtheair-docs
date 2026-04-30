@@ -31,7 +31,7 @@ Este repositorio contiene la documentación técnica del proyecto, incluyendo es
 - **wiki.md**: Documentación completa del proyecto con arquitectura, características y visión general
 - **requerimientos-agiles.md**: Especificaciones técnicas detalladas con user stories y criterios de aceptación
 - **checklist-de-calidad.md**: Estándares de calidad y procesos de desarrollo
-- **Business Model Canvas.pdf**: Modelo de negocio estratégico
+- **business-model-canvas.pdf**: Modelo de negocio estratégico
 
 ### Navegación Recomendada
 
@@ -48,8 +48,7 @@ tech-software-innovation/
 ├── wiki.md                      # Documentación completa del proyecto
 ├── requerimientos-agiles.md      # Especificaciones técnicas y user stories
 ├── checklist-de-calidad.md      # Estándares de calidad y procesos
-├── Business Model Canvas.pdf     # Modelo de negocio estratégico
-└── Business Model Canvas.tex     # Fuente LaTeX del Business Model Canvas
+└── business-model-canvas.tex     # Fuente LaTeX del Business Model Canvas
 ```
 
 ## Documentation

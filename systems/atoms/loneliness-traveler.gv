@@ -1,0 +1,46 @@
+digraph CLD_Loop_1 {
+
+    // --- CONFIGURACIÓN GENERAL ---
+    layout=fdp;
+    splines=curved;
+    overlap=false;
+    compound=true;
+    K=1.0;
+    repulsiveforce=1;
+    overlap=false;
+
+    node [
+        shape=box,
+        style="rounded,filled",
+        fillcolor="#F9FAFB",
+        color="#D1D5DB",
+        fontname="Segoe UI",
+        fontsize=11
+    ];
+
+    edge [
+        fontname="Segoe UI",
+        fontsize=10,
+        penwidth=1.2
+    ];
+
+    // --- BUCLE #1: ESPIRAL DE SOLEDAD DEL VIAJERO (R1) ---
+    subgraph cluster_R1 {
+        label="R1 - Espiral de Soledad del Viajero (Refuerzo Negativo)";
+        color="#EF4444";
+        fontcolor="#EF4444";
+        style="rounded";
+
+        ViajerosAislados [label="Viajeros\nAislados"];
+        BajaSatisfaccion [label="Baja\nSatisfacción"];
+        MenorUso [label="Menor Uso de\nPlataforma"];
+        DatosInsuficientes [label="Datos\nInsuficientes"];
+        PeorPersonalizacion [label="Peor\nPersonalización"];
+
+        ViajerosAislados -> BajaSatisfaccion [label="+", color="#DC2626"];
+        BajaSatisfaccion -> MenorUso [label="+", color="#DC2626"];
+        MenorUso -> DatosInsuficientes [label="+", color="#DC2626"];
+        DatosInsuficientes -> PeorPersonalizacion [label="+", color="#DC2626"];
+        PeorPersonalizacion -> ViajerosAislados [label="+", color="#DC2626"];
+    }
+}

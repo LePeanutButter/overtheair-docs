@@ -24,7 +24,6 @@ El estudio propone un enfoque integral que combina automatización, priorizació
 ### Explorar la Documentación
 
 - **paper-escaneo-de-imagenes-de-contenedores.tex**: Documento académico completo en formato LaTeX
-- **paper-escaneo-de-imagenes-de-contenedores.pdf**: Versión PDF del artículo académico
 - **presentacion-escaneo-de-imagenes-de-contenedores.pdf**: Presentación asociada al trabajo de investigación
 
 ### Navegación Recomendada
@@ -39,7 +38,6 @@ El estudio propone un enfoque integral que combina automatización, priorizació
 infosec-fundamentals/
 ├── README.md                                         # Este archivo
 ├── paper-escaneo-de-imagenes-de-contenedores.tex     # Fuente LaTeX del artículo académico
-├── paper-escaneo-de-imagenes-de-contenedores.pdf      # Versión PDF del artículo
 └── presentacion-escaneo-de-imagenes-de-contenedores.pdf # Presentación de la investigación
 ```
 

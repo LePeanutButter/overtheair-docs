@@ -1,0 +1,46 @@
+digraph CLD_Loop_4 {
+
+    // --- CONFIGURACIÓN GENERAL ---
+    layout=fdp;
+    splines=curved;
+    overlap=false;
+    compound=true;
+    K=1.0;
+    repulsiveforce=1;
+    overlap=false;
+
+    node [
+        shape=box,
+        style="rounded,filled",
+        fillcolor="#F9FAFB",
+        color="#D1D5DB",
+        fontname="Segoe UI",
+        fontsize=11
+    ];
+
+    edge [
+        fontname="Segoe UI",
+        fontsize=10,
+        penwidth=1.2
+    ];
+
+    // --- BUCLE #4: ESCALABILIDAD DE PERSONALIZACIÓN (B1) ---
+    subgraph cluster_B1 {
+        label="B1 - Escalabilidad de Personalización (Balanceo)";
+        color="#3B82F6";
+        fontcolor="#3B82F6";
+        style="rounded";
+
+        ComplejidadMatching [label="Complejidad de\nMatching"];
+        RecursosComputacionales [label="Recursos\nComputacionales"];
+        TiempoRespuesta [label="Tiempo de\nRespuesta"];
+        ExperienciaUsuario [label="Experiencia\nUsuario"];
+        Adopcion [label="Adopción"];
+
+        ComplejidadMatching -> RecursosComputacionales [label="+", color="#2563EB"];
+        RecursosComputacionales -> TiempoRespuesta [label="+", color="#2563EB"];
+        TiempoRespuesta -> ExperienciaUsuario [label="-", color="#2563EB", fontcolor="#2563EB"];
+        ExperienciaUsuario -> Adopcion [label="+", color="#2563EB"];
+        Adopcion -> ComplejidadMatching [label="-", color="#2563EB", fontcolor="#2563EB"];
+    }
+}

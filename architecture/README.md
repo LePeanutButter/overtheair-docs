@@ -128,8 +128,7 @@ architecture/
 │       └── archimate.puml
 ├── quality-attributes/
 │   ├── scenarios.md
-│   ├── quality-attributes.qify
-│   └── exports/
+│   └── quality-attributes.qify
 ```
 
 ## Documentation

@@ -1,0 +1,45 @@
+digraph CLD_Loop_3 {
+
+    // --- CONFIGURACIÓN GENERAL ---
+    layout=fdp;
+    splines=curved;
+    overlap=false;
+    compound=true;
+    K=1.0;
+    repulsiveforce=1;
+
+    node [
+        shape=box,
+        style="rounded,filled",
+        fillcolor="#F9FAFB",
+        color="#D1D5DB",
+        fontname="Segoe UI",
+        fontsize=11
+    ];
+
+    edge [
+        fontname="Segoe UI",
+        fontsize=10,
+        penwidth=1.2
+    ];
+
+    // --- BUCLE #3: LIMITACIÓN DE DATOS DE MATCHING (R3) ---
+    subgraph cluster_R3 {
+        label="R3 - Limitación de Datos de Matching (Refuerzo Negativo)";
+        color="#EF4444";
+        fontcolor="#EF4444";
+        style="rounded";
+
+        DatosLimitados [label="Datos\nLimitados"];
+        AlgoritmosPobres [label="Algoritmos\nPobres"];
+        BajaPrecision [label="Baja\nPrecisión"];
+        MenorConfianza [label="Menor\nConfianza"];
+        MenorParticipacion [label="Menor\nParticipación"];
+
+        DatosLimitados -> AlgoritmosPobres [label="+", color="#DC2626"];
+        AlgoritmosPobres -> BajaPrecision [label="+", color="#DC2626"];
+        BajaPrecision -> MenorConfianza [label="+", color="#DC2626"];
+        MenorConfianza -> MenorParticipacion [label="+", color="#DC2626"];
+        MenorParticipacion -> DatosLimitados [label="+", color="#DC2626"];
+    }
+}
