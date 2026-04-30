@@ -1,4 +1,4 @@
-@startuml Diagrama de Componentes UML - Corregido
+@startuml Diagrama de Componentes UML
 title Componentes UML — Arquitectura Modular por Dominios\n(Principios DDD y Clean Architecture)
 
 package "Authentication Domain" {
@@ -109,20 +109,5 @@ auth_service --> i_oauth : "federates identity"
 content_service --> i_content_provider : "retrieves content"
 social_service --> i_messaging : "publishes events"
 travel_service --> i_storage : "stores media"
-
-' === LAYOUT Y ORGANIZACIÓN ===
-
-note as TopNote
-  **Arquitectura de Componentes UML Corregida**
-  
-  Principios aplicados:
-  • Domain-Driven Design (DDD)
-  • Dependency Inversion Principle
-  • Interfaces como contratos
-  • Alta cohesión, bajo acoplamiento
-  
-  Packages por bounded contexts,
-  no por tecnología.
-end note
 
 @enduml

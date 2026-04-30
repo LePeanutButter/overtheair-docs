@@ -35,7 +35,7 @@ El estudio aborda la transformación de experiencias individuales de viaje en ec
 
 ### **Documento Principal**
 
-**`transformacion-digital.tex`** - Paper académico completo con:
+**`digital-transformation.tex`** - Paper académico completo con:
 - Abstract y resumen en español/inglés
 - Marco teórico formal (PEAS, sistemas de recomendación, SARIMA)
 - Modelo de negocio digital y propuesta de valor
@@ -58,10 +58,10 @@ El estudio aborda la transformación de experiencias individuales de viaje en ec
 
 ```bash
 # Compilar el documento principal
-pdflatex transformacion-digital.tex
-bibtex transformacion-digital
-pdflatex transformacion-digital.tex
-pdflatex transformacion-digital.tex
+pdflatex digital-transformation.tex
+bibtex digital-transformation
+pdflatex digital-transformation.tex
+pdflatex digital-transformation.tex
 ```
 
 ## Project Structure
@@ -69,7 +69,7 @@ pdflatex transformacion-digital.tex
 ```
 digital-transformation-business-solutions/
 ├── README.md                                           # Este archivo
-├── transformacion-digital.tex                          # Paper académico principal
+├── digital-transformation.tex                          # Paper académico principal
 ├── figures/                                            # 38 diagramas técnicos
 │   ├── c4-model.level-*.pdf                            # Diagramas C4 (contexto, contenedores, componentes)
 │   ├── uml.*.pdf                                       # Diagramas UML (casos de uso, despliegue, componentes)

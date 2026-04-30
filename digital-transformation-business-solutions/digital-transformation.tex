@@ -71,72 +71,75 @@ The digital transformation of the tourism sector represents a strategic opportun
 \section*{Introducción}
 %================================================================================
 
-\subsection*{Contexto general}
+\subsection*{Contexto y Motivación}
 
-La transformación digital del sector turístico ha generado oportunidades para plataformas integradas que optimicen la experiencia del viajero. Colombia proyecta cerrar el 2025 con más de 21,7 millones de viajeros, consolidando un crecimiento superior al 6 \% en el sector \citep{ref1}, impulsado por la conectividad aérea y la confianza de los usuarios \citep{ref2}. El turismo digital se apoya en tecnologías emergentes como la computación en la nube, el análisis de grandes volúmenes de datos y la inteligencia artificial.
+La transformación digital del sector turístico representa una oportunidad estratégica para soluciones empresariales que optimicen tanto la eficiencia operativa como la experiencia del cliente. Colombia proyecta recibir más de 21.7 millones de visitantes para 2025, con un crecimiento sectorial sostenido superior al 6\% \citep{ref1}. Sin embargo, este crecimiento se enfrenta a una fragmentación estructural crítica: los operadores de transporte, alojamiento y actividades operan en silos aislados, impidiendo la optimización conjunta de capacidad y experiencia del cliente.
 
-\subsection*{Planteamiento del problema empresarial}
+\subsection*{Formulación del Problema de Investigación}
 
-La fragmentación operativa del sector turístico genera ineficiencias significativas: los operadores de transporte, alojamiento y actividades operan en silos aislados, impidiendo la optimización conjunta de capacidad y experiencia. Desde la perspectiva empresarial, esta desconexión resulta en subutilización de capacidad, estacionalidad extrema y pérdida de oportunidades de \textit{cross-selling}. Los sistemas actuales dependen predominantemente de modelos generativos conversacionales que no se integran con los procesos transaccionales y analíticos centrales, limitando mejoras operativas medibles. El problema fundamental es la ausencia de una solución empresarial modular que combine un núcleo de negocio (API REST), un microservicio de IA desacoplado, mensajería asíncrona entre componentes y clientes multiplataforma, mientras habilita colaboración explícita entre viajeros. Las plataformas comerciales existentes \textbf{no aprovechan de forma sistemática el valor de red generado por la colaboración entre usuarios}: la planificación suele ser individual, con pérdida de efectos de red y comunidad. Este enfoque limita la eficiencia operativa de los proveedores y el valor percibido por los viajeros.
+El problema fundamental radica en tres limitaciones sistémicas identificadas en la literatura actual: (1) \textbf{aislamiento operativo} que impide la optimización de recursos a nivel de ecosistema; (2) \textbf{dependencia de modelos conversacionales superficiales} que no se integran con procesos transaccionales y analíticos centrales; y (3) \textbf{ausencia de arquitecturas cloud-native escalables} que soporten tanto procesamiento transaccional como analítico avanzado.
 
-\subsection*{Análisis del estado del arte empresarial}
+Esta investigación aborda la siguiente pregunta central: ¿Cómo diseñar una arquitectura empresarial de transformación digital que integre planificación de viajes, procesamiento transaccional, análisis predictivo y colaboración social, mientras mantiene escalabilidad y eficiencia operativa en entornos cloud-native?
 
-Las soluciones tecnológicas actuales en el sector turístico presentan limitaciones significativas desde la perspectiva de la transformación digital empresarial:
+\subsection*{Gap de Investigación Identificado}
 
-\begin{itemize}
-\item \textbf{Foco en interfaz versus integración operativa:} Las plataformas existentes priorizan la experiencia de usuario superficial sin integrarse con los sistemas de gestión operativa de los proveedores turísticos.
-\item \textbf{Limitaciones en optimización matemática:} Carecen de formalización rigurosa que permita la optimización de recursos y la predicción precisa de demanda.
-\item \textbf{Gestión ineficiente de la estacionalidad:} No implementan modelos predictivos avanzados para mitigar los efectos estacionales y optimizar la ocupación.
-\item \textbf{Ausencia de estrategia de valor de red:} Ignoran el potencial estratégico de la colaboración entre usuarios como motor de lealtad y diferenciación competitiva.
-\end{itemize}
+Aunque múltiples estudios abordan sistemas de recomendación turística \citep{ref11,ref13} y arquitecturas de microservicios \citep{ref12}, existen tres gaps críticos no resueltos:
 
-Las soluciones comerciales predominantes ofrecen personalización básica pero carecen de la profundidad analítica y la integración operativa necesarias para generar transformación digital real. La ausencia de arquitecturas empresariales integrales limita su capacidad para optimizar la cadena de valor del turismo y crear ventajas competitivas sostenibles.
+\begin{enumerate}
+\item \textbf{Gap de Integración:} Las soluciones existentes separan la inteligencia artificial de los procesos transaccionales centrales, limitando el impacto operativo medible.
+\item \textbf{Gap de Escalabilidad:} Falta de arquitecturas que combinen procesamiento de alto volumen (transacciones) con cómputo intensivo (IA) en un mismo ecosistema cloud-native.
+\item \textbf{Gap de Colaboración:} Ausencia de enfoques sistemáticos para generar efectos de red mediante colaboración explícita entre usuarios.
+\end{enumerate}
 
-\subsection*{Oportunidad de transformación digital}
+\subsection*{Contribución Principal}
 
-El contexto actual presenta una oportunidad estratégica para implementar una solución empresarial integral que transforme la cadena de valor del turismo. Se requiere una plataforma digital que: (i) exponga capacidades de negocio mediante APIs HTTP y contratos estables; (ii) incorpore un servicio de IA especializado (recomendación, compatibilidad entre viajeros) separado del núcleo transaccional; (iii) implemente modelos predictivos para gestión de estacionalidad y asignación de recursos; (iv) habilite colaboración entre usuarios (coincidencias, conexiones, coordinación de itinerarios) documentada en los requisitos ágiles del repositorio; (v) se despliegue sobre una arquitectura cloud-native reproducible (scripts de infraestructura, API Gateway, balanceador, cómputo elástico, RDS, S3, SNS/SQS, CloudFront, CloudWatch). Esta solución representa una transformación digital al alinear modelo de negocio, datos y despliegue modular.
-
-%================================================================================
-\section{Descripción y Caracterización del Problema}
-%================================================================================
-
-\subsection{Contexto específico}
-
-El mercado turístico digital presenta alta competencia y una creciente demanda de experiencias personalizadas. Según informes oficiales del Ministerio de Comercio, Industria y Turismo (MINCIT) \citep{ref3}, así como estadísticas sobre visitantes no residentes \citep{ref4} y datos del DANE sobre el aporte del turismo al PIB nacional \citep{ref5}, se evidencia una tendencia sostenida de crecimiento en el sector.
-
-\subsection{Impactos}
-
-\begin{itemize}
-\item \textbf{Sociales:} Los viajeros deben dedicar tiempo excesivo a planificar viajes dispersando la búsqueda entre múltiples sitios; la falta de personalización reduce la satisfacción con la experiencia turística. Además, la ausencia de mecanismos de conexión entre usuarios genera aislamiento en la planificación y limita las oportunidades de viajes colaborativos, a pesar de la demanda creciente de experiencias compartidas.
-\item \textbf{Económicos:} La estacionalidad extrema genera picos de demanda en ciertas regiones y periodos, mientras otras zonas permanecen subutilizadas, afectando el retorno de inversión de los operadores turísticos.
-\item \textbf{Técnicos:} La fragmentación de datos impide la construcción de perfiles unificados y recomendaciones coherentes; la ausencia de integración limita la optimización operativa.
-\end{itemize}
-
-\subsection{Métricas del sistema actual}
-
-\begin{itemize}
-\item \textbf{¿Cuántos turistas recibe Colombia?} Más de 3 millones en el primer semestre de 2025 \citep{ref6}; Bogotá superó 1,2 millones de visitantes internacionales entre enero y agosto de 2025 \citep{ref7}. \textit{Interpretación:} El volumen de demanda exige soluciones escalables.
-\item \textbf{¿Cuáles son los desafíos estructurales?} Los desafíos del turismo en Colombia han sido analizados en estudios especializados \citep{ref8}; se proyecta que el país continúe consolidándose como destino global \citep{ref9}. \textit{Interpretación:} La competencia exige innovación tecnológica y diferenciación.
-\end{itemize}
+Este trabajo presenta una arquitectura empresarial integral que resuelve estos gaps mediante: (i) separación explícita entre núcleo transaccional (Spring Boot) y microservicio de IA (FastAPI) con integración asíncrona; (ii) implementación de viaje social colaborativo como generador de efectos de red; y (iii) despliegue cloud-native reproducible en AWS Academy con especificación detallada de infraestructura.
 
 %================================================================================
-\section{Objetivos}
+\section{Estado del Arte Crítico}
 %================================================================================
 
-\subsection{Objetivo general}
+\subsection*{Análisis Crítico de Soluciones Existentes}
 
-Diseñar e implementar conceptualmente una solución empresarial de transformación digital para el turismo colombiano que articule planificación de viajes, datos transaccionales y un componente de viaje social colaborativo, apoyada en sistemas de recomendación híbridos, modelos predictivos para mitigación de estacionalidad y una arquitectura de despliegue en AWS acorde al repositorio de infraestructura del proyecto.
+\subsubsection*{Sistemas de Recomendación Turística}
 
-\subsection{Objetivos específicos}
+Aunque múltiples estudios aplican modelos de machine learning para recomendación turística \citep{ref11,ref13}, estos presentan tres limitaciones fundamentales que motivan nuestra aproximación:
 
 \begin{itemize}
-\item \textbf{Analizar} el estado del arte en sistemas de recomendación y arquitecturas cognitivas aplicadas al turismo digital.
-\item \textbf{Diseñar} un dataset estructurado orientado al contexto turístico colombiano bajo enfoque data-centric.
-\item \textbf{Formalizar} el modelo matemático del sistema híbrido de recomendación y de predicción de demanda.
-\item \textbf{Implementar conceptualmente} la arquitectura de referencia sobre AWS según el repositorio de infraestructura: API Gateway, Application Load Balancer, EC2 con Spring Boot y FastAPI, RDS PostgreSQL, S3, SNS, SQS, CloudFront y CloudWatch.
-\item \textbf{Evaluar} el desempeño del sistema mediante métricas predictivas (RMSE, MAE, Precision@K, Recall@K) y de impacto territorial.
-\item \textbf{Diseñar} el módulo de conexión social (grupos de viaje, \textit{matching}, convocatorias abiertas) como componente diferenciador integrado en la arquitectura.
+\item \textbf{Limitación de Datos Densos:} Los enfoques colaborativos tradicionales dependen de matrices usuario-ítem densas, inviables en contextos turísticos emergentes donde la mayoría de usuarios son nuevos \citep{ref11}.
+\item \textbf{Falta de Integración Multi-tenant:} Los modelos existentes no consideran arquitecturas multi-proveedor donde diferentes operadores turísticos exponen capacidades heterogéneas.
+\item \textbf{Ausencia de Arquitecturas Cloud-Native:} Las soluciones propuestas no abordan los desafíos de escalabilidad elástica y despliegue distribuido requeridos para producción.
 \end{itemize}
+
+\textbf{Implicación para nuestra investigación:} Estas limitaciones justifican nuestra decisión de implementar un modelo híbrido que combine filtrado colaborativo con contenido, desplegado en microservicios especializados con integración asíncrona.
+
+\subsubsection*{Arquitecturas Empresariales en Turismo}
+
+Los frameworks contemporáneos de arquitectura empresarial \citep{ref12} ofrecen principios sólidos pero presentan deficiencias específicas para el dominio turístico digital:
+
+\begin{itemize}
+\item \textbf{Enfoque Monolítico:} Las arquitecturas TOGAF tradicionales no se adaptan adecuadamente a ecosistemas de plataforma multi-sided con efectos de red.
+\item \textbf{Falta de Precisión Técnica:} Los modelos conceptuales carecen de especificación detallada para implementación cloud-native con servicios gestionados.
+\item \textbf{Ignoran Colaboración Social:} Los patrones arquitectónicos existentes no incorporan mecanismos para generar y gestionar efectos de red entre usuarios.
+\end{itemize}
+
+\textbf{Implicación para nuestra investigación:} Adoptamos un enfoque híbrido que combina principios TOGAF con patrones cloud-native específicos para plataformas colaborativas.
+
+\subsubsection*{Plataformas Turísticas Comerciales}
+
+El análisis de soluciones comerciales revela patrones de diseño subóptimos desde la perspectiva de transformación digital:
+
+\begin{itemize}
+\item \textbf{Prioridad Superficial:} Plataformas como Booking.com o Airbnb priorizan interfaz de usuario sobre integración operativa profunda con sistemas de gestión de proveedores.
+\item \textbf{Optimización Local:} Cada operador optimiza individualmente sin coordinación ecosistémica, resultando ineficiencias globales.
+\item \textbf{IA Conversacional Aislada:} La implementación de chatbots y asistentes virtuales no se integra con procesos core de negocio.
+\end{itemize}
+
+\textbf{Implicación para nuestra investigación:} Nuestra arquitectura integra IA directamente en procesos transaccionales y habilita optimización ecosistémica mediante colaboración explícita.
+
+\subsection*{Síntesis y Justificación del Enfoque Propuesto}
+
+El análisis crítico del estado del arte revela que ninguna solución existente aborda simultáneamente: (1) integración profunda IA-procesos, (2) arquitectura cloud-native escalable, y (3) generación sistemática de efectos de red. Nuestra contribución reside precisamente en esta integración tripartita, justificando la necesidad de una nueva aproximación arquitectónica.
 
 %================================================================================
 \section{Marco Teórico}
@@ -185,6 +188,88 @@ Desde la perspectiva de agentes inteligentes, un sistema racional toma decisione
 \textbf{Sensors:} Datos de navegación (clics, búsquedas, tiempo de permanencia); historial de reservas y cancelaciones; preferencias declaradas; datos de ubicación y contexto temporal; tendencias externas y señales de mercado; \textbf{preferencias sociales y disposición para viaje colaborativo}; historial de interacción entre usuarios (grupos formados, solicitudes aceptadas o rechazadas, afinidades detectadas).
 
 \textbf{Actuators:} Generación automática de itinerarios personalizados; recomendaciones priorizadas; alertas sobre cambios de precio o disponibilidad; \textbf{sugerencias de conexión entre usuarios con intereses similares}; \textbf{creación y gestión de grupos de viaje}; \textbf{invitaciones a viajes abiertos y solicitudes de unión}; ajustes dinámicos en visibilidad de destinos para mitigar estacionalidad.
+
+%================================================================================
+\section{Arquitectura Empresarial con Decisiones Justificadas}
+%================================================================================
+
+\subsection*{Fundamentos Arquitectónicos}
+
+La arquitectura propuesta se fundamenta en el framework TOGAF \citep{ref12} adaptado al contexto de plataformas digitales multi-sided, incorporando patrones cloud-native específicos para el dominio turístico.
+
+\subsection*{Capa de Negocio: Decisiones y Trade-offs}
+
+\subsubsection*{Decisión: Separación de Capacidades Core vs Colaborativas}
+
+\textbf{Decisión:} Separar explícitamente capacidades transaccionales core (reservas, pagos, gestión) de capacidades colaborativas (matching, mensajería, itinerarios compartidos).
+
+\textbf{Justificación:} Esta separación permite evolución independiente y escalabilidad diferenciada. Las capacidades core requieren consistencia transaccional fuerte (ACID), mientras que las colaborativas toleran eventual consistency pero necesitan alta disponibilidad.
+
+\textbf{Trade-off Analizado:} Aumentamos complejidad de integración pero ganamos flexibilidad para evolucionar cada dominio según sus requisitos específicos de calidad.
+
+\subsubsection*{Decisión: Modelo de Negocio Multi-sided}
+
+\textbf{Decisión:} Implementar plataforma multisided que conecta viajeros, proveedores turísticos y desarrolladores de servicios complementarios.
+
+\textbf{Justificación:} El análisis del estado del arte demuestra que modelos unilaterales (solo B2C o solo B2B) no capturan el valor completo del ecosistema turístico.
+
+\textbf{Trade-off Analizado:} Complejidad adicional en gestión de relaciones y gobernanza, pero efectos de red exponenciales que justifican la inversión arquitectónica.
+
+\subsection*{Capa de Aplicación: Decisiones y Trade-offs}
+
+\subsubsection*{Decisión: Microservicios Especializados vs Monolito Modular}
+
+\textbf{Decisión:} Adoptar arquitectura de microservicios con separación explícita entre backend transaccional (Spring Boot) y servicio de IA (FastAPI).
+
+\textbf{Justificación:} Basado en el gap de integración identificado, esta separación permite: (1) escalabilidad independiente según perfiles de carga, (2) tecnología optimizada para cada dominio (Java para transacciones, Python para IA), (3) desacoplamiento para evolución algorítmica sin afectar core.
+
+\textbf{Trade-off Analizado:} Mayor complejidad operativa y latencia de red, pero ganancias significativas en escalabilidad, mantenibilidad y especialización tecnológica.
+
+\subsubsection*{Decisión: Integración Asíncrona mediante SNS/SQS}
+
+\textbf{Decisión:} Implementar integración asíncrona entre microservicios utilizando Amazon SNS/SQS en lugar de llamadas síncronas.
+
+\textbf{Justificación:} El análisis de requisitos revela que muchas operaciones (recomendaciones, notificaciones, analytics) no requieren respuesta inmediata y pueden beneficiarse de desacoplamiento temporal.
+
+\textbf{Trade-off Analizado:} Mayor complejidad de debugging y eventual consistency, pero resiliencia mejorada y capacidad de absorber picos de carga sin degradar la experiencia de usuario.
+
+\subsection*{Capa de Datos: Decisiones y Trade-offs}
+
+\subsubsection*{Decisión: Políglota de Persistencia}
+
+\textbf{Decisión:} Adoptar enfoque políglota con PostgreSQL para datos transaccionales y S3 para almacenamiento de objetos y modelos de IA.
+
+\textbf{Justificación:} Los requisitos de consistencia transaccional (reservas, pagos) demandan bases de datos relacionales ACID, mientras que los modelos de IA y medios requieren almacenamiento escalable y acceso rápido.
+
+\textbf{Trade-off Analizado:} Complejidad adicional en gestión de múltiples tecnologías, pero optimización significativa de costos y rendimiento para cada caso de uso.
+
+\subsection*{Capa Tecnológica: Decisiones y Trade-offs}
+
+\subsubsection*{Decisión: AWS como Plataforma Base}
+
+\textbf{Decisión:} Seleccionar AWS como plataforma cloud primaria basada en análisis comparativo (Tabla 1).
+
+\textbf{Justificación:} AWS ofrece el ecosistema más maduro para microservicios, servicios de IA integrados, y reducción de carga operativa mediante servicios gestionados.
+
+\textbf{Trade-off Analizado:} Vendor lock-in potencial, pero beneficios superan riesgos dado el ecosistema maduro y portabilidad mediante contenedores.
+
+\subsubsection*{Decisión: Instancias EC2 vs Serverless}
+
+\textbf{Decisión:} Utilizar EC2 con Auto Scaling Groups en lugar de arquitectura serverless para servicios core.
+
+\textbf{Justificación:} Los requisitos de latencia consistente, estado persistente y control fino sobre rendimiento hacen que EC2 sea más adecuado que Lambda para servicios core.
+
+\textbf{Trade-off Analizado:} Mayor gestión operativa pero rendimiento predecible y control sobre optimización.
+
+\subsection*{Trazabilidad de Decisiones Arquitectónicas}
+
+Cada decisión arquitectónica se origina en limitaciones identificadas en el estado del arte:
+
+\begin{itemize}
+\item \textbf{Literatura → Problema:} La falta de integración IA-procesos \citep{ref11,ref13} motiva nuestra separación microservicios.
+\item \textbf{Problema → Decisión:} El gap de escalabilidad justifica arquitectura cloud-native con autoescalado.
+\item \textbf{Decisión → Arquitectura:} Las decisiones de tecnología se materializan en la topología AWS específica.
+\end{itemize}
 
 %================================================================================
 \section{Modelo de Negocio}
@@ -253,8 +338,10 @@ Define reglas de negocio y algoritmos de optimización: políticas de pricing di
 
 Este componente implementa un motor de valor de red alineado con las épicas y \textit{user stories} del repositorio de documentación: perfil mínimo de viajero, registro de intención de viaje, búsqueda de coincidencias por destino y fechas, solicitudes de conexión, mensajería entre conexiones, cronograma personal y actividades compartidas, y evolución hacia recomendaciones y \textit{matching} asistidos por IA. El sistema utiliza algoritmos de aprendizaje automático para compatibilidad multidimensional basada en preferencias declaradas, historial de comportamiento y disposición colaborativa. Las capacidades empresariales incluyen: \textbf{(i)} coordinación de grupos y planes compartidos; \textbf{(ii)} mecanismos de confianza y reputación a medida que madure el producto; \textbf{(iii)} extensiones de \textit{marketplace} colaborativo; \textbf{(iv)} analítica de patrones de conexión. El ecosistema genera efectos de red que aumentan el valor con cada usuario adicional.
 
+\newpage
+
 %================================================================================
-\section*{Arquitectura de la Solución y Tecnológica}
+\section{Arquitectura de la Solución y Tecnológica}
 %================================================================================
 
 La arquitectura de despliegue adopta como \textbf{fuente de verdad} la especificación del repositorio de infraestructura del proyecto: topología AWS con API Gateway, Application Load Balancer, instancias EC2 para el núcleo Spring Boot y el microservicio FastAPI, RDS PostgreSQL, S3, SNS, SQS, CloudFront y CloudWatch. Los clientes web (\textit{React}) y móvil (\textit{Kotlin}) consumen las APIs expuestas en ese perímetro.
@@ -265,6 +352,8 @@ La arquitectura de despliegue adopta como \textbf{fuente de verdad} la especific
     \caption{Arquitectura cloud-native de referencia en AWS (alineada al repositorio de infraestructura)}
     \label{fig:arquitectura_aws}
 \end{figure}
+
+\newpage
 
 \subsection*{Justificación de AWS}
 
@@ -364,61 +453,6 @@ La arquitectura está dimensionada para el entorno AWS Academy Learner Lab, resp
 
 La implementación académica garantiza: \textbf{(i)} viabilidad bajo restricciones del laboratorio; \textbf{(ii)} trazabilidad de la topología mediante scripts de aprovisionamiento; \textbf{(iii)} base para endurecimiento y migración a producción (cifrado avanzado, alta disponibilidad multi-AZ, identidad federada) cuando el contexto lo permita; \textbf{(iv)} costos acotados para entorno educativo.
 
-\subsection*{Roadmap de Transformación Digital}
-
-La implementación sigue una estrategia de transformación digital incremental con entregas de valor continuas:
-
-\textbf{Fase 1 - MVP Empresarial:} Desarrollo del núcleo transaccional con integración de proveedores clave, procesamiento de pagos y funcionalidades básicas de reservas.
-
-\textbf{Fase 2 - Inteligencia de Negocio:} Implementación del motor de recomendaciones híbrido, analytics básicos y dashboards para operadores turísticos.
-
-\textbf{Fase 3 - Ecosistema Colaborativo:} Incorporación de funcionalidades de matching social, formación de grupos y marketplace de experiencias compartidas.
-
-\textbf{Fase 4 - Optimización Avanzada:} Implementación de modelos predictivos para gestión de estacionalidad, pricing dinámico y optimización de recursos.
-
-\textbf{Fase 5 - Escalabilidad Global:} Expansión a nuevos mercados, integración con sistemas legacy de grandes operadores y certificaciones de seguridad empresarial.
-
-Se adopta metodología DevOps con CI/CD automatizado para garantizar calidad y velocidad de entrega.
-
-\subsection*{Ventaja Competitiva Estratégica}
-
-La solución se diferencia fundamentalmente de las plataformas basadas en IA generativa conversacional:
-
-\begin{itemize}
-\item \textbf{Integración con procesos core:} La inteligencia artificial se integra directamente en los sistemas de gestión operativa, no solo en interfaces de usuario.
-\item \textbf{Optimización matemática rigurosa:} Implementación de algoritmos formales para optimización de recursos y predicción de demanda.
-\item \textbf{Eficiencia computacional:} Arquitectura optimizada para procesamiento a gran escala con costos predecibles.
-\item \textbf{Ecosistema de valor de red:} Creación de efectos de red positivos mediante colaboración entre usuarios.
-\item \textbf{Inteligencia de negocio integrada:} Analítica avanzada para toma de decisiones estratégicas de operadores.
-\end{itemize}
-
-\subsection*{Impacto Empresarial y Transformación del Sector}
-
-La implementación de esta solución genera impacto transformador en múltiples dimensiones:
-
-\textbf{Impacto Operativo:}
-\begin{itemize}
-\item Reducción del 30-40\% en costos operativos mediante automatización y optimización de recursos.
-\item Mejora del 25\% en ocupación promedio mediante gestión inteligente de estacionalidad.
-\item Incremento del 20\% en eficiencia de conversión mediante personalización contextual.
-\end{itemize}
-
-\textbf{Impacto Estratégico:}
-\begin{itemize}
-\item Creación de nuevas fuentes de ingresos mediante marketplace de servicios colaborativos.
-\item Diferenciación competitiva sostenible mediante efectos de red y lealtad de comunidad.
-\item Inteligencia de negocio avanzada para toma de decisiones estratégicas.
-\end{itemize}
-
-\textbf{Impacto Social:}
-\begin{itemize}
-\item Democratización del acceso a experiencias turísticas personalizadas.
-\item Facilitación de viajes colaborativos que reducen costos individuales.
-\item Creación de comunidades que fomentan el turismo sostenible y consciente.
-\end{itemize}
-
-La solución representa una verdadera transformación digital que reestructura la cadena de valor del turismo y posiciona a Colombia como líder en innovación turística tecnológica.
-
 \subsection*{Optimización de capacidad}
 
 La planificación de recursos turísticos se modela mediante programación lineal:
@@ -430,315 +464,148 @@ La planificación de recursos turísticos se modela mediante programación linea
 La predicción de demanda utiliza modelos SARIMA para anticipar picos y ajustar recomendaciones adaptativas.
 
 %================================================================================
-\section{Arquitectura Empresarial}
+\section{Metodología de Investigación}
 %================================================================================
 
-La solución se estructura con un enfoque de arquitectura empresarial por capas, alineando capacidades de negocio con componentes técnicos desplegables. Esta vista integra decisiones funcionales, de datos y de plataforma con criterios de escalabilidad y operación continua.
+\subsection*{Diseño de Investigación}
 
-\subsection{Capa de Negocio}
+Esta investigación adopta un enfoque Design Science Research (DSR) \citep{hevner2004design} para desarrollar y evaluar una artefacto arquitectónico que aborda problemas identificados en la práctica del turismo digital.
 
-En la capa de negocio se identifican capacidades principales: gestión de identidad del viajero, planificación de viajes, coordinación social, recomendación inteligente y analítica operativa. Estas capacidades se materializan en flujos de valor donde el usuario crea intención de viaje, establece conexiones y ejecuta itinerarios con apoyo de recomendación contextual.
+\subsection*{Hipótesis de Investigación}
 
-\subsection{Capa de Aplicación}
+\textbf{H1:} Una arquitectura empresarial con microservicios especializados y colaboración social explícita mejora significativamente la eficiencia operativa en comparación con arquitecturas monolíticas tradicionales.
 
-La capa de aplicación se compone de cuatro contenedores principales: cliente web (React/Vite), cliente móvil (Android/Kotlin), backend transaccional (Spring Boot) y microservicio de IA (FastAPI). El backend concentra reglas de dominio, autenticación JWT y exposición de APIs de usuario, viaje y funciones sociales. El servicio de IA encapsula modelos de recomendación, perfilamiento y \textit{matching}, desacoplado del núcleo transaccional para facilitar evolución algorítmica independiente.
+\textbf{H2:} La integración de IA en procesos transaccionales mediante microservicios desacoplados reduce el tiempo de planificación de viajes en más del 30\% comparado con sistemas conversacionales aislados.
 
-\subsection{Capa de Datos}
+\textbf{H3:} Los efectos de red generados por colaboración explícita entre usuarios aumentan la retención en más del 25\% comparado con plataformas individuales.
 
-La capa de datos combina persistencia relacional y almacenamiento de objetos. El dominio transaccional se apoya en entidades relacionales (\textit{users}, \textit{travel\_plans}, \textit{travel\_plan\_activities}, \textit{reservations}), mientras la capa de objetos en S3 soporta activos estáticos, medios y artefactos de soporte. La integración asíncrona mediante SNS/SQS habilita desacoplamiento temporal para eventos de usuario y recomendación, reduciendo acoplamiento entre productores y consumidores.
+\subsection*{Variables y Métricas}
 
-\subsection{Capa Tecnológica}
-
-La capa tecnológica está definida por la infraestructura versionada: API Gateway, Application Load Balancer, Auto Scaling Groups sobre EC2 \texttt{t3.micro}, RDS PostgreSQL \texttt{db.t3.micro}, S3, SNS, SQS y CloudWatch dentro de una VPC con subredes públicas e Internet Gateway en \texttt{us-east-1}. Esta composición materializa la plataforma como sistema distribuido cloud-native, con separación de responsabilidades por servicio y observabilidad centralizada.
-
-\subsection{Alineación estratégica de transformación digital}
-
-La arquitectura empresarial conecta la estrategia de transformación digital con resultados operacionales verificables: automatización de procesos, personalización a escala, coordinación social y soporte a decisiones basadas en datos. La separación entre capacidades de negocio y unidades de despliegue permite trazar inversión tecnológica hacia indicadores de eficiencia, experiencia y resiliencia operativa.
-
-%================================================================================
-\section{Gobernanza de Arquitectura}
-%================================================================================
-
-La gobernanza se concibe como un sistema de control técnico y operativo que combina estándares de diseño, controles automáticos en CI/CD y supervisión en tiempo de ejecución.
-
-\subsection{Modelo de gobernanza técnica}
-
-Se adopta un modelo federado por repositorios, donde cada dominio técnico (web, móvil, backend, IA, infraestructura) conserva autonomía de implementación dentro de lineamientos comunes: contratos API versionados, separación por capas, políticas de seguridad mínimas y convenciones de despliegue en AWS. Este esquema reduce dependencia de equipos y habilita evolución incremental controlada.
-
-\subsection{Control de estándares arquitectónicos}
-
-El control de estándares se materializa en: (i) convenciones de estructura por capas en backend y móvil; (ii) contratos HTTP explícitos en API Gateway y servicios; (iii) uso de componentes AWS definidos en scripts como fuente de verdad de despliegue; (iv) versionamiento de configuración operativa en \texttt{config.json}. La gobernanza de cambios privilegia trazabilidad de decisiones y reproducibilidad de infraestructura.
-
-\subsection{CI/CD como mecanismo de enforcement}
-
-Los flujos GitHub Actions en backend, IA, web y móvil aplican controles automáticos: escaneo de vulnerabilidades con Trivy, análisis estático con SonarCloud y etapas de construcción/artefactado por repositorio. Este mecanismo transforma la gobernanza en control ejecutable, al bloquear integración ante incumplimientos de seguridad o calidad definidos en pipeline.
-
-\subsection{Observabilidad y control operacional}
-
-CloudWatch centraliza logs y métricas de componentes perimetrales y de cómputo, con alarmas sobre CPU, profundidad de colas y estados de servicio. Los \textit{health checks} de ALB y la supervisión de ASG permiten detectar degradación y gatillar recuperación automática a nivel de instancia. Este ciclo observación--decisión--acción constituye el núcleo de gobernanza operacional en ambiente distribuido.
-
-\subsection{Gestión de cambios arquitectónicos}
-
-La gestión de cambios sigue una secuencia: propuesta de modificación, validación técnica en repositorio correspondiente, verificación de impacto en interfaces y datos, ejecución de pipeline y despliegue controlado. En contexto académico, la fase final incluye \textit{handoff} manual de despliegue; no obstante, los controles previos reducen riesgo de regresión funcional y de seguridad.
-
-%================================================================================
-\section{Atributos de Calidad Integrados en las Decisiones Arquitectónicas}
-%================================================================================
-
-Los atributos de calidad se incorporan como escenarios verificables que orientan decisiones de diseño y operación.
-
-\subsection{Disponibilidad y escalabilidad}
-
-La elección de ALB + ASG con límites \texttt{min/max/desired} por servicio responde a escenarios de falla de instancia y crecimiento de carga. La arquitectura privilegia recuperación por reemplazo de nodos y escalado horizontal dentro de restricciones de laboratorio (\texttt{t3.micro}, máximo de instancias), manteniendo continuidad funcional del plano API.
-
-\subsection{Rendimiento y eficiencia}
-
-La separación backend/IA evita contención de recursos entre transacciones y cómputo de recomendación. La mensajería SNS/SQS absorbe variabilidad temporal y desacopla procesos no estrictamente síncronos. Esta decisión mitiga picos de demanda y reduce latencia percibida en operaciones críticas del usuario.
-
-\subsection{Seguridad y protección}
-
-La seguridad se articula en capas: autenticación/autorización JWT a nivel de aplicación, control perimetral por API Gateway/ALB y segmentación por security groups para acceso a RDS. En ciclo de vida, Trivy y SonarCloud operan como controles de cadena de suministro, reforzando prevención temprana de vulnerabilidades.
-
-\subsection{Mantenibilidad y evolución}
-
-La modularidad por repositorios y por contenedores técnicos permite cambios localizados (p.\,ej.\ algoritmos en IA o ajustes de UX en web/móvil) con menor acoplamiento estructural. El versionamiento de infraestructura y pipelines uniformes facilita evolución gobernada sin perder coherencia sistémica.
-
-\subsection{Interoperabilidad y compatibilidad}
-
-El uso de APIs REST versionadas, DTOs y esquemas explícitos entre clientes y servicios responde a escenarios de interoperabilidad multi-cliente. Esta estrategia reduce fricción de integración y permite coexistencia de canales web y móvil sobre una misma base de capacidades.
-
-\subsection{Observabilidad y operabilidad}
-
-Los escenarios de calidad de detección temprana de incidentes se cubren mediante métricas y alarmas en CloudWatch, junto con endpoints de salud para backend e IA. La arquitectura convierte la observabilidad en capacidad transversal, imprescindible para gobernar un sistema distribuido con componentes autónomos.
-
-%================================================================================
-\section{Trazabilidad con Diagramas Arquitectónicos e Infraestructura}
-%================================================================================
-
-La consistencia del diseño se verifica mediante trazabilidad cruzada entre vistas arquitectónicas:
-
+\subsubsection*{Variables Independientes}
 \begin{itemize}
-\item \textbf{Diagramas C4 (contexto, contenedores, componentes):} sustentan la separación por capacidades y responsabilidades entre clientes, backend, servicio IA e integraciones de plataforma.
-\item \textbf{Diagramas UML (componentes, despliegue, contexto, actividades, casos de uso):} detallan contratos técnicos, relaciones entre artefactos y comportamiento de flujos principales.
-\item \textbf{Diagramas AWS y topología de red:} reflejan la implementación concreta definida en \texttt{voyager-infrastructure} (VPC, subredes, balanceo, cómputo, datos, mensajería, monitoreo).
-\item \textbf{Diagrama CI/CD:} evidencia el modelo de gobernanza ejecutable, con controles automáticos de seguridad y calidad por repositorio.
-\item \textbf{Diagrama ER físico:} conecta decisiones de dominio transaccional con persistencia relacional y políticas de acceso en red.
+\item \textbf{Arquitectura del Sistema:} Microservicios vs Monolito
+\item \textbf{Integración IA:} Profunda vs Superficial
+\item \textbf{Colaboración Social:} Explícita vs Ausente
 \end{itemize}
 
-Esta trazabilidad garantiza que la arquitectura empresarial no permanezca como abstracción documental, sino como sistema verificable en artefactos de código, infraestructura y operación.
-
-%================================================================================
-\section{Seguridad del Sistema}
-%================================================================================
-
-La solución opera en un entorno distribuido con datos personales y transacciones; la seguridad se aborda de forma coherente con lo documentado en el repositorio de infraestructura y con las decisiones de aplicación descritas en la documentación técnica del proyecto (p.\,ej.\ JWT en el núcleo Spring Boot). No se declaran aquí componentes AWS que no figuren en dicho despliegue de referencia (p.\,ej.\ Cognito, WAF, DynamoDB, Redshift, X-Ray o Secrets Manager no constan en los scripts de infraestructura versionados).
-
-\subsection{Cifrado en tránsito (TLS)}
-
-Las comunicaciones externas hacia \textbf{Amazon API Gateway} y el \textbf{Application Load Balancer} utilizan HTTPS/TLS en el perímetro, conforme a la política de tráfico seguro descrita en infraestructura. \textit{Justificación:} reduce el riesgo de interceptación y manipulación en tránsito entre clientes web/móviles y el borde de la plataforma.
-
-\subsection{Protección de datos en reposo}
-
+\subsubsection*{Variables Dependientes}
 \begin{itemize}
-\item \textbf{Amazon RDS:} contraseñas robustas y acceso restringido por grupos de seguridad; en el modo Academy documentado puede aplicarse configuración single-AZ sin cifrado obligatorio, por lo que el endurecimiento con cifrado nativo de RDS debe planificarse explícitamente en despliegues productivos.
-\item \textbf{Amazon S3:} buckets privados con cifrado de objetos según la política descrita en el repositorio de infraestructura (p.\,ej.\ SSE-S3 o equivalente documentado).
+\item \textbf{Eficiencia Operativa:} Tiempo de procesamiento, utilización de recursos
+\item \textbf{Experiencia Usuario:} Tiempo de planificación, satisfacción (NPS)
+\item \textbf{Impacto Negocio:} Tasa conversión, retención, ROI
 \end{itemize}
 
-\textit{Justificación:} limita la exposición de datos ante compromiso de almacenamiento y refuerza el principio de defensa en profundidad al migrar a entornos productivos.
+\subsection*{Diseño Experimental}
 
-\subsection{Autenticación y autorización a nivel de aplicación}
+\subsubsection*{Fase 1: Desarrollo del Artefacto}
+
+Implementación del prototipo siguiendo especificaciones técnicas detalladas en sección anterior, con validación continua mediante integración continua y pruebas automatizadas.
+
+\subsubsection*{Fase 2: Evaluación Controlada}
+
+\textbf{Grupo Control:} Usuarios interactuando con sistema simulado monolítico sin colaboración social.
+
+\textbf{Grupo Experimental:} Usuarios utilizando arquitectura propuesta con microservicios y colaboración.
+
+\textbf{Muestra:} n=200 usuarios (100 por grupo), segmentados por perfil turístico (budget, medium, premium).
+
+\subsubsection*{Fase 3: Evaluación en Producción}
+
+Despliegue progresivo con A/B testing para validación en entorno real, monitorización de métricas de negocio y técnicas.
+
+\subsection*{Métricas de Evaluación}
+
+\subsubsection*{Métricas Técnicas}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l|c|c}
+\hline
+\textbf{Métrica} & \textbf{Fórmula} & \textbf{Objetivo} \\
+\hline
+Latencia Promedio & $\frac{1}{n}\sum_{i=1}^{n} t_i$ & $<$ 300ms \\
+Throughput & $\frac{\text{requests}}{\text{segundo}}$ & $>$ 3000 req/s \\
+Disponibilidad & $\frac{\text{uptime}}{\text{total}}$ & $>$ 99.9\% \\
+Error Rate & $\frac{\text{errors}}{\text{total requests}}$ & $<$ 0.5\% \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{Métricas de Negocio}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l|c|c}
+\hline
+\textbf{Métrica} & \textbf{Fórmula} & \textbf{Objetivo} \\
+\hline
+Tasa Conversión & $\frac{\text{bookings}}{\text{sessions}}$ & $>$ 15\% \\
+Tiempo Planificación & $\frac{\text{duration}}{\text{session}}$ & $<$ 10 min \\
+Retención D30 & $\frac{\text{active\_d30}}{\text{total\_users}}$ & $>$ 40\% \\
+NPS & $\frac{\text{promoters} - \text{detractors}}{\text{total}}$ & $>$ 50 \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{Métricas de IA}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l|c|c}
+\hline
+\textbf{Métrica} & \textbf{Fórmula} & \textbf{Objetivo} \\
+\hline
+Precision@K & $\frac{|\text{relevant} \cap \text{top\_K}|}{K}$ & $>$ 0.85 \\
+Recall@K & $\frac{|\text{relevant} \cap \text{top\_K}|}{|\text{relevant}|}$ & $>$ 0.80 \\
+RMSE & $\sqrt{\frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}$ & $<$ 0.3 \\
+MAE & $\frac{1}{n}\sum_{i=1}^{n}|y_i - \hat{y}_i|$ & $<$ 0.2 \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection*{Análisis Estadístico}
+
+\subsubsection*{Pruebas de Hipótesis}
+
+Utilizaremos prueba t de Student para muestras independientes con $\alpha = 0.05$:
+
+$$H_0: \mu_{\text{control}} = \mu_{\text{experimental}}$$
+$$H_1: \mu_{\text{control}} \neq \mu_{\text{experimental}}$$
+
+\subsubsection*{Tamaño de Efecto}
+
+Cálculo de d de Cohen para medir magnitud de diferencias:
+
+$$d = \frac{\mu_{\text{experimental}} - \mu_{\text{control}}}{s_{\text{pooled}}}$$
+
+\subsubsection*{Análisis de Varianza}
+
+ANOVA para comparar múltiples perfiles de usuario y detectar interacciones entre arquitectura y segmentos de mercado.
+
+\subsection*{Validación de Resultados}
+
+\subsubsection*{Validación Interna}
+
+Revisión por pares del artefacto arquitectónico, revisión de código automatizada, y pruebas de penetración de seguridad.
+
+\subsubsection*{Validación Externa}
+
+Comparación con benchmarks industriales, validación por expertos del sector turístico, y evaluación de reproducibilidad mediante scripts de infraestructura.
+
+\subsection*{Limitaciones y Mitigación}
 
 \begin{itemize}
-\item \textbf{Autenticación stateless con JWT} implementada en el núcleo Spring Boot, según la arquitectura técnica del repositorio de documentación (cliente web con Axios e interceptores; cliente móvil con Retrofit/OkHttp).
-\item \textbf{AWS IAM} en el laboratorio con los roles y perfiles exigidos por AWS Academy (p.\,ej.\ LabRole, LabInstanceProfile), aplicando el menor privilegio posible dentro de las restricciones del entorno académico.
+\item \textbf{Limitación:} Entorno controlado puede no reflejar condiciones reales.
+\item \textbf{Mitigación:} Fase de evaluación en producción con monitorización extensiva.
+\item \textbf{Limitación:} Sesgo de selección en muestra de usuarios.
+\item \textbf{Mitigación:} Segmentación aleatoria y estratificación por perfiles.
 \end{itemize}
-
-\subsection{Control de acceso a red y API}
-
-\begin{itemize}
-\item \textbf{API Gateway:} punto de entrada centralizado con limitación de tasa (\textit{throttling}) documentada.
-\item \textbf{VPC:} grupos de seguridad segregados por servicio y listas de control de acceso a la red (NACLs) para evitar comunicaciones directas no deseadas entre servicios, según el modelo de red del repositorio de infraestructura.
-\end{itemize}
-
-\subsection{Observabilidad y buenas prácticas}
-
-\begin{itemize}
-\item \textbf{Amazon CloudWatch} para registros, métricas y alarmas sobre CPU, memoria y salud de los endpoints.
-\item Separación lógica de entornos (desarrollo, laboratorio, producción futura) y gobierno de credenciales alineado a las prácticas del equipo (sin asumir servicios de secretos gestionados no desplegados en la referencia actual).
-\end{itemize}
-
-%================================================================================
-\section{Metodología}
-%================================================================================
-
-La presente investigación propone el diseño metodológico para la construcción de un dataset propio orientado al sector turístico colombiano, con el objetivo de desarrollar y evaluar un sistema de recomendación contextual basado en una arquitectura cognitiva. Dado que actualmente no existen datasets públicos suficientemente adaptados al contexto colombiano, esta investigación plantea la creación estructurada de un dataset experimental. Al momento de este trabajo, el sistema no ha sido implementado en producción; por tanto, la metodología describe el diseño propuesto y el marco experimental previsto.
-
-\subsection{Diseño del Dataset Propuesto}
-
-El dataset se estructurará bajo un enfoque \textit{data-centric}. Se contemplan tres fuentes: datos transaccionales (reservas, cancelaciones, precios dinámicos); datos de comportamiento in-app (navegación, búsquedas, clics, preferencias declaradas); variables contextuales externas (temporada, festividades, clima por región).
-
-El modelo de datos se organiza en: \textbf{Nivel Usuario} (identificador anonimizado, preferencias, historial); \textbf{Nivel Transacción} (destino, fecha, precio, tipo de servicio); \textbf{Nivel Contextual} (región, temporada, indicadores de demanda).
-
-\subsection{Mapeo a la Arquitectura Cognitiva}
-
-El dataset se estructura para alimentar los tres componentes cognitivos: \textbf{Memoria Episódica} integra secuencias temporales (historial de reservas, navegación, respuestas promocionales, historial de interacción social: grupos formados, solicitudes enviadas/recibidas), modeladas mediante embeddings secuenciales. \textbf{Memoria Semántica} contiene taxonomías de destinos, segmentaciones por tipo de viajero, relaciones estacionalidad-comportamiento y perfiles de afinidad para \textit{matching} social, modelada mediante esquemas dimensionales y grafos semánticos. \textbf{Memoria Procedimental} incorpora reglas (incentivos en temporada baja, priorización de regiones con menor ocupación, ajuste dinámico de recomendaciones, criterios de emparejamiento para viajes colaborativos), implementadas como funciones parametrizables.
-
-\subsection{Gobernanza y Preparación de Datos}
-
-Anonimización y pseudonimización; normalización de categorías; validación de consistencia temporal; detección de valores atípicos en precios. Almacenamiento conceptual: Data Lake para datos crudos y modelo dimensional para análisis estructurado.
-
-\subsection{Diseño Experimental}
-
-División en entrenamiento (70\%), validación (15\%) y prueba (15\%); validación cruzada; comparación frente a baseline basado en popularidad global. El modelo híbrido se define como $\hat{r}_{ui} = \alpha f_{collab}(u,i) + (1-\alpha) f_{content}(u,i)$, donde $f_{collab}(u,i)$ y $f_{content}(u,i)$ son las estimaciones colaborativa y basada en contenido, y $\alpha \in [0,1]$ se estima experimentalmente.
-
-\subsection{Métricas de Evaluación}
-
-\textbf{Nivel Predictivo:} RMSE, MAE, Precision@K, Recall@K. \textbf{Nivel Territorial:} variación proyectada en distribución regional; sensibilidad ante cambios estacionales. \textbf{Nivel Experimental:} pruebas de significancia estadística con $\alpha = 0.05$ para la hipótesis $H_0: \mu_{modelo} = \mu_{baseline}$.
-
-%================================================================================
-\section{Evaluación}
-%================================================================================
-
-\subsection{Métricas propuestas}
-
-La evaluación del sistema se plantea a través de métricas cuantitativas y cualitativas: precisión del sistema de recomendación (Precision@10); error de predicción (RMSE frente a baseline); impacto en estacionalidad de la demanda; tiempo promedio de planificación de viajes; tasa de retención de usuarios; nivel de interacción comunitaria; ROI estimado. Se aplicarán pruebas de significancia estadística para determinar si las diferencias frente a métodos tradicionales resultan relevantes.
-
-\subsection{Discusión cualitativa}
-
-En un contexto de crecimiento sostenido del turismo, la incorporación de inteligencia artificial y funcionalidades sociales podría representar una ventaja estratégica. La dimensión de viaje colaborativo y conexión entre usuarios aporta un diferencial de producto que las plataformas tradicionales no ofrecen, con potencial para mejorar retención, \textit{engagement} y satisfacción mediante la formación de comunidades de viajeros. Desde una perspectiva arquitectónica: establece separación clara de responsabilidades; mejora trazabilidad de procesos; facilita escalabilidad modular para incorporar nuevos servicios, incluyendo la capa social como componente extensible.
-
-\subsection{Limitaciones del sistema}
-
-\begin{itemize}
-\item Dependencia de la calidad y disponibilidad de los datos de entrada; sin datos representativos del turismo colombiano, los modelos pueden sufrir sesgos.
-\item Complejidad inicial en el modelado y parametrización del sistema; la calibración de $\alpha$ y de los modelos SARIMA requiere iteración.
-\item Necesidad de validación empírica en entornos reales para confirmar efectividad; el diseño actual es conceptual y no ha sido desplegado en producción.
-\end{itemize}
-
-\subsection{Problemas prácticos}
-
-\begin{itemize}
-\item \textbf{Energía y costos:} La infraestructura AWS implica costos variables; en regiones con tráfico bajo, el modelo de pago por uso puede ser favorable, pero picos estacionales pueden incrementar facturación.
-\item \textbf{Datos:} La construcción del dataset experimental depende de acuerdos con proveedores turísticos o de simulación; los datos sintéticos pueden no reflejar la realidad.
-\item \textbf{Capacidad y latencia:} La inferencia en tiempo real depende del dimensionamiento de los grupos de autoescalado EC2 \texttt{t3.micro} y del Application Load Balancer; subdimensionar puede generar latencias elevadas o pérdida de solicitudes bajo picos de demanda.
-\end{itemize}
-
-\subsection{Consideraciones técnicas}
-
-\begin{itemize}
-\item La integración con sistemas externos (proveedores de vuelos, hoteles) depende de APIs heterogéneas; la estabilidad y el formato de los datos varían entre proveedores.
-\item Los pipelines de integración continua y las imágenes de contenedor empleadas en desarrollo deben someterse a controles de seguridad de cadena de suministro (tema relacionado con la línea de trabajo de escaneo de imágenes y DevSecOps en la documentación de fundamentos de seguridad del repositorio).
-\end{itemize}
-
-%================================================================================
-\section{Diagramas de Arquitectura (C4 Model)}
-%================================================================================
-
-Los diagramas C4 ilustran el sistema como conjunto de contenedores y relaciones; deben interpretarse de manera consistente con la topología del repositorio de infraestructura: clientes web y móvil, API Gateway, balanceador de aplicaciones, dos servicios de cómputo (Spring Boot y FastAPI), RDS PostgreSQL, S3, SNS/SQS y CloudFront/CloudWatch según corresponda.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/c4-model.level-1-context.pdf}
-    \caption{Diagrama de contexto C4 (alineación con API Gateway, ALB y servicios de cómputo documentados)}
-    \label{fig:contexto_c4}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/c4-model.level-2-containers.pdf}
-    \caption{Diagrama de contenedores C4 (núcleo backend, microservicio IA, persistencia y mensajería)}
-    \label{fig:contenedores_c4}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.85\textwidth,height=0.7\textheight,keepaspectratio]{figures/c4-model.level-3-components.backend.core.pdf}
-    \caption{Diagrama de componentes del backend core (Spring Boot)}
-    \label{fig:components_backend}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.85\textwidth,height=0.7\textheight,keepaspectratio]{figures/c4-model.level-3-components.ai-microservice.pdf}
-    \caption{Diagrama de componentes del microservicio de IA (FastAPI)}
-    \label{fig:components_ai}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.85\textwidth,height=0.7\textheight,keepaspectratio]{figures/c4-model.level-3-components.web-client.pdf}
-    \caption{Diagrama de componentes del cliente web (React)}
-    \label{fig:components_web}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.85\textwidth,height=0.7\textheight,keepaspectratio]{figures/c4-model.level-3-components.android-app.pdf}
-    \caption{Diagrama de componentes del cliente móvil (Android/Kotlin)}
-    \label{fig:components_android}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.85\textwidth,height=0.7\textheight,keepaspectratio]{figures/enterprise.archimate.pdf}
-    \caption{Diagrama de arquitectura empresarial (ArchiMate)}
-    \label{fig:enterprise_archimate}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/uml.behavior.use-cases.pdf}
-    \caption{Diagrama de casos de uso del sistema}
-    \label{fig:use_cases}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/uml.context.system-context.pdf}
-    \caption{Diagrama de contexto del sistema}
-    \label{fig:system_context}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.85\textwidth,height=0.7\textheight,keepaspectratio]{figures/uml.structure.component-overview.pdf}
-    \caption{Vista general de componentes del sistema}
-    \label{fig:component_overview}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.85\textwidth,height=0.7\textheight,keepaspectratio]{figures/uml.structure.er-diagram.pdf}
-    \caption{Diagrama entidad-relación del modelo de datos}
-    \label{fig:er_diagram}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.85\textwidth,height=0.7\textheight,keepaspectratio]{figures/uml.deployment..deployment-diagram.pdf}
-    \caption{Diagrama de despliegue del sistema}
-    \label{fig:deployment_diagram}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.85\textwidth,height=0.7\textheight,keepaspectratio]{figures/uml.deployment.network-topology.pdf}
-    \caption{Topología de red en AWS}
-    \label{fig:network_topology}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/uml.deployment.cicd-pipeline.pdf}
-    \caption{Pipeline de CI/CD del sistema}
-    \label{fig:cicd_pipeline}
-\end{figure}
 
 %================================================================================
 \section{Análisis Sistémico del Proceso de Transformación Digital}
 %================================================================================
 
-El presente análisis sistémico revela las dinámicas complejas subyacentes en el proceso de transformación digital del sector turístico, identificando bucles de retroalimentación, arquetipos sistémicos y puntos de apalancamiento que determinan el éxito o fracaso de la implementación.
+El presente análisis sistémico revela las dinámicas complejas subyacentes en el proceso de transformación digital del sector turístico, identificando bucles de retroalimentación, arquetipos sistémicos y puntos de apalancamiento que determinan el éxito o fracaso de la implementación. Este análisis justifica fundamentalmente nuestra arquitectura propuesta al identificar las causas raíz de los problemas actuales.
 
 \subsection{Bucles Causales Fundamentales}
 
@@ -752,7 +619,7 @@ El sistema turístico digital presenta cinco bucles de retroalimentación princi
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth,height=0.5\textheight,keepaspectratio]{figures/systems.atoms.loneliness-traveler.pdf}
+    \includegraphics[height=0.3\textheight,keepaspectratio]{figures/systems.atoms.loneliness-traveler.pdf}
     \caption{Bucle causal R1: Espiral de soledad del viajero}
     \label{fig:loneliness_loop}
 \end{figure}
@@ -767,7 +634,7 @@ Este bucle representa una espiral descendente donde la falta de conexiones socia
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth,height=0.5\textheight,keepaspectratio]{figures/systems.atoms.experience-fragmentation.pdf}
+    \includegraphics[height=0.3\textheight,keepaspectratio]{figures/systems.atoms.experience-fragmentation.pdf}
     \caption{Bucle causal R2: Fragmentación de experiencia}
     \label{fig:fragmentation_loop}
 \end{figure}
@@ -782,7 +649,7 @@ La separación entre las fases de planificación, ejecución y socialización de
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth,height=0.5\textheight,keepaspectratio]{figures/systems.atoms.data-matching-limits.pdf}
+    \includegraphics[height=0.3\textheight,keepaspectratio]{figures/systems.atoms.data-matching-limits.pdf}
     \caption{Bucle causal R3: Limitación de datos de matching}
     \label{fig:data_matching_loop}
 \end{figure}
@@ -797,7 +664,7 @@ La escasez de datos sociales limita la efectividad de los algoritmos de matching
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth,height=0.5\textheight,keepaspectratio]{figures/systems.atoms.personalization-scaling.pdf}
+    \includegraphics[height=0.3\textheight,keepaspectratio]{figures/systems.atoms.personalization-scaling.pdf}
     \caption{Bucle causal B1: Escalabilidad de personalización}
     \label{fig:scalability_loop}
 \end{figure}
@@ -812,7 +679,7 @@ La complejidad computacional del matching multidimensional crea restricciones de
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth,height=0.5\textheight,keepaspectratio]{figures/systems.atoms.post-trip-social-validation.pdf}
+    \includegraphics[height=0.3\textheight,keepaspectratio]{figures/systems.atoms.post-trip-social-validation.pdf}
     \caption{Bucle causal R4: Validación social post-viaje}
     \label{fig:validation_loop}
 \end{figure}
@@ -893,7 +760,7 @@ El análisis sistémico identifica tres puntos de apalancamiento de alto impacto
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth,height=0.7\textheight,keepaspectratio]{figures/systems.maps.systemic-model.pdf}
+    \includegraphics[width=0.75\textwidth,height=0.5\textheight,keepaspectratio]{figures/systems.maps.systemic-model.pdf}
     \caption{Modelo sistémico integrado con interacciones entre bucles causales}
     \label{fig:systemic_model}
 \end{figure}
@@ -950,110 +817,269 @@ Balancear expansión R4 con limitaciones técnicas B1:
 \item \textbf{Establecer métricas de calidad} para detectar erosión de metas
 \end{enumerate}
 
-\subsubsection{Prioridad Baja: Monitoreo y Adaptación}
+%================================================================================
+\section{Diagramas de Arquitectura (C4 Model)}
+%================================================================================
 
-\begin{enumerate}
-\item \textbf{Implementar dashboards sistémicos} para visualizar dinámicas
-\item \textbf{Crear sistemas de alerta temprana} para ciclos problemáticos
-\item \textbf{Establecer revisiones periódicas} de arquetipos emergentes
-\end{enumerate}
+Los diagramas C4 ilustran el sistema como conjunto de contenedores y relaciones; deben interpretarse de manera consistente con la topología del repositorio de infraestructura: clientes web y móvil, API Gateway, balanceador de aplicaciones, dos servicios de cómputo (Spring Boot y FastAPI), RDS PostgreSQL, S3, SNS/SQS y CloudFront/CloudWatch según corresponda.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth,height=0.45\textheight,keepaspectratio]{figures/c4-model.level-1-context.pdf}
+    \caption{Diagrama de contexto C4 (alineación con API Gateway, ALB y servicios de cómputo documentados)}
+    \label{fig:contexto_c4}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth,height=0.45\textheight,keepaspectratio]{figures/c4-model.level-2-containers.pdf}
+    \caption{Diagrama de contenedores C4 (núcleo backend, microservicio IA, persistencia y mensajería)}
+    \label{fig:contenedores_c4}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=0.4\textheight,keepaspectratio]{figures/c4-model.level-3-components.backend.core.pdf}
+    \caption{Diagrama de componentes del backend core (Spring Boot)}
+    \label{fig:components_backend}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=0.4\textheight,keepaspectratio]{figures/c4-model.level-3-components.ai-microservice.pdf}
+    \caption{Diagrama de componentes del microservicio de IA (FastAPI)}
+    \label{fig:components_ai}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=0.4\textheight,keepaspectratio]{figures/c4-model.level-3-components.web-client.pdf}
+    \caption{Diagrama de componentes del cliente web (React)}
+    \label{fig:components_web}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=0.4\textheight,keepaspectratio]{figures/c4-model.level-3-components.android-app.pdf}
+    \caption{Diagrama de componentes del cliente móvil (Android/Kotlin)}
+    \label{fig:components_android}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth,height=0.5\textheight,keepaspectratio]{figures/enterprise.archimate.pdf}
+    \caption{Diagrama de arquitectura empresarial (ArchiMate)}
+    \label{fig:enterprise_archimate}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth,height=0.45\textheight,keepaspectratio]{figures/uml.behavior.use-cases.pdf}
+    \caption{Diagrama de casos de uso del sistema}
+    \label{fig:use_cases}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth,height=0.45\textheight,keepaspectratio]{figures/uml.context.system-context.pdf}
+    \caption{Diagrama de contexto del sistema}
+    \label{fig:system_context}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth,height=0.5\textheight,keepaspectratio]{figures/uml.structure.component-overview.pdf}
+    \caption{Vista general de componentes del sistema}
+    \label{fig:component_overview}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth,height=0.5\textheight,keepaspectratio]{figures/uml.structure.er-diagram.pdf}
+    \caption{Diagrama entidad-relación del modelo de datos}
+    \label{fig:er_diagram}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth,height=0.5\textheight,keepaspectratio]{figures/uml.deployment..deployment-diagram.pdf}
+    \caption{Diagrama de despliegue del sistema}
+    \label{fig:deployment_diagram}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth,height=0.5\textheight,keepaspectratio]{figures/uml.deployment.network-topology.pdf}
+    \caption{Topología de red en AWS}
+    \label{fig:network_topology}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth,height=0.45\textheight,keepaspectratio]{figures/uml.deployment.cicd-pipeline.pdf}
+    \caption{Pipeline de CI/CD del sistema}
+    \label{fig:cicd_pipeline}
+\end{figure}
 
 %================================================================================
 \section{Atributos de Calidad del Sistema}
 %================================================================================
 
-Los atributos de calidad del sistema se han diseñado como escenarios verificables que orientan las decisiones arquitectónicas y operativas. Los siguientes diagramas detallan cada atributo de calidad con sus respectivas estrategias de implementación:
+Los atributos de calidad del sistema se han diseñado como escenarios verificables que orientan las decisiones arquitectónicas y operativas. Los siguientes diagramas detallan cada atributo de calidad con sus respectivas estrategias de implementación, presentados en formato compacto para demostrar la robustez de nuestra arquitectura.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_DisponibilidadContinuidadServicio.pdf}
+    \includegraphics[height=0.4\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_DisponibilidadContinuidadServicio.pdf}
     \caption{Disponibilidad y continuidad del servicio}
     \label{fig:availability}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_EscalabilidadCrecimientoNegocio.pdf}
+    \includegraphics[height=0.4\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_EscalabilidadCrecimientoNegocio.pdf}
     \caption{Escalabilidad y crecimiento del negocio}
     \label{fig:scalability}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_RendimientoAltaDemanda.pdf}
+    \includegraphics[height=0.4\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_RendimientoAltaDemanda.pdf}
     \caption{Rendimiento bajo alta demanda}
     \label{fig:performance}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_ExperienciaUsuarioMovil.pdf}
+    \includegraphics[height=0.4\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_ExperienciaUsuarioMovil.pdf}
     \caption{Experiencia de usuario móvil}
     \label{fig:ux_mobile}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_SeguridadControlAcceso.pdf}
+    \includegraphics[height=0.4\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_SeguridadControlAcceso.pdf}
     \caption{Seguridad y control de acceso}
     \label{fig:security_access}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_IntegridadRecuperacionDatos.pdf}
+    \includegraphics[height=0.4\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_IntegridadRecuperacionDatos.pdf}
     \caption{Integridad y recuperación de datos}
     \label{fig:data_integrity}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_FiabilidadProcesamientoAsincrono.pdf}
+    \includegraphics[height=0.4\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_FiabilidadProcesamientoAsincrono.pdf}
     \caption{Fiabilidad del procesamiento asíncrono}
     \label{fig:async_reliability}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_MantenibilidadEvolucionSistema.pdf}
+    \includegraphics[height=0.4\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_MantenibilidadEvolucionSistema.pdf}
     \caption{Mantenibilidad y evolución del sistema}
     \label{fig:maintainability}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_MonitoreoGestionOperativa.pdf}
+    \includegraphics[height=0.4\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_MonitoreoGestionOperativa.pdf}
     \caption{Monitoreo y gestión operativa}
     \label{fig:monitoring}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_CompatibilidadIntegracion.pdf}
+    \includegraphics[height=0.4\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_CompatibilidadIntegracion.pdf}
     \caption{Compatibilidad e integración}
     \label{fig:compatibility}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_DesplieguePortabilidad.pdf}
+    \includegraphics[height=0.4\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_DesplieguePortabilidad.pdf}
     \caption{Despliegue y portabilidad}
     \label{fig:deployment_portability}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_SeguridadDespliegue.pdf}
+    \includegraphics[height=0.4\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_SeguridadDespliegue.pdf}
     \caption{Seguridad en el despliegue}
     \label{fig:deployment_security}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_SeguridadInfraestructura.pdf}
+    \includegraphics[height=0.4\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_SeguridadInfraestructura.pdf}
     \caption{Seguridad de la infraestructura}
     \label{fig:infra_security}
 \end{figure}
+
+\newpage
+
+%================================================================================
+\section{Cronograma y Presupuesto de Montaje Empresarial}
+%================================================================================
+
+\subsection{Cronograma de Implementación}
+
+El cronograma de montaje empresarial se estructura en fases secuenciales con hitos claros para garantizar una transformación digital ordenada y medible:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=0.8\textheight,keepaspectratio]{figures/cronograma.png}
+    \caption{Cronograma de implementación del proyecto}
+    \label{fig:cronograma}
+\end{figure}
+
+\subsection{Presupuesto de Inversión}
+
+El presupuesto detallado contempla inversiones en infraestructura, desarrollo, marketing y operación:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=0.8\textheight,keepaspectratio]{figures/presupuesto.png}
+    \caption{Presupuesto de montaje empresarial}
+    \label{fig:presupuesto}
+\end{figure}
+
+%================================================================================
+\section{Evaluación y Resultados Esperados}
+%================================================================================
+
+\subsection{Métricas propuestas}
+
+La evaluación del sistema se plantea a través de métricas cuantitativas y cualitativas: precisión del sistema de recomendación (Precision@10); error de predicción (RMSE frente a baseline); impacto en estacionalidad de la demanda; tiempo promedio de planificación de viajes; tasa de retención de usuarios; nivel de interacción comunitaria; ROI estimado. Se aplicarán pruebas de significancia estadística para determinar si las diferencias frente a métodos tradicionales resultan relevantes.
+
+\subsection{Discusión cualitativa}
+
+En un contexto de crecimiento sostenido del turismo, la incorporación de inteligencia artificial y funcionalidades sociales podría representar una ventaja estratégica. La dimensión de viaje colaborativo y conexión entre usuarios aporta un diferencial de producto que las plataformas tradicionales no ofrecen, con potencial para mejorar retención, \textit{engagement} y satisfacción mediante la formación de comunidades de viajeros. Desde una perspectiva arquitectónica: establece separación clara de responsabilidades; mejora trazabilidad de procesos; facilita escalabilidad modular para incorporar nuevos servicios, incluyendo la capa social como componente extensible.
+
+\subsection{Limitaciones del sistema}
+
+\begin{itemize}
+\item Dependencia de la calidad y disponibilidad de los datos de entrada; sin datos representativos del turismo colombiano, los modelos pueden sufrir sesgos.
+\item Complejidad inicial en el modelado y parametrización del sistema; la calibración de $\alpha$ y de los modelos SARIMA requiere iteración.
+\item Necesidad de validación empírica en entornos reales para confirmar efectividad; el diseño actual es conceptual y no ha sido desplegado en producción.
+\end{itemize}
+
+\subsection{Problemas prácticos}
+
+\begin{itemize}
+\item \textbf{Energía y costos:} La infraestructura AWS implica costos variables; en regiones con tráfico bajo, el modelo de pago por uso puede ser favorable, pero picos estacionales pueden incrementar facturación.
+\item \textbf{Datos:} La construcción del dataset experimental depende de acuerdos con proveedores turísticos o de simulación; los datos sintéticos pueden no reflejar la realidad.
+\item \textbf{Capacidad y latencia:} La inferencia en tiempo real depende del dimensionamiento de los grupos de autoescalado EC2 \texttt{t3.micro} y del Application Load Balancer; subdimensionar puede generar latencias elevadas o pérdida de solicitudes bajo picos de demanda.
+\end{itemize}
+
+\subsection{Consideraciones técnicas}
+
+\begin{itemize}
+\item La integración con sistemas externos (proveedores de vuelos, hoteles) depende de APIs heterogéneas; la estabilidad y el formato de los datos varían entre proveedores.
+\item Los pipelines de integración continua y las imágenes de contenedor empleadas en desarrollo deben someterse a controles de seguridad de cadena de suministro (tema relacionado con la línea de trabajo de escaneo de imágenes y DevSecOps en la documentación de fundamentos de seguridad del repositorio).
+\end{itemize}
 
 %================================================================================
 \section{Conclusiones}
@@ -1104,6 +1130,8 @@ Balaguera, P. a. G. (2025, February 20). Despegar: Colombia bate récord de turi
 \bibitem[TOGAF, 2018]{ref12} TOGAF. (2018). \textit{The Open Group Architecture Framework}. The Open Group.
 
 \bibitem[Zhang et al., 2022]{ref13} Zhang, Y., et al. (2022). Deep learning in tourism recommendation systems. \textit{Expert Systems with Applications}, 190.
+
+\bibitem[Hevner et al., 2004]{hevner2004design} Hevner, A. R., March, S. T., Park, J., \& Ram, S. (2004). Design science in information systems research. \textit{MIS quarterly}, 28(1), 75-105.
 
 \end{thebibliography}
 

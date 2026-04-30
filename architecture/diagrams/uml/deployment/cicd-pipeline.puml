@@ -1,5 +1,7 @@
 @startuml Diagrama CI/CD
-title CI/CD — flujo por repositorio
+title CI/CD - flujo por repositorio
+
+top to bottom direction
 
 package "voyager-backend-core" {
     [checkout] as bc1
@@ -50,5 +52,9 @@ package "voyager-android" {
     an2 -> an3
     an3 -> an4
 }
+
+"voyager-backend-core" -[hidden]down-> "voyager-ai-service"
+"voyager-ai-service" -[hidden]down-> "voyager-web-client"
+"voyager-web-client" -[hidden]down-> "voyager-android"
 
 @enduml
