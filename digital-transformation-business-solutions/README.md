@@ -1,9 +1,11 @@
 # Digital Transformation Business Solutions
 
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
-[![Digital Transformation](https://img.shields.io/badge/Digital%20Transformation-2024-blue.svg)](https://github.com/RichardLitt/standard-readme)
+[![Digital Transformation](https://img.shields.io/badge/Digital%20Transformation-2026-blue.svg)](https://github.com/RichardLitt/standard-readme)
+[![LaTeX](https://img.shields.io/badge/LaTeX-Document-green.svg)](https://www.latex-project.org/)
+[![Systems Thinking](https://img.shields.io/badge/Systems%20Thinking-Analysis-orange.svg)](https://en.wikipedia.org/wiki/Systems_thinking)
 
-Documentación estratégica y análisis de soluciones de transformación digital para el sector turístico, enfocada en la implementación de plataformas empresariales inteligentes que reestructuran la cadena de valor del turismo mediante tecnología cloud-native e inteligencia artificial.
+Investigación académica completa sobre transformación digital en el sector turístico, presentada como paper científico con análisis sistémico integral, arquitectura empresarial cloud-native y 38 diagramas técnicos. El trabajo combina rigor académico con implementación práctica mediante IA, sistemas de recomendación y plataformas colaborativas.
 
 El proyecto corresponde a la asignatura _Transformación Digital y Soluciones Empresariales (TDSE)_ de la Universidad Escuela Colombiana de Ingeniería Julio Garavito.
 
@@ -17,68 +19,108 @@ El proyecto corresponde a la asignatura _Transformación Digital y Soluciones Em
 
 ## Background
 
-Este repositorio contiene el análisis estratégico y documentación de soluciones empresariales de transformación digital aplicadas al sector turístico. La investigación se centra en cómo las plataformas tecnológicas inteligentes pueden redefinir los modelos de negocio tradicionales, crear nuevas fuentes de valor y generar ventajas competitivas sostenibles en la industria del turismo.
+Este repositorio contiene la investigación académica completa sobre transformación digital en el sector turístico, presentada como paper científico integral. El trabajo combina análisis estratégico, arquitectura empresarial cloud-native, inteligencia artificial y pensamiento sistémico para abordar los desafíos fundamentales del turismo digital.
 
-El estudio aborda la implementación de arquitecturas cloud-native, sistemas de recomendación híbridos, y plataformas colaborativas que transforman la experiencia individual del viajero en ecosistemas conectados de valor compartido.
+### **Logros Principales**
+
+- **Paper Académico Completo**: Documento LaTeX de 70+ páginas con análisis integral
+- **38 Diagramas Técnicos**: C4 Model, UML, AWS, atributos de calidad y análisis sistémico
+- **Análisis Sistémico Innovador**: 5 bucles causales, 4 arquetipos sistémicos y puntos de apalancamiento
+- **Arquitectura Verificable**: Implementación cloud-native en AWS con código reproducible
+- **Inteligencia Artificial Integrada**: Sistemas de recomendación híbridos y matching social colaborativo
+
+El estudio aborda la transformación de experiencias individuales de viaje en ecosistemas colaborativos inteligentes, mediante arquitecturas escalables y análisis de dinámicas complejas del sistema turístico.
 
 ## Usage
 
-### Explorar la Documentación
+### **Documento Principal**
 
-- **business-transformation-strategy.md**: Análisis estratégico de transformación digital en el turismo
-- **enterprise-architecture-framework.md**: Marco de arquitectura empresarial para plataformas turísticas
-- **digital-business-models.md**: Modelos de negocio digitales y estrategias de monetización
-- **value-proposition-canvas.md**: Lienzo de propuesta de valor para soluciones digitales
+**`transformacion-digital.tex`** - Paper académico completo con:
+- Abstract y resumen en español/inglés
+- Marco teórico formal (PEAS, sistemas de recomendación, SARIMA)
+- Modelo de negocio digital y propuesta de valor
+- Arquitectura empresarial cloud-native (AWS)
+- **Análisis sistémico del proceso de transformación digital**
+- Atributos de calidad con diagramas detallados
+- Metodología data-centric y métricas de evaluación
+- 38 figuras integradas con formato optimizado
 
-### Navegación Recomendada
+### **Navegación Recomendada**
 
-1. **Para visión estratégica**: Comienza con `business-transformation-strategy.md`
-2. **Para implementación técnica**: Revisa `enterprise-architecture-framework.md`
-3. **Para modelos de negocio**: Analiza `digital-business-models.md`
-4. **Para propuesta de valor**: Consulta `value-proposition-canvas.md`
+1. **Visión General**: Lee el abstract y resumen (líneas 42-67)
+2. **Problema y Objetivos**: Secciones 1-2 (líneas 100-140)
+3. **Fundamento Teórico**: Sección 3 (líneas 142-188)
+4. **Arquitectura**: Secciones 4-6 (líneas 190-460)
+5. **Análisis Sistémico**: Sección 7 (líneas 738-960)
+6. **Atributos de Calidad**: Sección 8 (líneas 962-1056)
+
+### **Compilación LaTeX**
+
+```bash
+# Compilar el documento principal
+pdflatex transformacion-digital.tex
+bibtex transformacion-digital
+pdflatex transformacion-digital.tex
+pdflatex transformacion-digital.tex
+```
 
 ## Project Structure
 
 ```
 digital-transformation-business-solutions/
-├── README.md                                          # Este archivo
-├── business-transformation-strategy.md               # Estrategia de transformación digital
-├── enterprise-architecture-framework.md              # Marco arquitectónico empresarial
-├── digital-business-models.md                        # Modelos de negocio digitales
-├── value-proposition-canvas.md                        # Propuesta de valor
-└── implementation-roadmap.md                         # Roadmap de implementación
+├── README.md                                           # Este archivo
+├── transformacion-digital.tex                          # Paper académico principal
+├── figures/                                            # 38 diagramas técnicos
+│   ├── c4-model.level-*.pdf                            # Diagramas C4 (contexto, contenedores, componentes)
+│   ├── uml.*.pdf                                       # Diagramas UML (casos de uso, despliegue, componentes)
+│   ├── enterprise.archimate.pdf                        # Arquitectura empresarial
+│   ├── quality-attributes.SmarTrip_*.pdf               # 13 atributos de calidad
+│   └── systems.*.pdf                                   # Análisis sistémico (bucles causales, modelo integrado)
+├── img/                                                # Imágenes legacy (referenciadas en código)
+└── ../systems/                                         # Análisis de pensamiento sistémico
+    ├── README.md                                       # Fundamentos del análisis sistémico
+    ├── cld-analysis.md                                 # Análisis de bucles causales
+    ├── systemic-analysis.md                            # Arquetipos y puntos de apalancamiento
+    ├── atoms/                                          # Diagramas de bucles individuales
+    └── maps/                                           # Modelo sistémico integrado
 ```
 
 ## Documentation
 
-### Enfoque Estratégico
+### **Enfoque de la Investigación**
 
-La documentación se fundamenta en los siguientes pilares estratégicos:
+El paper aborda la transformación digital del turismo mediante:
 
-- **Transformación Digital Integral:** Reestructuración completa de la cadena de valor del turismo
-- **Arquitectura Empresarial Cloud-Native:** Diseño de sistemas escalables y resilientes
-- **Inteligencia Artificial Aplicada:** Optimización de procesos y personalización masiva
-- **Ecosistemas de Valor:** Creación de efectos de red y ventajas competitivas sostenibles
-- **Modelos de Negocio Digitales:** Diversificación de fuentes de ingresos y captura de valor
+- **Arquitectura Empresarial Cloud-Native**: Diseño verificable en AWS Academy con API Gateway, ALB, EC2, RDS, S3, SNS/SQS
+- **Inteligencia Artificial Integrada**: Sistemas de recomendación híbridos, matching social colaborativo y modelos predictivos SARIMA
+- **Análisis Sistémico**: Identificación de bucles causales, arquetipos sistémicos y puntos de apalancamiento estratégicos
+- **Modelo de Negocio Digital**: Plataforma multisided con monetización diversificada y efectos de red
+- **Atributos de Calidad**: 13 escenarios verificables covering disponibilidad, escalabilidad, seguridad y rendimiento
 
-### Metodología de Análisis
+### **Metodología Científica**
 
-El trabajo se basa en:
+- **Formalización Matemática**: Modelos PEAS, ecuaciones de recomendación híbrida y optimización lineal
+- **Análisis de Pensamiento Sistémico**: Bucles de retroalimentación, arquetipos y leverage points
+- **Diseño Data-Centric**: Dataset estructurado para contexto turístico colombiano
+- **Métricas de Evaluación**: RMSE, MAE, Precision@K, Recall@K y análisis de significancia estadística
+- **Validación Empírica**: Diseño experimental con validación cruzada y pruebas de hipótesis
 
-- **Análisis estratégico:** Evaluación de oportunidades de transformación digital
-- **Diseño arquitectónico:** Definición de marcos técnicos empresariales
-- **Modelado de negocio:** Estructuración de propuestas de valor digitales
-- **Roadmap de implementación:** Planificación estratégica de despliegue
-- **Métricas de impacto:** KPIs para medición de éxito transformacional
+### **Contribuciones Principales**
 
-### Casos de Estudio
+#### **1. Análisis Sistémico Innovador**
+- **5 Bucles Causales**: R1 (Soledad), R2 (Fragmentación), R3 (Límites de Datos), B1 (Escalabilidad), R4 (Validación Social)
+- **4 Arquetipos Sistémicos**: Límites del Crecimiento, Desplazamiento de la Carga, Erosión de Metas, Éxito a los Exitosos
+- **Puntos de Apalancamiento**: Intervenciones estratégicas con máximo impacto sistémico
 
-La investigación se fundamenta en casos prácticos de:
+#### **2. Arquitectura Verificable**
+- **Implementación AWS**: Topología completa con scripts de infraestructura reproducible
+- **Separación de Responsabilidades**: Backend (Spring Boot), IA (FastAPI), clientes multiplataforma
+- **Calidad Integrada**: 13 atributos de calidad con escenarios verificables y diagramas detallados
 
-- **Plataformas de turismo colaborativo:** Sistemas de matching social y planificación grupal
-- **Optimización de recursos:** Algoritmos para gestión de estacionalidad y capacidad
-- **Inteligencia de negocio:** Analytics avanzados para toma de decisiones estratégicas
-- **Ecosistemas digitales:** Creación de marketplaces y redes de valor
+#### **3. Viaje Social Colaborativo**
+- **Matching Multidimensional**: Algoritmos de compatibilidad basados en preferencias y comportamiento
+- **Efectos de Red**: Plataforma que genera valor incremental con cada usuario adicional
+- **Integración Continua**: Experiencias conectadas desde planificación hasta post-viaje
 
 ## Contributors
 

@@ -261,7 +261,7 @@ La arquitectura de despliegue adopta como \textbf{fuente de verdad} la especific
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{img/aws_architecture.png}
+    \includegraphics[width=0.85\textwidth,height=0.7\textheight,keepaspectratio]{figures/uml.deployment.aws-services.pdf}
     \caption{Arquitectura cloud-native de referencia en AWS (alineada al repositorio de infraestructura)}
     \label{fig:arquitectura_aws}
 \end{figure}
@@ -638,16 +638,421 @@ Los diagramas C4 ilustran el sistema como conjunto de contenedores y relaciones;
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{img/contexto_c4.png}
+    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/c4-model.level-1-context.pdf}
     \caption{Diagrama de contexto C4 (alineación con API Gateway, ALB y servicios de cómputo documentados)}
     \label{fig:contexto_c4}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{img/contenedores_c4.png}
+    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/c4-model.level-2-containers.pdf}
     \caption{Diagrama de contenedores C4 (núcleo backend, microservicio IA, persistencia y mensajería)}
     \label{fig:contenedores_c4}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth,height=0.7\textheight,keepaspectratio]{figures/c4-model.level-3-components.backend.core.pdf}
+    \caption{Diagrama de componentes del backend core (Spring Boot)}
+    \label{fig:components_backend}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth,height=0.7\textheight,keepaspectratio]{figures/c4-model.level-3-components.ai-microservice.pdf}
+    \caption{Diagrama de componentes del microservicio de IA (FastAPI)}
+    \label{fig:components_ai}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth,height=0.7\textheight,keepaspectratio]{figures/c4-model.level-3-components.web-client.pdf}
+    \caption{Diagrama de componentes del cliente web (React)}
+    \label{fig:components_web}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth,height=0.7\textheight,keepaspectratio]{figures/c4-model.level-3-components.android-app.pdf}
+    \caption{Diagrama de componentes del cliente móvil (Android/Kotlin)}
+    \label{fig:components_android}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth,height=0.7\textheight,keepaspectratio]{figures/enterprise.archimate.pdf}
+    \caption{Diagrama de arquitectura empresarial (ArchiMate)}
+    \label{fig:enterprise_archimate}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/uml.behavior.use-cases.pdf}
+    \caption{Diagrama de casos de uso del sistema}
+    \label{fig:use_cases}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/uml.context.system-context.pdf}
+    \caption{Diagrama de contexto del sistema}
+    \label{fig:system_context}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth,height=0.7\textheight,keepaspectratio]{figures/uml.structure.component-overview.pdf}
+    \caption{Vista general de componentes del sistema}
+    \label{fig:component_overview}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth,height=0.7\textheight,keepaspectratio]{figures/uml.structure.er-diagram.pdf}
+    \caption{Diagrama entidad-relación del modelo de datos}
+    \label{fig:er_diagram}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth,height=0.7\textheight,keepaspectratio]{figures/uml.deployment..deployment-diagram.pdf}
+    \caption{Diagrama de despliegue del sistema}
+    \label{fig:deployment_diagram}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth,height=0.7\textheight,keepaspectratio]{figures/uml.deployment.network-topology.pdf}
+    \caption{Topología de red en AWS}
+    \label{fig:network_topology}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/uml.deployment.cicd-pipeline.pdf}
+    \caption{Pipeline de CI/CD del sistema}
+    \label{fig:cicd_pipeline}
+\end{figure}
+
+%================================================================================
+\section{Análisis Sistémico del Proceso de Transformación Digital}
+%================================================================================
+
+El presente análisis sistémico revela las dinámicas complejas subyacentes en el proceso de transformación digital del sector turístico, identificando bucles de retroalimentación, arquetipos sistémicos y puntos de apalancamiento que determinan el éxito o fracaso de la implementación.
+
+\subsection{Bucles Causales Fundamentales}
+
+El sistema turístico digital presenta cinco bucles de retroalimentación principales que gobiernan su comportamiento:
+
+\subsubsection{Bucle R1: Espiral de Soledad del Viajero}
+
+\textbf{Tipo:} Refuerzo Negativo
+
+\textbf{Variables:} Viajeros aislados → Baja satisfacción → Menor uso → Datos insuficientes → Peor personalización → Viajeros aislados
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth,height=0.5\textheight,keepaspectratio]{figures/systems.atoms.loneliness-traveler.pdf}
+    \caption{Bucle causal R1: Espiral de soledad del viajero}
+    \label{fig:loneliness_loop}
+\end{figure}
+
+Este bucle representa una espiral descendente donde la falta de conexiones sociales reduce la satisfacción del usuario, disminuyendo el uso de la plataforma y limitando la disponibilidad de datos para mejorar los algoritmos de personalización.
+
+\subsubsection{Bucle R2: Fragmentación de Experiencia}
+
+\textbf{Tipo:} Refuerzo Negativo
+
+\textbf{Variables:} Experiencias fragmentadas → Pérdida de contexto → Ineficiencia en planificación → Menor engagement → Reducida colaboración → Más fragmentación
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth,height=0.5\textheight,keepaspectratio]{figures/systems.atoms.experience-fragmentation.pdf}
+    \caption{Bucle causal R2: Fragmentación de experiencia}
+    \label{fig:fragmentation_loop}
+\end{figure}
+
+La separación entre las fases de planificación, ejecución y socialización del viaje genera una pérdida de contexto continuo, reduciendo la efectividad de las conexiones sociales y la colaboración entre viajeros.
+
+\subsubsection{Bucle R3: Limitación de Datos de Matching}
+
+\textbf{Tipo:} Refuerzo Negativo
+
+\textbf{Variables:} Datos limitados → Algoritmos pobres → Baja precisión → Menor confianza → Menor participación → Menos datos
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth,height=0.5\textheight,keepaspectratio]{figures/systems.atoms.data-matching-limits.pdf}
+    \caption{Bucle causal R3: Limitación de datos de matching}
+    \label{fig:data_matching_loop}
+\end{figure}
+
+La escasez de datos sociales limita la efectividad de los algoritmos de matching, creando un ciclo de desconfianza que reduce la participación de los usuarios y perpetúa la limitación de datos.
+
+\subsubsection{Bucle B1: Escalabilidad de Personalización}
+
+\textbf{Tipo:} Balanceo
+
+\textbf{Variables:} Complejidad de matching → Recursos computacionales → Tiempo de respuesta → Experiencia usuario → Adopción → Limitación escala
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth,height=0.5\textheight,keepaspectratio]{figures/systems.atoms.personalization-scaling.pdf}
+    \caption{Bucle causal B1: Escalabilidad de personalización}
+    \label{fig:scalability_loop}
+\end{figure}
+
+La complejidad computacional del matching multidimensional crea restricciones de rendimiento que afectan la experiencia del usuario y limitan la adopción masiva de la plataforma.
+
+\subsubsection{Bucle R4: Validación Social Post-Viaje}
+
+\textbf{Tipo:} Refuerzo Positivo
+
+\textbf{Variables:} Experiencias compartidas → Datos de validación → Mejora de algoritmos → Mejor matching → Más experiencias exitosas
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth,height=0.5\textheight,keepaspectratio]{figures/systems.atoms.post-trip-social-validation.pdf}
+    \caption{Bucle causal R4: Validación social post-viaje}
+    \label{fig:validation_loop}
+\end{figure}
+
+Este bucle positivo representa el potencial de crecimiento del sistema mediante el aprendizaje continuo de experiencias compartidas, mejorando progresivamente la calidad del matching y generando más experiencias exitosas.
+
+\subsection{Arquetipos Sistémicos Identificados}
+
+El análisis revela cuatro arquetipos sistémicos principales que gobiernan el comportamiento del sistema turístico digital:
+
+\subsubsection{Límites del Crecimiento}
+
+El sistema exhibe un claro arquetipo de ``Límites del Crecimiento'' donde el bucle de refuerzo positivo R4 impulsa el crecimiento inicial a través de experiencias exitosas, pero se encuentra con múltiples límites que frenan este crecimiento:
+
+\begin{itemize}
+\item \textbf{Límite principal (R1):} La espiral de soledad del viajero crea un ciclo vicioso que reduce la satisfacción y el uso de la plataforma
+\item \textbf{Límite de datos (R3):} La limitación de datos de matching crea una barrera fundamental para la personalización efectiva
+\item \textbf{Límite técnico (B1):} La escalabilidad de personalización introduce restricciones computacionales que afectan la experiencia del usuario
+\end{itemize}
+
+\subsubsection{Desplazamiento de la Carga}
+
+Se observa un patrón de ``Desplazamiento de la Carga'' donde la solución sintomática (R4 - Validación Social Post-Viaje) alivia temporalmente los síntomas pero debilita la capacidad del sistema para resolver el problema fundamental:
+
+\begin{itemize}
+\item \textbf{Solución sintomática:} R4 proporciona validación social y mejora temporal de matching
+\item \textbf{Problema fundamental:} R1 (Soledad del Viajero) y R2 (Fragmentación de Experiencia) representan las causas raíz
+\item \textbf{Efecto secundario:} La dependencia en R4 reduce la motivación para abordar los problemas estructurales
+\end{itemize}
+
+\subsubsection{Erosión de Metas}
+
+El sistema muestra erosión gradual de las metas originales a través de la degradación progresiva de estándares:
+
+\begin{itemize}
+\item \textbf{Meta original:} Proporcionar experiencias de viaje personalizadas y conectadas
+\item \textbf{Erosión:} R1 y R3 degradan progresivamente la calidad de la experiencia y personalización
+\item \textbf{Aceptación del deterioro:} B1 muestra cómo el sistema se adapta a limitaciones técnicas aceptando estándares menores
+\end{itemize}
+
+\subsubsection{Éxito a los Exitosos}
+
+Se crea una brecha creciente entre usuarios exitosos y usuarios en dificultades:
+
+\begin{itemize}
+\item \textbf{Ganadores:} Usuarios que participan en R4 obtienen mejores experiencias y más matching
+\item \textbf{Perdedores:} Usuarios atrapados en R1 y R2 reciben servicios degradados
+\item \textbf{Reforzamiento:} R4 mejora los algoritmos para los ya exitosos, mientras que R1 y R3 empeoran para los marginados
+\end{itemize}
+
+\subsection{Puntos de Apalancamiento del Sistema}
+
+El análisis sistémico identifica tres puntos de apalancamiento de alto impacto para intervenir efectivamente en el sistema:
+
+\subsubsection{Intervención en Datos de Matching (R3)}
+
+\textbf{Impacto:} Afecta directamente R1, R4 y B1
+
+\textbf{Estrategia:} Implementar estrategias de adquisición de datos y participación
+
+\textbf{Resultado esperado:} Mejora general del sistema y rompe múltiples ciclos negativos
+
+\subsubsection{Integración de Experiencias (R2)}
+
+\textbf{Impacto:} Reduce fragmentación y facilita conexiones sociales
+
+\textbf{Estrategia:} Diseñar flujos integrados que promuevan colaboración natural
+
+\textbf{Resultado esperado:} Ataca directamente la soledad y mejora engagement
+
+\subsubsection{Optimización de Algoritmos (R4 × B1)}
+
+\textbf{Impacto:} Balancea crecimiento con sostenibilidad técnica
+
+\textbf{Estrategia:} Desarrollar algoritmos eficientes que escalen bien
+
+\textbf{Resultado esperado:} Sostenibilidad del crecimiento a largo plazo
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth,height=0.7\textheight,keepaspectratio]{figures/systems.maps.systemic-model.pdf}
+    \caption{Modelo sistémico integrado con interacciones entre bucles causales}
+    \label{fig:systemic_model}
+\end{figure}
+
+\subsection{Implicaciones Estratégicas para la Transformación Digital}
+
+El análisis sistémico proporciona insights estratégicos cruciales para la implementación exitosa de la transformación digital:
+
+\subsubsection{Enfoque en Causa Raíz}
+
+Abordar aislamiento (R1) y fragmentación (R2) en lugar de solo optimización algorítmica superficial. Las intervenciones deben centrarse en:
+
+\begin{itemize}
+\item Programas de onboarding que prevengan el aislamiento inicial
+\item Flujos de trabajo integrados que mantengan contexto continuo
+\item Mecanismos de conexión natural entre usuarios
+\end{itemize}
+
+\subsubsection{Estrategia de Datos}
+
+Priorizar adquisición de datos y participación para romper restricciones R3:
+
+\begin{itemize}
+\item Incentivos para compartir experiencias y preferencias
+\item Mecanismos de validación social que generen datos de calidad
+\item Procesamiento de datos que mejore progresivamente los algoritmos
+\end{itemize}
+
+\subsubsection{Crecimiento Sostenible}
+
+Balancear expansión R4 con limitaciones técnicas B1:
+
+\begin{itemize}
+\item Optimización algorítmica para reducir complejidad computacional
+\item Arquitectura escalable que soporte crecimiento sostenible
+\item Métricas de calidad que detecten erosión de metas
+\end{itemize}
+
+\subsection{Recomendaciones de Intervención}
+
+\subsubsection{Prioridad Alta: Romper Ciclos de Refuerzo Negativo}
+
+\begin{enumerate}
+\item \textbf{Implementar programas de onboarding} que prevengan el aislamiento inicial (R1)
+\item \textbf{Crear incentivos de participación} para aumentar datos disponibles (R3)
+\item \textbf{Diseñar experiencias integradas} que faciliten colaboración natural (R2)
+\end{enumerate}
+
+\subsubsection{Prioridad Media: Optimizar Crecimiento Positivo}
+
+\begin{enumerate}
+\item \textbf{Mejorar eficiencia algorítmica} para sostener R4 sin sobrecargar B1
+\item \textbf{Desarrollar mecanismos de redistribución} para evitar ``éxito a los exitosos''
+\item \textbf{Establecer métricas de calidad} para detectar erosión de metas
+\end{enumerate}
+
+\subsubsection{Prioridad Baja: Monitoreo y Adaptación}
+
+\begin{enumerate}
+\item \textbf{Implementar dashboards sistémicos} para visualizar dinámicas
+\item \textbf{Crear sistemas de alerta temprana} para ciclos problemáticos
+\item \textbf{Establecer revisiones periódicas} de arquetipos emergentes
+\end{enumerate}
+
+%================================================================================
+\section{Atributos de Calidad del Sistema}
+%================================================================================
+
+Los atributos de calidad del sistema se han diseñado como escenarios verificables que orientan las decisiones arquitectónicas y operativas. Los siguientes diagramas detallan cada atributo de calidad con sus respectivas estrategias de implementación:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_DisponibilidadContinuidadServicio.pdf}
+    \caption{Disponibilidad y continuidad del servicio}
+    \label{fig:availability}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_EscalabilidadCrecimientoNegocio.pdf}
+    \caption{Escalabilidad y crecimiento del negocio}
+    \label{fig:scalability}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_RendimientoAltaDemanda.pdf}
+    \caption{Rendimiento bajo alta demanda}
+    \label{fig:performance}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_ExperienciaUsuarioMovil.pdf}
+    \caption{Experiencia de usuario móvil}
+    \label{fig:ux_mobile}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_SeguridadControlAcceso.pdf}
+    \caption{Seguridad y control de acceso}
+    \label{fig:security_access}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_IntegridadRecuperacionDatos.pdf}
+    \caption{Integridad y recuperación de datos}
+    \label{fig:data_integrity}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_FiabilidadProcesamientoAsincrono.pdf}
+    \caption{Fiabilidad del procesamiento asíncrono}
+    \label{fig:async_reliability}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_MantenibilidadEvolucionSistema.pdf}
+    \caption{Mantenibilidad y evolución del sistema}
+    \label{fig:maintainability}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_MonitoreoGestionOperativa.pdf}
+    \caption{Monitoreo y gestión operativa}
+    \label{fig:monitoring}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_CompatibilidadIntegracion.pdf}
+    \caption{Compatibilidad e integración}
+    \label{fig:compatibility}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_DesplieguePortabilidad.pdf}
+    \caption{Despliegue y portabilidad}
+    \label{fig:deployment_portability}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_SeguridadDespliegue.pdf}
+    \caption{Seguridad en el despliegue}
+    \label{fig:deployment_security}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{figures/quality-attributes.SmarTrip_SeguridadInfraestructura.pdf}
+    \caption{Seguridad de la infraestructura}
+    \label{fig:infra_security}
 \end{figure}
 
 %================================================================================

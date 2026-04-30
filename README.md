@@ -34,11 +34,13 @@ La documentación representa el trabajo integral del equipo aplicando conocimien
 
 ### Navegación Recomendada para el Proyecto Integral
 
-1. **Visión general del proyecto**: Comienza con `tech-software-innovation/wiki.md`
-2. **Estrategia y negocio**: Explora `digital-transformation-business-solutions/`
-3. **Implementación técnica**: Revisa `tech-software-innovation/`
-4. **Seguridad y DevSecOps**: Consulta `infosec-fundamentals/`
-5. **Viabilidad financiera**: Analiza `project-structuring-finance/`
+1. **Paper académico principal**: `digital-transformation-business-solutions/transformacion-digital.tex`
+2. **Análisis sistémico**: `systems/` para bucles causales y arquetipos
+3. **Visión general del proyecto**: `tech-software-innovation/wiki.md`
+4. **Estrategia y negocio**: `digital-transformation-business-solutions/README.md`
+5. **Implementación técnica**: `tech-software-innovation/`
+6. **Seguridad y DevSecOps**: `infosec-fundamentals/`
+7. **Viabilidad financiera**: `project-structuring-finance/`
 
 ## Project Structure
 
@@ -47,7 +49,14 @@ overtheair-docs/
 ├── README.md                                          # Este archivo
 ├── digital-transformation-business-solutions/         # Estrategia y negocio
 │   ├── README.md                                      # Visión de transformación digital
-│   └── transformacion-digital.tex                     # Paper principal del proyecto
+│   ├── transformacion-digital.tex                     # Paper académico principal (70+ páginas)
+│   ├── figures/                                       # 38 diagramas técnicos integrados
+│   │   ├── c4-model.level-*.pdf                      # Diagramas C4 (contexto, contenedores, componentes)
+│   │   ├── uml.*.pdf                                 # Diagramas UML (casos de uso, despliegue, componentes)
+│   │   ├── enterprise.archimate.pdf                  # Arquitectura empresarial
+│   │   ├── quality-attributes.SmarTrip_*.pdf         # 13 atributos de calidad
+│   │   └── systems.*.pdf                             # Análisis sistémico (bucles causales)
+│   └── img/                                           # Imágenes legacy
 ├── infosec-fundamentals/                              # Seguridad
 │   ├── README.md                                      # Fundamentos de seguridad implementados
 │   ├── paper-escaneo-de-imagenes-de-contenedores.tex   # Análisis de vulnerabilidades CI/CD
@@ -57,9 +66,15 @@ overtheair-docs/
 │   ├── wiki.md                                        # Arquitectura completa y diseño
 │   ├── requerimientos-agiles.md                       # Especificaciones y user stories
 │   └── checklist-de-calidad.md                        # Estándares de calidad aplicados
-└── project-structuring-finance/                      # Viabilidad
-    ├── README.md                                      # Análisis financiero del proyecto
-    └── [documentos financieros]                       # Modelos y proyecciones económicas
+├── project-structuring-finance/                      # Viabilidad
+│   ├── README.md                                      # Análisis financiero del proyecto
+│   └── [documentos financieros]                       # Modelos y proyecciones económicas
+└── systems/                                           # Análisis de pensamiento sistémico
+    ├── README.md                                      # Fundamentos del análisis sistémico
+    ├── cld-analysis.md                                # Análisis de bucles causales
+    ├── systemic-analysis.md                           # Arquetipos y puntos de apalancamiento
+    ├── atoms/                                          # Diagramas de bucles individuales
+    └── maps/                                           # Modelo sistémico integrado
 ```
 
 ## Documentation
@@ -68,10 +83,12 @@ overtheair-docs/
 
 #### Estrategia de Transformación Digital (TDSE)
 
-- **Plataforma inteligente de turismo** con IA y matching social colaborativo
-- **Arquitectura empresarial cloud-native** escalable en AWS Academy
-- **Modelo de negocio digital** con múltiples streams de ingresos
-- **Análisis de impacto transformador** en la cadena de valor del turismo
+- **Paper académico completo** de 70+ páginas con análisis integral de transformación digital
+- **38 diagramas técnicos** integrados (C4 Model, UML, AWS, atributos de calidad, análisis sistémico)
+- **Análisis sistémico innovador** con 5 bucles causales, 4 arquetipos y puntos de apalancamiento
+- **Arquitectura empresarial cloud-native** verificable en AWS Academy con código reproducible
+- **Inteligencia Artificial integrada** para matching social colaborativo y recomendaciones híbridas
+- **Modelo de negocio digital** con monetización diversificada y efectos de red
 
 #### Seguridad Informática y DevSecOps (FDSI)
 
@@ -93,6 +110,14 @@ overtheair-docs/
 - **Análisis de viabilidad** financiera y económica del proyecto
 - **Estrategias de monetización** y captura de valor múltiple
 - **Planificación estratégica** para escalado del negocio digital
+
+#### Análisis de Pensamiento Sistémico
+
+- **5 bucles causales fundamentales** que gobiernan el comportamiento del sistema turístico digital
+- **4 arquetipos sistémicos identificados** (Límites del Crecimiento, Desplazamiento de la Carga, Erosión de Metas, Éxito a los Exitosos)
+- **Puntos de apalancamiento estratégicos** para intervenciones de alto impacto
+- **Modelo sistémico integrado** con interacciones complejas entre componentes
+- **Recomendaciones priorizadas** para transformación digital sostenible
 
 ### Metodología de Trabajo
 
