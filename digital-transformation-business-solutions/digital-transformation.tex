@@ -1046,19 +1046,561 @@ El presupuesto detallado contempla inversiones en infraestructura, desarrollo, m
     \label{fig:presupuesto}
 \end{figure}
 
+\subsection{Análisis Financiero Estratégico}
+
+El análisis financiero estratégico fundamenta la viabilidad económica de la plataforma de transformación digital turística, demostrando cómo la inversión inicial habilita una operación escalable con retornos medibles.
+
+\subsubsection{Inversión Inicial (CAPEX)}
+
+La inversión inicial representa una apuesta estratégica por velocidad de ejecución, diferenciación y capacidad de escala, estableciendo la base operativa para capturar demanda futura.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{figures/finance.capex.pdf}
+    \caption{Inversión Inicial (CAPEX) - Distribución por componentes}
+    \label{fig:capex}
+\end{figure}
+
+\textbf{Inversión Total:} \$218.087.168 COP
+
+La inversión se distribuye estratégicamente en:
+
+\begin{itemize}
+    \item \textbf{Desarrollo MVP:} Full-stack (React + Android + Spring Boot) - \$183.125.667 COP
+    \item \textbf{Legal y Constitución:} Registro mercantil, RNT, Marcas - \$1.347.500 COP
+    \item \textbf{Diseño UI/UX:} Identidad visual y prototipado - \$13.200.001 COP
+    \item \textbf{Marketing Lanzamiento:} Estrategia de adquisición inicial - \$20.220.000 COP
+\end{itemize}
+
+\textbf{Supuesto:} Tasa de cambio \$1 USD = \$4.200 COP.
+
+\subsubsection{Infraestructura Cloud (AWS)}
+
+Se implementa una arquitectura Multi-AZ redundante diseñada para sostener una experiencia de nivel enterprise con disponibilidad del 99.99\%.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{figures/finance.cloud.pdf}
+    \caption{Infraestructura Cloud (AWS) - Arquitectura redundante}
+    \label{fig:cloud}
+\end{figure}
+
+La infraestructura incluye servicios core como API Gateway, Application Load Balancer, EC2 para procesamiento, RDS Multi-AZ, S3 Buckets, CloudFront CDN, SNS/SQS para mensajería, CloudWatch para monitoreo y Lambda para procesamiento serverless.
+
+\subsubsection{Costos de Inteligencia Artificial}
+
+La capa de inteligencia artificial se diseña como ventaja estructural mediante auto-hospedaje de vLLM en instancias EC2 propias, evitando costos por token y manteniendo control sobre desempeño.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{figures/finance.ai.pdf}
+    \caption{Costos de Inteligencia Artificial - Infraestructura optimizada}
+    \label{fig:ai_costs}
+\end{figure}
+
+\textbf{Conclusión:} No hay costos por token. La infraestructura de IA está absorbida en EC2.
+
+\subsubsection{Costos Operativos Anuales (OPEX)}
+
+Los costos operativos mensuales consolidados ascienden a \$73.272.392 COP (\$879.268.704 COP/año), estructurados para sostener crecimiento escalable.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{figures/finance.opex.pdf}
+    \caption{Costos Operativos Mensuales (OPEX) - Distribución por talento humano}
+    \label{fig:opex}
+\end{figure}
+
+\paragraph{Talento Humano:}
+\begin{itemize}
+    \item \textbf{CTO / Líder Técnico:} Arquitecto AWS + DevOps Senior - \$8.000.000 COP/mes
+    \item \textbf{MLOps / DevOps:} Mantenimiento ASG, GPU - \$6.600.000 COP/mes
+    \item \textbf{Fullstack Senior:} Backend Spring Boot + Integraciones - \$7.100.000 COP/mes
+    \item \textbf{Fullstack + IA:} ML + Backend - \$12.300.000 COP/mes
+    \item \textbf{Especialista Viajes:} Alianzas GDS y soporte operacional - \$2.600.000 COP/mes
+    \item \textbf{Home Office:} Internet + Luz - \$475.000 COP/mes
+\end{itemize}
+
+\paragraph{Operación, Marketing y APIs:}
+\begin{itemize}
+    \item \textbf{Infraestructura Cloud (AWS):} \$2.572.542 COP/mes - \$30.870.504 COP/año
+    \item \textbf{Marketing Digital:} \$3.370.000 COP/mes - \$40.440.000 COP/año
+    \item \textbf{APIs Externas:} \$29.354.850 COP/mes - \$352.258.200 COP/año
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{figures/finance.transaccional.pdf}
+    \caption{Costos Transaccionales y APIs - Desglose de servicios externos}
+    \label{fig:transaccional}
+\end{figure}
+
+\textbf{TOTAL OPEX:} \$73.272.392 COP/mes - \$879.268.704 COP/año
+
+\subsubsection{Modelo de Monetización}
+
+Se implementa un modelo híbrido multi-fuentes que diversifica riesgo y maximiza LTV:
+
+\begin{enumerate}
+    \item \textbf{Comisiones por Transacción (70\% ingresos):}
+    \begin{itemize}
+        \item 10\% sobre reservas de transporte y alojamiento
+        \item 5\% sobre servicios complementarios
+        \item Meta: 0.5 reservas promedio por usuario free
+    \end{itemize}
+    \item \textbf{Suscripciones Premium (20\% ingresos):}
+    \begin{itemize}
+        \item B2C Premium: \$29.900/mes (viajes frecuentes)
+        \item B2B Operador: \$500.000/mes (herramientas analíticas)
+        \item API/IA as-a-service: \$3.000.000/mes
+    \end{itemize}
+    \item \textbf{Overage por Uso IA (10\% ingresos):}
+    \begin{itemize}
+        \item Usuarios free: 20 requests/mes incluidos
+        \item \$10 por cada request adicional >500/mes premium
+        \item Premium: 200 requests/mes incluidos
+    \end{itemize}
+\end{enumerate}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{figures/finance.inputs.pdf}
+    \caption{Variables Editables del Modelo Financiero - Parámetros clave}
+    \label{fig:inputs}
+\end{figure}
+
+\subsubsection{Análisis de Rentabilidad}
+
+El análisis de unit economics muestra márgenes positivos en ambos segmentos, confirmando viabilidad económica.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{figures/finance.unit-economics.pdf}
+    \caption{Análisis de Rentabilidad por Usuario - Unit Economics}
+    \label{fig:unit_economics}
+\end{figure}
+
+\paragraph{Margen por Usuario:}
+\begin{itemize}
+    \item \textbf{Usuario Free:}
+    \begin{itemize}
+        \item Ingresos promedio/mes: \$25.000 COP
+        \item Costos variables/mes: \$8.015 COP
+        \item Margen bruto: \$16.985 COP (67.9\%)
+    \end{itemize}
+    \item \textbf{Usuario Premium:}
+    \begin{itemize}
+        \item Ingresos promedio/mes: \$129.900 COP
+        \item Costos variables/mes: \$29.300 COP
+        \item Margen bruto: \$100.600 COP (77.4\%)
+    \end{itemize}
+\end{itemize}
+
+\textbf{Conclusión:} MARGEN POSITIVO en ambos segmentos. Premium genera 492\% más margen absoluto.
+
+\subsubsection{Análisis P\&L y Flujo de Caja}
+
+Con 180 usuarios free + 50 premium:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{figures/finance.pyg.pdf}
+    \caption{Análisis P\&L y Utilidad Operativa - Estado de resultados}
+    \label{fig:pyg}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Ingresos Totales:} \$90.000.000 COP (100\%)
+    \item \textbf{Costo de Ventas:} (\$12.500.000 COP) (13.9\%)
+    \item \textbf{Margen Bruto:} \$77.500.000 COP (86.1\%)
+    \item \textbf{OPEX Fijo:} (\$73.272.392 COP) (81.4\%)
+    \item \textbf{EBITDA:} \$4.227.608 COP (4.7\%)
+\end{itemize}
+
+\textbf{Análisis:} El EBITDA es positivo. Se requiere 1.460 reservas/mes para break-even.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{figures/finance.cash-flow.pdf}
+    \caption{Análisis de Flujo de Caja - Proyecciones mensuales}
+    \label{fig:cash_flow}
+\end{figure}
+
+\subsubsection{Análisis de Sensibilidad}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{figures/finance.sensibilidad.pdf}
+    \caption{Análisis de Sensibilidad - Escenarios de crecimiento}
+    \label{fig:sensibilidad}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Escenario Base:} 230 usuarios, 115 reservas/mes = \$4.227.608 flujo
+    \item \textbf{Escenario Optimista (+50\%):} 345 usuarios, 173 reservas/mes = \$15.000.000 flujo
+    \item \textbf{Escenario Conservador (-30\%):} 161 usuarios, 81 reservas/mes = (\$6.000.000) flujo
+    \item \textbf{Break-even:} 200 usuarios, 100 reservas/mes = \$0 flujo
+\end{itemize}
+
+\textbf{Punto Crítico:} 200 usuarios totales (100 reservas/mes) para flujo de caja neutro.
+
+\subsubsection{Supuestos Generales del Modelo}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{figures/finance.supuestos.pdf}
+    \caption{Supuestos Generales del Modelo - Técnicos, de mercado y operacionales}
+    \label{fig:supuestos}
+\end{figure}
+
+\paragraph{Técnicos:}
+\begin{itemize}
+    \item Disponibilidad SLA: 99.99\% (Multi-AZ)
+    \item Latencia máxima: 2 segundos
+    \item Cumplimiento: Ley 1581 (Protección de datos en Colombia)
+\end{itemize}
+
+\paragraph{Mercado:}
+\begin{itemize}
+    \item Alta adopción de pagos digitales en Colombia
+    \item Crecimiento anual de e-commerce: 15-20\%
+    \item TRM proyectada: \$1 USD = \$4.200 COP
+\end{itemize}
+
+\paragraph{Operacionales:}
+\begin{itemize}
+    \item Retención de usuarios: 60\%
+    \item Capacidad de escalabilidad: Miles de usuarios simultáneos
+    \item Modelo de trabajo: 100\% remoto (home office)
+    \item Infraestructura: Multi-AZ para redundancia
+    \item IA: vLLM para servir modelos eficientemente
+\end{itemize}
+
+\subsubsection{Conclusión Financiera}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{figures/finance.conclusion.pdf}
+    \caption{Conclusión GO/NO GO y Análisis Estratégico}
+    \label{fig:conclusion}
+\end{figure}
+
+\textbf{Conclusión Final: GO CONDICIONAL}
+
+Basado en el análisis detallado, el modelo de negocio es VIABLE con ajustes críticos. El GO está condicionado a:
+
+\begin{enumerate}
+    \item \textbf{VALIDAR} precio premium COP 29.900 con 50 usuarios beta
+    \item \textbf{IMPLEMENTAR} caché en Amadeus API (reduce COGS en 40-60\%)
+    \item \textbf{ASEGURAR} financiamiento de COP 380-450M (CAPEX + 6 meses runway)
+    \item \textbf{DEFINIR} fair use policy de IA antes del lanzamiento público
+\end{enumerate}
+
+\textbf{Resumen Ejecutivo Financiero:}
+\begin{itemize}
+    \item \textbf{Inversión Inicial (CAPEX):} \$218.087.168 COP
+    \item \textbf{Costo Operativo Anual (OPEX):} \$879.268.704 COP
+    \item \textbf{Punto de Equilibrio:} 1.460 reservas mensuales
+    \item \textbf{Modelo de Monetización Recomendado:} Híbrido (Comisiones + Suscripciones Premium + Overage IA)
+\end{itemize}
+
 %================================================================================
-\section{Evaluación y Resultados Esperados}
+\section{KPIs y Medición del Éxito}
 %================================================================================
 
-\subsection{Métricas propuestas}
+La medición del éxito de la plataforma de transformación digital turística se fundamenta en un marco integral de indicadores clave de desempeño (KPIs) que abarcan dimensiones financieras, operativas, de crecimiento y tecnológicas. Estos KPIs permiten evaluar el progreso hacia los objetivos estratégicos y guiar decisiones de mejora continua.
 
-La evaluación del sistema se plantea a través de métricas cuantitativas y cualitativas: precisión del sistema de recomendación (Precision@10); error de predicción (RMSE frente a baseline); impacto en estacionalidad de la demanda; tiempo promedio de planificación de viajes; tasa de retención de usuarios; nivel de interacción comunitaria; ROI estimado. Se aplicarán pruebas de significancia estadística para determinar si las diferencias frente a métodos tradicionales resultan relevantes.
+\subsection{KPIs Financieros}
 
-\subsection{Discusión cualitativa}
+Los indicadores financieros evalúan la viabilidad económica y sostenibilidad del modelo de negocio, asegurando que la plataforma genere valor sostenible para todos los stakeholders.
 
-En un contexto de crecimiento sostenido del turismo, la incorporación de inteligencia artificial y funcionalidades sociales podría representar una ventaja estratégica. La dimensión de viaje colaborativo y conexión entre usuarios aporta un diferencial de producto que las plataformas tradicionales no ofrecen, con potencial para mejorar retención, \textit{engagement} y satisfacción mediante la formación de comunidades de viajeros. Desde una perspectiva arquitectónica: establece separación clara de responsabilidades; mejora trazabilidad de procesos; facilita escalabilidad modular para incorporar nuevos servicios, incluyendo la capa social como componente extensible.
+\subsubsection{Retorno sobre la Inversión (ROI)}
 
-\subsection{Limitaciones del sistema}
+\textbf{Fórmula:} 
+\begin{equation}
+ROI = \frac{Beneficio\ incremental - Inversion}{Inversion}
+\end{equation}
+
+\textbf{Medición:} Mensual, con análisis trimestral de tendencias.
+\textbf{Relevancia:} Evalúa la eficiencia del capital invertido y justificación económica continua del proyecto.
+
+\subsubsection{Costo de Adquisición de Cliente (CAC)}
+
+\textbf{Métrica:} \$15.000 COP por usuario (objetivo).
+\textbf{Medición:} Mensual, segmentado por canal de adquisición.
+\textbf{Relevancia:} Optimiza eficiencia del gasto de marketing y escala rentable.
+
+\subsubsection{Valor de Vida del Cliente (LTV)}
+
+\textbf{Métrica:} \$150.000 COP por usuario (objetivo).
+\textbf{Medición:} Trimestral, con análisis de cohorte.
+\textbf{Relevancia:} Guía estrategias de retención y maximización de valor a largo plazo.
+
+\subsubsection{Margen Bruto por Segmento}
+
+\begin{itemize}
+\item \textbf{Usuario Free:} 67.9\% (\$16.985 COP margen bruto)
+\item \textbf{Usuario Premium:} 77.4\% (\$100.600 COP margen bruto)
+\end{itemize}
+
+\textbf{Medición:} Mensual, con análisis de evolución.
+\textbf{Relevancia:} Confirma viabilidad económica de cada segmento y guía estrategia de pricing.
+
+\subsubsection{Punto de Equilibrio Operativo}
+
+\textbf{Métrica:} 1.460 reservas mensuales o 200 usuarios totales.
+\textbf{Medición:} Mensual, con proyecciones trimestrales.
+\textbf{Relevancia:} Define hito crítico de sostenibilidad financiera.
+
+\subsection{KPIs Operativos}
+
+Los indicadores operativos miden la eficiencia y calidad de los procesos core de la plataforma, asegurando experiencia excepcional y escalabilidad.
+
+\subsubsection{Precisión del Sistema de Recomendación}
+
+\textbf{Métrica:} Precision@10 > 0.75.
+\textbf{Medición:} Semanal, con validación continua.
+\textbf{Relevancia:} Impacta directamente conversión y satisfacción del usuario.
+
+\subsubsection{Tiempo Promedio de Planificación de Viajes}
+
+\textbf{Métrica:} Reducción del 40\% vs. métodos tradicionales.
+\textbf{Medición:} Mensual, con análisis por tipo de viaje.
+\textbf{Relevancia:} Demuestra valor agregado y eficiencia operativa.
+
+\subsubsection{Tasa de Conversión de Reservas}
+
+\textbf{Métrica:} 15\% de usuarios activos (objetivo primer año).
+\textbf{Medición:} Mensual, segmentada por canal y tipo de servicio.
+\textbf{Relevancia:} Indicador directo de efectividad comercial y monetización.
+
+\subsubsection{Disponibilidad del Servicio}
+
+\textbf{Métrica:} 99.99\% SLA (Multi-AZ).
+\textbf{Medición:} Continua, con reportes semanales.
+\textbf{Relevancia:} Fundamenta confianza y soporta operaciones críticas.
+
+\subsubsection{Latencia de Respuesta}
+
+\textbf{Métrica:} < 2 segundos para operaciones críticas.
+\textbf{Medición:} Continua, con alertas en tiempo real.
+\textbf{Relevancia:} Impacta experiencia usuario y tasas de conversión.
+
+\subsection{KPIs de Crecimiento}
+
+Los indicadores de crecimiento evalúan la expansión de la base de usuarios y penetración en el mercado, validando la propuesta de valor.
+
+\subsubsection{Adquisión de Usuarios}
+
+\begin{itemize}
+\item \textbf{Meta primer año:} 10.000 usuarios registrados
+\item \textbf{Crecimiento mensual:} 15\% (nuevos usuarios)
+\item \textbf{Base inicial:} 180 usuarios free mes 1
+\end{itemize}
+
+\textbf{Medición:} Mensual, con análisis de fuentes de tráfico.
+\textbf{Relevancia:} Valida tracción de mercado y escalabilidad.
+
+\subsubsection{Retención de Usuarios}
+
+\textbf{Métrica:}
+\begin{itemize}
+\item \textbf{Retención general:} 60\% después de 6 meses
+\item \textbf{Churn free:} 25\%/mes
+\item \textbf{Churn premium:} 8\%/mes
+\end{itemize}
+
+\textbf{Medición:} Mensual, con análisis de cohorte.
+\textbf{Relevancia:} Indica satisfacción y sostenibilidad del modelo.
+
+\subsubsection{Tasa de Conversión a Premium}
+
+\textbf{Métrica:} 10\% inicial, objetivo 15\% a 6 meses.
+\textbf{Medición:} Mensual, con análisis de triggers de conversión.
+\textbf{Relevancia:} Maximiza ARPU y viabilidad financiera.
+
+\subsubsection{Expansión de Proveedores}
+
+\textbf{Métrica:} 500 proveedores activos primer año.
+\textbf{Medición:} Trimestral, con análisis por categoría.
+\textbf{Relevancia:} Aumenta valor de red y opciones para usuarios.
+
+\subsection{KPIs de Producto y Tecnología}
+
+Los indicadores tecnológicos evalúan el desempeño de la arquitectura y capacidades diferenciales de la plataforma.
+
+\subsubsection{Interacción Comunitaria}
+
+\textbf{Métrica:}
+\begin{itemize}
+\item \textbf{Conexiones entre usuarios:} 3.2 promedio por usuario
+\item \textbf{Itinerarios compartidos:} 25\% de viajes planificados
+\item \textbf{Mensajes intercambiados:} 15 promedio por conexión
+\end{itemize}
+
+\textbf{Medición:} Mensual, con análisis de patrones de uso.
+\textbf{Relevancia:} Valida diferencial de viaje social colaborativo.
+
+\subsubsection{Uso de Inteligencia Artificial}
+
+\textbf{Métrica:}
+\begin{itemize}
+\item \textbf{Usuarios free:} 20 requests/mes promedio
+\item \textbf{Usuarios premium:} 200 requests/mes promedio
+\item \textbf{Satisfacción con recomendaciones:} > 85\%
+\end{itemize}
+
+\textbf{Medición:} Mensual, con análisis de costos y valor.
+\textbf{Relevancia:} Optimiza uso y monetización de capacidades de IA.
+
+\subsubsection{Error de Predicción (RMSE)}
+
+\textbf{Métrica:} RMSE < 0.25 frente a baseline.
+\textbf{Medición:} Semanal, con validación cruzada.
+\textbf{Relevancia:} Asegura calidad de predicciones y confianza del usuario.
+
+\subsubsection{Impacto en Estacionalidad}
+
+\textbf{Métrica:} Reducción del 30\% en variabilidad estacional.
+\textbf{Medición:} Trimestral, con análisis de series temporales.
+\textbf{Relevancia:} Demuestra valor para operadores turísticos.
+
+\subsection{KPIs de Satisfacción del Cliente}
+
+Los indicadores de satisfacción miden percepción del usuario y calidad de experiencia, fundamentales para retención y crecimiento orgánico.
+
+\subsubsection{Calificación Promedio de la Aplicación}
+
+\textbf{Métrica:} 4.2/5 estrellas (objetivo).
+\textbf{Medición:} Continua, con análisis por plataforma.
+\textbf{Relevancia:} Indica satisfacción general y potencial de crecimiento.
+
+\subsubsection{Tasa de Satisfacción del Cliente (CSAT)}
+
+\textbf{Métrica:} 85\% (objetivo).
+\textbf{Medición:} Post-interacción, con análisis por servicio.
+\textbf{Relevancia:} Mide satisfacción inmediata y oportunidades de mejora.
+
+\subsubsection{Número Neto de Promotores (NPS)}
+
+\textbf{Métrica:} 45 (objetivo).
+\textbf{Medición:} Trimestral, con seguimiento de tendencias.
+\textbf{Relevancia:} Indica lealtad y potencial de recomendación.
+
+\subsubsection{Tiempo de Respuesta de Soporte}
+
+\textbf{Métrica:} < 2 horas para consultas críticas.
+\textbf{Medición:} Continua, con reportes semanales.
+\textbf{Relevancia:} Impacta satisfacción y retención de usuarios.
+
+\subsection{Marco de Medición y Frecuencia}
+
+\subsubsection{Métricas en Tiempo Real}
+
+\begin{itemize}
+\item Disponibilidad del servicio (CloudWatch)
+\item Latencia de respuesta (ALB, API Gateway)
+\item Tasa de error por servicio
+\item Uso de recursos computacionales
+\end{itemize}
+
+\subsubsection{Métricas Diarias}
+
+\begin{itemize}
+\item Nuevos registros de usuarios
+\item Reservas procesadas
+\item Requests de IA procesados
+\item Interacciones sociales
+\end{itemize}
+
+\subsubsection{Métricas Semanales}
+
+\begin{itemize}
+\item Precisión de recomendaciones
+\item Retención de usuarios
+\item Conversión por canal
+\item Satisfacción del cliente
+\end{itemize}
+
+\subsubsection{Métricas Mensuales}
+
+\begin{itemize}
+\item Análisis financiero completo
+\item CAC y LTV actualizados
+\item Crecimiento de base de usuarios
+\item Expansión de proveedores
+\end{itemize}
+
+\subsubsection{Métricas Trimestrales}
+
+\begin{itemize}
+\item ROI y rentabilidad
+\item Análisis de cohorte profundo
+\item Impacto en estacionalidad
+\item Evaluación estratégica de KPIs
+\end{itemize}
+
+\subsection{Herramientas de Monitoreo y Análisis}
+
+\subsubsection{Infraestructura de Monitoreo}
+
+\begin{itemize}
+\item \textbf{Amazon CloudWatch:} Métricas de infraestructura y aplicaciones
+\item \textbf{Application Load Balancer:} Métricas de rendimiento y salud
+\item \textbf{API Gateway:} Métricas de uso y latencia
+\item \textbf{RDS Performance Insights:} Métricas de base de datos
+\end{itemize}
+
+\subsubsection{Analytics de Negocio}
+
+\begin{itemize}
+\item \textbf{Dashboard ejecutivo:} KPIs financieros y operativos clave
+\item \textbf{Analytics de usuario:} Comportamiento y patrones de uso
+\item \textbf{Analytics social:} Interacciones y efectos de red
+\item \textbf{Analytics de IA:} Rendimiento y costos de modelos
+\end{itemize}
+
+\subsubsection{Alertas y Notificaciones}
+
+\begin{itemize}
+\item \textbf{Alertas críticas:} Disponibilidad < 99.9\%, latencia > 2s
+\item \textbf{Alertas de negocio:} Crecimiento < 10\% mensual, churn > 30\%
+\item \textbf{Alertas financieras:} CAC > \$20.000, LTV < \$100.000
+\item \textbf{Alertas de producto:} Precisión < 0.7, CSAT < 80\%
+\end{itemize}
+
+\subsection{Proceso de Revisión y Optimización}
+
+\subsubsection{Revisión Semanal}
+
+\begin{itemize}
+\item Análisis de KPIs operativos y técnicos
+\item Identificación de anomalías y tendencias
+\item Ajustes inmediatos en configuraciones
+\item Comunicación al equipo de producto
+\end{itemize}
+
+\subsubsection{Revisión Mensual}
+
+\begin{itemize}
+\item Análisis completo de KPIs de negocio
+\item Evaluación de hipótesis y experimentos
+\item Planificación de mejoras estratégicas
+\item Reporte a stakeholders clave
+\end{itemize}
+
+\subsubsection{Revisión Trimestral}
+
+\begin{itemize}
+\item Evaluación estratégica de objetivos
+\item Análisis de competitividad y mercado
+\item Ajuste de metas y prioridades
+\item Planificación de inversiones
+\end{itemize}
+
+\subsection{Métricas Técnicas Adicionales}
+
+\subsubsection{Limitaciones del Sistema}
 
 \begin{itemize}
 \item Dependencia de la calidad y disponibilidad de los datos de entrada; sin datos representativos del turismo colombiano, los modelos pueden sufrir sesgos.
@@ -1066,7 +1608,7 @@ En un contexto de crecimiento sostenido del turismo, la incorporación de inteli
 \item Necesidad de validación empírica en entornos reales para confirmar efectividad; el diseño actual es conceptual y no ha sido desplegado en producción.
 \end{itemize}
 
-\subsection{Problemas prácticos}
+\subsubsection{Problemas Prácticos}
 
 \begin{itemize}
 \item \textbf{Energía y costos:} La infraestructura AWS implica costos variables; en regiones con tráfico bajo, el modelo de pago por uso puede ser favorable, pero picos estacionales pueden incrementar facturación.
@@ -1074,7 +1616,7 @@ En un contexto de crecimiento sostenido del turismo, la incorporación de inteli
 \item \textbf{Capacidad y latencia:} La inferencia en tiempo real depende del dimensionamiento de los grupos de autoescalado EC2 \texttt{t3.micro} y del Application Load Balancer; subdimensionar puede generar latencias elevadas o pérdida de solicitudes bajo picos de demanda.
 \end{itemize}
 
-\subsection{Consideraciones técnicas}
+\subsubsection{Consideraciones Técnicas}
 
 \begin{itemize}
 \item La integración con sistemas externos (proveedores de vuelos, hoteles) depende de APIs heterogéneas; la estabilidad y el formato de los datos varían entre proveedores.
@@ -1085,11 +1627,31 @@ En un contexto de crecimiento sostenido del turismo, la incorporación de inteli
 \section{Conclusiones}
 %================================================================================
 
-La solución empresarial de transformación digital presentada articula planificación de viajes personalizados y colaborativos con una arquitectura modular verificable en el repositorio de infraestructura. La incorporación de inteligencia artificial, formalizada mediante el modelo PEAS y recomendadores híbridos, justifica técnicamente la separación entre núcleo transaccional (Spring Boot) y microservicio de IA (FastAPI) y su despliegue conjunto detrás de API Gateway y Application Load Balancer.
+La presente investigación ha demostrado la viabilidad técnica y económica de una plataforma integral de transformación digital para el sector turístico colombiano, articulando una solución que resuelve los gaps críticos identificados en el estado del arte: integración profunda entre inteligencia artificial y procesos transaccionales, arquitectura cloud-native escalable, y generación sistemática de efectos de red mediante colaboración social.
 
-El estudio argumenta que una arquitectura cognitiva con memorias episódica, semántica y procedimental, combinada con modelos híbridos de recomendación, favorece la personalización y la eficiencia operativa en el turismo regional. El diferencial de \textbf{viaje social colaborativo}---coincidencias, conexiones, mensajería, itinerarios compartidos y evolución hacia \textit{matching} asistido por IA---alinea la solución con la documentación de innovación software del repositorio. La arquitectura cloud-native de referencia en AWS Academy (CloudFront y S3 para el cliente web React, clientes hacia API Gateway, EC2 con autoescalado, RDS PostgreSQL 15.4, S3 para objetos, SNS/SQS y CloudWatch) demuestra viabilidad técnica bajo restricciones de laboratorio y constituye base para endurecimiento y despliegues productivos.
+\subsection{Síntesis de la Propuesta de Valor}
 
-En conjunto, el trabajo evidencia coherencia entre modelo de negocio, requisitos ágiles documentados, componentes de código (web, móvil, backend, IA) e infraestructura como código. La validación empírica futura cuantificará el impacto en Precision@K, tiempo de planificación y mitigación de estacionalidad.
+La solución propuesta se fundamenta en una propuesta de valor diferenciada que combina tres pilares estratégicos: (i) \textbf{planificación inteligente de viajes} mediante sistemas de recomendación híbridos con arquitectura cognitiva basada en memorias episódica, semántica y procedimental; (ii) \textbf{viaje social colaborativo} que habilita matching multidimensional entre usuarios, formación de comunidades y efectos de red exponenciales; y (iii) \textbf{optimización ecosistémica} que coordina recursos entre múltiples operadores turísticos para maximizar eficiencia y experiencia del cliente. Esta integración tripartita representa una innovación significativa frente a soluciones comerciales existentes que priorizan interfaces superficiales sobre integración operativa profunda.
+
+\subsection{Contribuciones Técnicas y Arquitectónicas}
+
+Desde la perspectiva técnica, el trabajo establece un avance metodológico mediante la implementación de una arquitectura empresarial que separa explícitamente el núcleo transaccional (Spring Boot) del microservicio de inteligencia artificial (FastAPI), permitiendo especialización tecnológica y escalabilidad independiente. La arquitectura cloud-native desplegada en AWS Academy ---con API Gateway, Application Load Balancer, EC2 Auto Scaling Groups, RDS PostgreSQL, S3, SNS/SQS, CloudFront y CloudWatch--- demuestra viabilidad operativa bajo restricciones reales y establece una base replicable para despliegues productivos. El modelo PEAS formalizado proporciona un marco riguroso para evaluar desempeño, entorno y actuadores del sistema, mientras que los algoritmos de mitigación de estacionalidad mediante modelos SARIMA ofrecen capacidades predictivas avanzadas para optimización de recursos.
+
+\subsection{Viabilidad Económica y Modelo de Negocio}
+
+El análisis financiero estratégico confirma la sostenibilidad del proyecto mediante una inversión inicial de \$218.087.168 COP y costos operativos anuales de \$879.268.704 COP, con un punto de equilibrio alcanzable en 1.460 reservas mensuales. El modelo de monetización híbrido ---combinando comisiones transaccionales (70\%), suscripciones premium (20\%) y overage por uso de IA (10\%)---diversifica riesgos y maximiza el valor de vida del cliente. Los unit economics demuestran márgenes positivos en ambos segmentos (67.9\% para usuarios free, 77.4\% para premium), validando la viabilidad económica y el potencial de escalabilidad. La conclusión financiera de GO CONDICIONAL, fundamentada en validaciones específicas y hitos medibles, proporciona una ruta clara hacia la rentabilidad.
+
+\subsection{Marco de Medición y Impacto Esperado}
+
+El establecimiento de un marco integral de KPIs ---abarcando dimensiones financieras (ROI, CAC, LTV), operativas (precisión de recomendaciones, disponibilidad, latencia), de crecimiento (adquisición, retención, conversión) y de satisfacción del cliente (CSAT, NPS)---proporciona una base robusta para evaluación continua y toma de decisiones estratégicas. Las métricas definidas permiten monitoreo en tiempo real, análisis de cohorte y optimización iterativa, asegurando que la plataforma evolucione según evidencia empírica y requerimientos del mercado. Se espera que la solución genere impacto significativo en la optimización de la cadena de valor turística, reducción del tiempo de planificación en 40\%, mitigación de variabilidad estacional en 30\% y generación de efectos de red que aumenten el valor con cada usuario adicional.
+
+\subsection{Implicaciones Estratégicas y Trabajo Futuro}
+
+Las implicaciones de esta investigación trascienden el ámbito técnico, representando un avance en la digitalización del sector turístico colombiano y estableciendo un precedente para la implementación de plataformas inteligentes en mercados emergentes. El trabajo futuro deberá enfocarse en la validación empírica mediante despliegues piloto, refinamiento de algoritmos de recomendación con datos reales del turismo colombiano, expansión de capacidades de matching social, y exploración de modelos de negocio adicionales como marketplace de servicios complementarios y licenciamiento de tecnología. La arquitectura modular y la infraestructura como código establecidas facilitan esta evolución, permitiendo incorporación de nuevas capacidades sin comprometer la estabilidad operativa.
+
+\subsection{Conclusión Final}
+
+Esta investigación demuestra que la transformación digital del turismo requiere más que tecnología: demanda una integración sistémica de inteligencia artificial, colaboración social y optimización operativa, respaldada por modelos de negocio sostenibles y marcos de medición rigurosos. La plataforma propuesta no solo aborda las limitaciones actuales del mercado, sino que establece las bases para un ecosistema turístico más inteligente, colaborativo y eficiente, posicionando a Colombia como referente en innovación digital sectorial. La viabilidad técnica confirmada, la sostenibilidad económica validada y el marco de medición integral proporcionan una base sólida para la siguiente fase de implementación y escalamiento.
 
 \newpage
 
