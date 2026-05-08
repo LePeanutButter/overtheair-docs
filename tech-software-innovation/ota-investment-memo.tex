@@ -44,9 +44,9 @@ Este documento presenta la tesis financiera de una plataforma OTA turística dig
 La lectura financiera no debe interpretarse como una suma de costos aislados, sino como la construcción deliberada de una plataforma preparada para escalar, defender margen y capturar valor a medida que la base de usuarios crece. La inversión inicial establece la infraestructura, la operación sostiene la tracción y el modelo de monetización convierte ese tráfico en ingresos recurrentes y de alta calidad.
 
 \textbf{Inversión Inicial (CAPEX):} \$218.087.168 COP \\
-\textbf{Costo Operativo Anual (OPEX):} \$879.268.704 COP \\
-\textbf{Punto de Equilibrio:} 1.460 reservas mensuales \\
-\textbf{Modelo de Monetización Recomendado:} Híbrido (Comisiones + Suscripciones Premium + Overage IA)
+\textbf{OPEX base mensual (calibrado MVP):} \$29.577.542 COP (sin incluir CAC variable) \\
+\textbf{Ruta de rentabilidad:} seguimiento anual en hoja \textit{Ruta Rentabilidad} (años 1 a 10) \\
+\textbf{Modelo de Monetización Recomendado:} Híbrido (Comisiones + Suscripción Premium + B2B)
 
 En conjunto, estas cifras muestran una lógica de capital intensivo al inicio, pero con una ruta explícita hacia apalancamiento operativo: una vez absorbidos los costos fijos, cada nuevo usuario aporta más valor que presión incremental sobre la estructura. Esa es la base de una plataforma escalable y potencialmente rentable a gran escala.
 
@@ -140,9 +140,9 @@ El talento humano debe entenderse como inversión en capacidad de ejecución, re
 Los costos operativos adicionales sostienen adquisición, conectividad y ejecución transaccional, es decir, las palancas que convierten producto en ingresos y mercado en tracción real.
 
 \begin{itemize}
-    \item \textbf{Infraestructura Cloud (AWS):} \$2.572.542 COP/mes - \$30.870.504 COP/año
-    \item \textbf{Marketing Digital:} \$3.370.000 COP/mes - \$40.440.000 COP/año
-    \item \textbf{APIs Externas:} \$29.354.850 COP/mes - \$352.258.200 COP/año
+    \item \textbf{Infraestructura Cloud + GPU base:} \$2.602.542 COP/mes
+    \item \textbf{Marketing base:} \$1.900.000 COP/mes
+    \item \textbf{APIs fijas integradas:} \$2.400.000 COP/mes
 \end{itemize}
 
 \begin{figure}[h]
@@ -153,7 +153,7 @@ Los costos operativos adicionales sostienen adquisición, conectividad y ejecuci
 
 \subsection{OPEX Total Consolidado}
 
-\textbf{TOTAL OPEX:} \$73.272.392 COP/mes - \$879.268.704 COP/año
+\textbf{OPEX base (sin CAC variable):} \$29.577.542 COP/mes - \$354.930.504 COP/año
 
 \textbf{Nota:} Se incluye talento completo. El modelo 100\% remoto reduce costos 30\% vs. oficina tradicional.
 
@@ -170,22 +170,22 @@ Aunque el OPEX luce elevado en términos absolutos, su lectura correcta es disti
 La tesis de monetización no depende de una sola fuente de ingresos, sino de un motor diversificado que captura valor en distintos momentos del ciclo de uso. Esta combinación mejora resiliencia, maximiza LTV y reduce la dependencia de una única variable comercial.
 
 \begin{enumerate}
-    \item \textbf{Comisiones por Transacción (70\% ingresos):}
+    \item \textbf{Comisiones por Transacción (motor de volumen):}
     \begin{itemize}
-        \item 10\% sobre reservas de transporte y alojamiento
+        \item 5.5\% sobre reservas (take rate neto)
         \item 5\% sobre servicios complementarios
         \item Meta: 0.5 reservas promedio por usuario free
     \end{itemize}
-    \item \textbf{Suscripciones Premium (20\% ingresos):}
+    \item \textbf{Suscripciones Premium (motor de recurrencia):}
     \begin{itemize}
-        \item B2C Premium: \$29.900/mes (viajes frecuentes)
-        \item B2B Operador: \$500.000/mes (herramientas analíticas)
-        \item API/IA as-a-service: \$3.000.000/mes
+        \item B2C Premium: \$32.900/mes (viajes frecuentes)
+        \item B2B Operador: \$700.000/mes (herramientas analíticas)
+        \item Evolución a planes B2B escalonados por valor entregado
     \end{itemize}
-    \item \textbf{Overage por Uso IA (10\% ingresos):}
+    \item \textbf{Gobierno de uso IA (defensa de margen):}
     \begin{itemize}
         \item Usuarios free: 20 requests/mes incluidos
-        \item \$10 por cada request adicional >500/mes premium
+        \item Política de uso justo y límites de consumo para evitar abuso
         \item Premium: 200 requests/mes incluidos
     \end{itemize}
 \end{enumerate}
@@ -209,10 +209,10 @@ Las variables clave del modelo reflejan una lógica de crecimiento controlado: a
     \begin{itemize}
         \item Base usuarios free mes 1: 180 usuarios
         \item Nuevos usuarios adquiridos mes 1: 100 usuarios
-        \item Crecimiento nuevos usuarios: 15.00\%/mes
+        \item Crecimiento nuevos usuarios: 5.00\%/mes
         \item Conversión inicial free a premium: 10.00\%
-        \item Churn free: 25.00\%/mes
-        \item Churn premium: 8.00\%/mes
+        \item Churn free: 12.00\%/mes
+        \item Churn premium: 7.00\%/mes
     \end{itemize}
     \item \textbf{Parámetros de Inteligencia Artificial:}
     \begin{itemize}
@@ -223,9 +223,9 @@ Las variables clave del modelo reflejan una lógica de crecimiento controlado: a
     \end{itemize}
     \item \textbf{Pricing y Monetización:}
     \begin{itemize}
-        \item Precio suscripción premium: COP 29,900/mes
-        \item Ticket promedio por transacción: COP 500,000
-        \item Tasa de comisión: 10\%
+        \item Precio suscripción premium: COP 32,900/mes
+        \item Ticket promedio por transacción: COP 380,000
+        \item Tasa de comisión: 5.5\%
     \end{itemize}
 \end{itemize}
 
@@ -252,21 +252,21 @@ Este resultado confirma una relación sana entre infraestructura y demanda: el c
 El análisis de unit economics muestra una señal muy favorable para inversión de crecimiento: los márgenes por usuario son positivos en ambos segmentos, lo que implica que la escalada de volumen no destruye rentabilidad, sino que mejora la contribución una vez que los costos fijos se absorben.
 
 \begin{itemize}
-    \item \textbf{Usuario Free:}
+    \item \textbf{Usuario Free (unit economics actualizado):}
     \begin{itemize}
-        \item Ingresos promedio/mes: \$25.000 COP
-        \item Costos variables/mes: \$8.015 COP
-        \item Margen bruto: \$16.985 COP (67.9\%)
+        \item Ingresos promedio/mes: \$10.450 COP
+        \item Costos variables/mes: \$6.145 COP
+        \item Margen bruto: \$4.305 COP (41.2\%)
     \end{itemize}
-    \item \textbf{Usuario Premium:}
+    \item \textbf{Usuario Premium (unit economics actualizado):}
     \begin{itemize}
-        \item Ingresos promedio/mes: \$129.900 COP
-        \item Costos variables/mes: \$29.300 COP
-        \item Margen bruto: \$100.600 COP (77.4\%)
+        \item Ingresos promedio/mes: \$74.700 COP
+        \item Costos variables/mes: \$22.660 COP
+        \item Margen bruto: \$52.040 COP (69.7\%)
     \end{itemize}
 \end{itemize}
 
-\textbf{Conclusión:} MARGEN POSITIVO en ambos segmentos. Premium genera 492\% más margen absoluto.
+\textbf{Conclusión:} MARGEN POSITIVO en ambos segmentos. Premium continúa siendo el principal motor de contribución.
 
 Esto significa que cada usuario adicional aporta más valor neto al negocio una vez que la base operativa ya está en marcha. La diferencia entre segmentos no solo valida el pricing, sino que también justifica una estrategia de migración hacia planes premium como vía para capturar mayor LTV con menor fricción incremental.
 
@@ -274,23 +274,27 @@ Esto significa que cada usuario adicional aporta más valor neto al negocio una 
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=\textwidth]{figures/pyg.pdf}
-\caption{Análisis P\&L y Utilidad Operativa}
+\includegraphics[width=\textwidth]{figures/pyg-12m.pdf}
+\caption{Estado de resultados proyectado — 12 meses}
 \end{figure}
 
-Con 180 usuarios free + 50 premium:
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{figures/pyg-36m.pdf}
+\caption{Estado de resultados proyectado — 36 meses}
+\end{figure}
+
+Con base en el escenario calibrado del modelo (crecimiento 5\% mensual y estructura MVP):
 
 El estado de resultados debe interpretarse como una fotografía temprana de una plataforma en fase de construcción de escala. Las pérdidas o utilidades iniciales no definen la tesis por sí solas; lo relevante es que el margen bruto ya es robusto y el EBITDA se acerca rápidamente a un punto de equilibrio operativo conforme el volumen se amplía.
 
 \begin{itemize}
-    \item \textbf{Ingresos Totales:} \$90.000.000 COP (100\%)
-    \item \textbf{Costo de Ventas:} (\$12.500.000 COP) (13.9\%)
-    \item \textbf{Margen Bruto:} \$77.500.000 COP (86.1\%)
-    \item \textbf{OPEX Fijo:} (\$73.272.392 COP) (81.4\%)
-    \item \textbf{EBITDA:} \$4.227.608 COP (4.7\%)
+    \item \textbf{Año 1:} etapa de validación con EBITDA y utilidad neta negativos (normal para MVP en Colombia).
+    \item \textbf{Año 2:} convergencia hacia punto de equilibrio operativo.
+    \item \textbf{Año 3:} expansión con mayor absorción de costos fijos y mejora de margen.
 \end{itemize}
 
-\textbf{Análisis:} El EBITDA es positivo. Se requiere 1.460 reservas/mes para break-even.
+\textbf{Análisis:} La decisión no se sustenta en un único mes de break-even, sino en la trayectoria anual de rentabilidad ya modelada.
 
 Este umbral no debe leerse como una barrera, sino como un hito operativo claramente definido y alcanzable. Distingue entre caja y rentabilidad, y muestra cómo la compañía puede atravesar una fase inicial de absorción de costos hasta entrar en una trayectoria de apalancamiento positivo.
 
@@ -302,16 +306,47 @@ Este umbral no debe leerse como una barrera, sino como un hito operativo clarame
 \caption{Análisis de Flujo de Caja}
 \end{figure}
 
+\subsection{Indicadores financieros consolidados}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{figures/indicadores-financieros.pdf}
+\caption{Indicadores financieros (VPN, TIR, márgenes, payback)}
+\end{figure}
+
+\subsection{Ruta de rentabilidad anual}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{figures/ruta-rentabilidad.pdf}
+\caption{Ruta de rentabilidad por año y primer año con utilidad neta positiva}
+\end{figure}
+
+\subsection{Flujo de caja del proyecto (evaluación académica)}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{figures/fc-proyecto.pdf}
+\caption{Flujo de caja del proyecto — sin inflación, financiación ni impuestos}
+\end{figure}
+
+\subsection{Flujo de caja de la empresa (evaluación académica)}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{figures/fc-empresa.pdf}
+\caption{Flujo de caja de la empresa — con inflación, financiación e impuestos}
+\end{figure}
+
 \subsection{Validación de Caja y Sensibilidad}
 
 \begin{itemize}
-    \item \textbf{Escenario Base:} 230 usuarios, 115 reservas/mes = \$4.227.608 flujo
-    \item \textbf{Escenario Optimista (+50\%):} 345 usuarios, 173 reservas/mes = \$15.000.000 flujo
-    \item \textbf{Escenario Conservador (-30\%):} 161 usuarios, 81 reservas/mes = (\$6.000.000) flujo
-    \item \textbf{Break-even:} 200 usuarios, 100 reservas/mes = \$0 flujo
+    \item \textbf{Escenario Base:} crecimiento moderado y control de costos para sostener caja.
+    \item \textbf{Escenario Conservador:} presión temporal sobre caja por menor conversión y mayor churn.
+    \item \textbf{Escenario Optimista:} aceleración de margen por mejor mezcla premium y B2B.
 \end{itemize}
 
-\textbf{Punto Crítico:} 200 usuarios totales (100 reservas/mes) para flujo de caja neutro.
+\textbf{Punto Crítico:} mantener crecimiento de ingresos por encima del crecimiento de OPEX y CAC.
 
 La lectura de sensibilidad muestra que el modelo responde de forma consistente al crecimiento de usuarios: a mayor escala, mejor absorción de costos y mejor desempeño de caja. Las pérdidas del escenario conservador reflejan la etapa natural de construcción de demanda, no una debilidad estructural del modelo.
 
@@ -348,10 +383,10 @@ La identificación de estas interacciones permite gestionar el negocio con disci
 \subsection{Recomendaciones Estratégicas}
 
 \begin{itemize}
-    \item \textbf{Limitar Uso:} 20 requests/mes free, overage \$10/req - Control de costos y disciplina de uso
-    \item \textbf{Cobrar Overage:} \$10/request adicional >500/mes premium - Captura de margen incremental
-    \item \textbf{Cambiar Modelo:} Freemium \textrightarrow{} Premium-first - Mayor ARPU y base más rentable
-    \item \textbf{Híbrido (Recomendado):} Limitar + overage + premium - Balance óptimo entre crecimiento y rentabilidad
+    \item \textbf{Limitar Uso:} 20 requests/mes free con política de uso justo
+    \item \textbf{Optimizar Conversión:} elevar migración a premium con onboarding y beneficios percibidos
+    \item \textbf{Escalar B2B:} foco en planes de mayor valor por cliente
+    \item \textbf{Híbrido (Recomendado):} comisiones + premium + B2B con control de costos IA
 \end{itemize}
 
 La recomendación estratégica es mantener una oferta suficientemente atractiva para adquirir usuarios, pero suficientemente disciplinada para proteger margen. Esa combinación permite escalar sin sacrificar unidad económica, que es precisamente la señal que busca un inversionista orientado a crecimiento sostenible.
@@ -483,8 +518,8 @@ La decisión de producto debe seguir una secuencia lógica de aprendizaje y mone
     \end{itemize}
     \item \textbf{Fase 2 (6-12 meses):} Introducir Premium
     \begin{itemize}
-        \item \$29.900/mes B2C Premium
-        \item \$500.000/mes B2B Operador
+        \item \$32.900/mes B2C Premium
+        \item \$700.000/mes B2B Operador
         \item Migración usuarios high-usage
     \end{itemize}
     \item \textbf{Fase 3 (12+ meses):} Optimización
@@ -500,9 +535,9 @@ La ruta de producto es coherente con una lógica de capital paciente: adquirir m
 \subsection{Métricas de Éxito}
 
 \begin{itemize}
-    \item \textbf{Short-term (3 meses):} 200 usuarios totales, break-even caja
-    \item \textbf{Medium-term (6 meses):} 500 usuarios, 15\% premium rate
-    \item \textbf{Long-term (12 meses):} 1.200 usuarios, \$40M ARR
+    \item \textbf{Short-term (3 meses):} validar adquisición, conversión y retención inicial
+    \item \textbf{Medium-term (6-12 meses):} mejorar LTV/CAC y consistencia de ingresos recurrentes
+    \item \textbf{Long-term (24-36 meses):} consolidar rentabilidad operativa y escalamiento disciplinado
 \end{itemize}
 
 Estas métricas no solo miden tracción; también marcan el paso de una operación de validación a una empresa con potencial de recurrencia, expansión y valorización compuesta.
@@ -514,11 +549,11 @@ Estas métricas no solo miden tracción; también marcan el paso de una operaci�
 La tesis final es clara: la plataforma requiere una disciplina financiera explícita al inicio, pero esa disciplina no limita la oportunidad; la hace invertible. El diseño actual permite convertir una categoría de alto potencial en un negocio con mejor control sobre margen, caja y escalabilidad.
 
 \begin{enumerate}
-    \item \textbf{Modelo Híbrido Óptimo:} Comisiones (70\%) + Suscripciones (20\%) + Overage IA (10\%)
-    \item \textbf{Control de Costos IA:} Límites + overage es esencial para sostenibilidad
-    \item \textbf{Margen Positivo:} 67.9\% (free) y 77.4\% (premium) confirman viabilidad
-    \item \textbf{Break-even Alcanzable:} 200 usuarios o 1.460 reservas/mes
-    \item \textbf{Riesgo Gestionable:} Con monitoreo y límites inteligentes
+    \item \textbf{Modelo Híbrido Óptimo:} comisiones + premium + B2B como combinación de escala y recurrencia
+    \item \textbf{Control de Costos IA:} límites y gobernanza de consumo para proteger margen
+    \item \textbf{Unit Economics Positivos:} ambos segmentos aportan contribución positiva
+    \item \textbf{Rentabilidad por Trayectoria:} evaluación anual en hoja \textit{Ruta Rentabilidad}
+    \item \textbf{Riesgo Gestionable:} con seguimiento de churn, CAC y eficiencia comercial
 \end{enumerate}
 
 \textbf{Decisión Estratégica:} Implementar modelo híbrido con control progresivo, priorizando adquisición inicial y migración a premium para maximizar LTV y controlar costos variables de IA.
@@ -536,10 +571,10 @@ En términos de tesis de inversión, este negocio combina tres atributos valioso
 Basado en el análisis detallado de riesgos y oportunidades, el modelo de negocio es VIABLE con ajustes críticos y ofrece una relación atractiva entre riesgo asumido y retorno potencial. La propuesta de valor es diferenciada (IA + red social + planificación), la oportunidad de mercado está alineada con la digitalización del turismo y la estructura tecnológica ya anticipa una operación capaz de escalar regionalmente. El GO está condicionado a:
 
 \begin{enumerate}
-    \item \textbf{VALIDAR} precio premium COP 29.900 con 50 usuarios beta (encuesta WTP)
-    \item \textbf{IMPLEMENTAR} caché en Amadeus API (reduce COGS en 40-60\%)
-    \item \textbf{ASEGURAR} financiamiento de COP 380-450M (CAPEX + 6 meses runway)
-    \item \textbf{DEFINIR} fair use policy de IA antes del lanzamiento público
+    \item \textbf{VALIDAR} pricing premium y propuesta B2B con cohortes reales de adopción.
+    \item \textbf{IMPLEMENTAR} control de costos transaccionales/API y observabilidad de margen por segmento.
+    \item \textbf{ASEGURAR} runway suficiente para ejecutar fase de validación y fase de escalamiento.
+    \item \textbf{DEFINIR} gobierno de IA y políticas de uso justo antes de expansión comercial.
 \end{enumerate}
 
 La oportunidad es especialmente interesante porque combina timing favorable, capacidad de diferenciación y espacio para expansión geográfica. Con capital suficiente y ejecución disciplinada, la plataforma puede pasar de una validación local a una base replicable para crecimiento regional, manteniendo el foco en eficiencia, control de margen y construcción de valor de largo plazo.
