@@ -275,7 +275,7 @@ La arquitectura propuesta se fundamenta en el framework TOGAF \citep{ref12} adap
 
 \subsubsection*{Decisión: Políglota de Persistencia}
 
-\textbf{Decisión:} Adoptar enfoque políglota con PostgreSQL para datos transaccionales y S3 para almacenamiento de objetos y modelos de IA.
+\textbf{Decisión:} Adoptar enfoque políglota con PostgreSQL para datos transaccionales y S3 para almacenamiento de objetos y modelos de IA.\@
 
 \textbf{Justificación:} Los requisitos de consistencia transaccional (reservas, pagos) demandan bases de datos relacionales ACID, mientras que los modelos de IA y medios requieren almacenamiento escalable y acceso rápido.
 
@@ -467,7 +467,7 @@ Seguridad & Cero accesos directos no autorizados a datos críticos & Incidentes 
 
 \subsection*{Vista de componentes y correspondencia tecnológica}
 
-La Tabla~\ref{tab:componentes} resume la correspondencia entre capas lógicas, tecnologías en los repositorios de aplicación e infraestructura y recursos AWS documentados.
+La siguiente tabla resume la correspondencia entre capas lógicas, tecnologías en los repositorios de aplicación e infraestructura y recursos AWS documentados.
 
 \begin{table}[htbp]
 \centering
@@ -682,14 +682,14 @@ MAE & $\frac{1}{n}\sum_{i=1}^{n}|y_i - \hat{y}_i|$ & $<$ 0.2 \\
 
 Utilizaremos prueba t de Student para muestras independientes con $\alpha = 0.05$:
 
-$$H_0: \mu_{\text{control}} = \mu_{\text{experimental}}$$
-$$H_1: \mu_{\text{control}} \neq \mu_{\text{experimental}}$$
+\[H_0: \mu_{\text{control}} = \mu_{\text{experimental}}\]
+\[H_1: \mu_{\text{control}} \neq \mu_{\text{experimental}}\]
 
 \subsubsection*{Tamaño de Efecto}
 
 Cálculo de d de Cohen para medir magnitud de diferencias:
 
-$$d = \frac{\mu_{\text{experimental}} - \mu_{\text{control}}}{s_{\text{pooled}}}$$
+\[d = \frac{\mu_{\text{experimental}} - \mu_{\text{control}}}{s_{\text{pooled}}}\]
 
 \subsubsection*{Análisis de Varianza}
 
